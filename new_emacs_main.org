@@ -16,19 +16,37 @@ was I able to find and install packages from the MELPA archives.
 
 * Color themes
 
-** emacs-solarized
+** [NOT IN USE] emacs-solarized by Greg Pfeil
 
-Install solarized color-theme
+Install solarized color-theme from [[https://github.com/sellout/emacs-color-theme-solarized][GitHub]]
 
 #+BEGIN_SRC lisp
 (add-to-list 'custom-theme-load-path "~/.emacs.d/emacs-color-theme-solarized")
+(customize-set-variable 'frame-background-mode 'dark)
 (load-theme 'solarized t)
 #+END_SRC
 
-I couldn't get the dark theme to load.
+I like Purcell's a bit better
 
 
-** bbatsov/solarized-emacs
+** [NOT IN USE] bbatsov/solarized-emacs
 
 from [[https://github.com/bbatsov/solarized-emacs][bbatsov/solarized-emacs]]: ~M-x package-install
 solarized-theme~. Requires MELPA.
+
+I don't like this one as much as Steve Purcell's.
+
+** DONE sanityinc-tomorrow
+
+#+BEGIN_SRC 
+
+#+END_SRC
+
+
+** DONE sanityinc-solarized
+
+
+/* Local Variables: */
+/* mode:org           */
+/* mode:my-no-flyspell */
+/* End:             */
