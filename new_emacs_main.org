@@ -1,0 +1,16 @@
+
+* Color themes
+
+** emacs-solarized
+
+Install solarized color-theme
+
+#+BEGIN_SRC lisp
+(add-to-list 'custom-theme-load-path "~/.emacs.d/emacs-color-theme-solarized")
+(load-theme 'solarized t)
+#+END_SRC
+
+I couldn't get the dark theme to load.
+
+
+** bbatsov/solarized-emacs
