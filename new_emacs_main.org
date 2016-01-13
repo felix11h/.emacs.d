@@ -1,4 +1,19 @@
 
+* Package installers
+
+** MELPA
+
+The reference for getting started with [[http://melpa.org/#/getting-started][MELPA]]. Since I'm on Emacs 24, I
+used
+#+BEGIN_SRC lisp
+(require 'package)
+(add-to-list 'package-archives
+             '("melpa-stable" . "https://stable.melpa.org/packages/") t)
+#+END_SRC
+
+to add MELPA. (!) But only after running ~M-x package-list-packages~,
+was I able to find and install packages from the MELPA archives.
+
 * Color themes
 
 ** emacs-solarized
@@ -14,3 +29,6 @@ I couldn't get the dark theme to load.
 
 
 ** bbatsov/solarized-emacs
+
+from [[https://github.com/bbatsov/solarized-emacs][bbatsov/solarized-emacs]]: ~M-x package-install
+solarized-theme~. Requires MELPA.
