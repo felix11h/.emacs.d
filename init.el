@@ -24,23 +24,53 @@
 
 ;; ====================    Always ON   =====================
 
+;; --------- load paths -----------
+
+;; adds load paths of subdirs in .emacs.d/modes
+(let ((base "~/.emacs.d/modes"))
+  (add-to-list 'load-path base)
+  (dolist (f (directory-files base))
+    (let ((name (concat base "/" f)))
+      (when (and (file-directory-p name) 
+                 (not (equal f ".."))
+                 (not (equal f ".")))
+        (add-to-list 'load-path name)))))
+
 
 ;; ------------------ ido ------------
 
 (require 'ido)
-(ido-mode t)
-
-(add-to-list 'load-path "~/.emacs.d/modes/ido-vertical-mode-1.0.0/")
-(require 'ido-vertical-mode)
 (ido-mode 1)
+(ido-everywhere 1) ;; requested by ido-ubiquitous
+
+(require 'ido-vertical-mode)
 (ido-vertical-mode 1)
-(setq ido-vertical-define-keys 'C-n-and-C-p-only)
+;; (setq ido-vertical-define-keys 'C-n-and-C-p-only)
+
+(require 'ido-ubiquitous)
+(ido-ubiquitous-mode 1)
+
+;; fuzzy matching - for now probably better without?
+;; (require 'flx-ido)
+;; (flx-ido-mode 1)
+;; ;; disable ido faces to see flx highlights.
+;; (setq ido-enable-flex-matching t)
+;; (setq ido-use-faces nil)
+
+
 
 ;; -------------- org-mode -------------
 
 ;;UNFINISHED!!!
 
-;; (add-to-list 'load-path "~/.emacs.d/modes/org-8.3.3/lisp")
+;; enable ido in org-mode
+(setq org-completion-use-ido t)
+
+
+
+
+
+
 
 ;; ;;(add-hook 'org-mode-hook
 ;; ;;          (lambda ()
@@ -92,3 +122,9 @@
 ;; (defun my-org-confirm-babel-evaluate (lang body)
 ;;   (not (string= lang "python")))
 ;; (setq org-confirm-babel-evaluate 'my-org-confirm-babel-evaluate)
+
+
+;; -------------- magit ----------------
+
+;; enable ido in magit
+;; (setq magit-completing-read-function 'magit-ido-completing-read)
