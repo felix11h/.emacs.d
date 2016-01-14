@@ -22,9 +22,16 @@
 
 
 
-;; ====================    Always ON   =====================
+;; ------------ global ---------------------
 
-;; --------- load paths -----------
+(tool-bar-mode -1)                      ;;no toolbar
+(menu-bar-mode -1)                      ;;no menu bar
+(set-scroll-bar-mode 'left)   
+(scroll-bar-mode -1)                    ;;no scrollbar
+
+;; ~~~~~~~~~~~~    Always ON   ~~~~~~~~~~~~~~
+
+;;             load paths -----------
 
 ;; adds load paths of subdirs in .emacs.d/modes
 (let ((base "~/.emacs.d/modes"))
@@ -65,10 +72,6 @@
 
 ;; enable ido in org-mode
 (setq org-completion-use-ido t)
-
-
-
-
 
 
 
