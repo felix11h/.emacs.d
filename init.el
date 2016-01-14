@@ -73,17 +73,16 @@
 ;; enable ido in org-mode
 (setq org-completion-use-ido t)
 
+;; org-specific setting
+(require 'adaptive-wrap)
+(add-hook 'org-mode-hook
+          (lambda ()
+            (visual-line-mode 1)  ;; word-wrap
+            (adaptive-wrap-prefix-mode 1)   ;; makes wrap look nice
+            (org-indent-mode t)
+))
 
 
-;; ;;(add-hook 'org-mode-hook
-;; ;;          (lambda ()
-;; ;;            (org-indent-mode t))
-;; ;;          t)
-
-;; (add-hook 'org-mode-hook
-;;           (lambda ()
-;;             (visual-line-mode t))
-;;           t)
    
 ;; ;;(setq org-log-done 'time)       ;;logging when tasks are done
 
