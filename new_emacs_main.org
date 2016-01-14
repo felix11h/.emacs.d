@@ -1,4 +1,14 @@
 
+* IMPORTANT
+
+** installing packages workflow
+
+Don't use MELPA. Clone directly from git into modes. The function in
+init.el already insures that everything in modes/ is in the load-path.
+
+If changes are made to the git repositories in modes, those will need
+to be commited within their repositories first.
+
 * Package installers
 
 ** MELPA
@@ -55,7 +65,7 @@ I don't like this one as much as Steve Purcell's.
 
 Reference: [[https://www.reddit.com/r/emacs/comments/3o36sc/what_do_you_prefer_ido_or_helm/][Reddit post]]
 
-** ido
-** ido-ubiqtuoues
-** flx-ido
-** ido-vertical-mode
+** DONE ido
+** DONE ido-ubiqtuoues
+** DONE flx-ido
+** DONE ido-vertical-mode

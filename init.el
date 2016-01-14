@@ -131,3 +131,8 @@
 
 ;; enable ido in magit
 ;; (setq magit-completing-read-function 'magit-ido-completing-read)
+
+
+
+
+;; -------------- LaTeX ------------------
