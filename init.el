@@ -16,7 +16,14 @@
 ;; solarized themes by Ethan Schoonover, adapted by Steve Purcel,
 ;; slightly modified by me
 ;; https://github.com/purcell/color-theme-sanityinc-solarized
-(add-to-list 'load-path "~/.emacs.d/themes/color-theme-sanityinc-solarized")
+;; (add-to-list 'load-path "~/.emacs.d/themes/color-theme-sanityinc-solarized")
+;; (require 'color-theme-sanityinc-solarized)
+;; (load-theme 'sanityinc-solarized-dark t)  ;; -light, -dark
+
+;; solarized themes by Ethan Schoonover, adapted by Steve Purcel,
+;; legacy version, adapted by me
+;; https://github.com/purcell/color-theme-sanityinc-solarized
+(add-to-list 'load-path "~/.emacs.d/themes/color-theme-solarized-legacy")
 (require 'color-theme-sanityinc-solarized)
 (load-theme 'sanityinc-solarized-dark t)  ;; -light, -dark
 
@@ -85,6 +92,16 @@
            ))
 
 
+;; (require 'adaptive-wrap)
+;; ;; http://emacs.stackexchange.com/questions/14589/correct-indentation-for-wrapped-lines
+;; https://github.com/syl20bnr/spacemacs/issues/1418
+;; (with-eval-after-load 'adaptive-wrap
+;;   (setq-default adaptive-wrap-extra-indent 2))
+
+;; (add-hook 'visual-line-mode-hook
+;;   (lambda ()
+;;     (adaptive-wrap-prefix-mode +1)
+;;     (diminish 'visual-line-mode)))
 
    
 ;; ;;(setq org-log-done 'time)       ;;logging when tasks are done
