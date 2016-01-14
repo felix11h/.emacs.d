@@ -73,14 +73,17 @@
 ;; enable ido in org-mode
 (setq org-completion-use-ido t)
 
+;; can be overwritten by #+STARTUP: noindent 
+(setq org-startup-indented t)
+
 ;; org-specific setting
 (require 'adaptive-wrap)
 (add-hook 'org-mode-hook
           (lambda ()
             (visual-line-mode 1)  ;; word-wrap
             (adaptive-wrap-prefix-mode 1)   ;; makes wrap look nice
-            (org-indent-mode t)
-))
+           ))
+
 
 
    
