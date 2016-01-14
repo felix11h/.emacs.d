@@ -50,3 +50,12 @@ I don't like this one as much as Steve Purcell's.
 /* mode:org           */
 /* mode:my-no-flyspell */
 /* End:             */
+
+* Searching/Completion with IDO
+
+Reference: [[https://www.reddit.com/r/emacs/comments/3o36sc/what_do_you_prefer_ido_or_helm/][Reddit post]]
+
+** ido
+** ido-ubiqtuoues
+** flx-ido
+** ido-vertical-mode
