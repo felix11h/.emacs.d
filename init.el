@@ -1,11 +1,14 @@
 
+;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~ Installer ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 ;; the MELPA package-archives, use only stable versions
 (require 'package)
 (add-to-list 'package-archives
              '("melpa-stable" . "https://stable.melpa.org/packages/") t)
 
 
-;; -------------------    themes    ------------------
+
+;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Themes  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 ;; tomorow themes by Chris Kempson, adapted by Steve Purcell
 ;; https://github.com/purcell/color-theme-sanityinc-tomorrow
@@ -29,21 +32,18 @@
 
 
 
-;; ------------ global ---------------------
+;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Global ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
 
-(tool-bar-mode -1)                      ;;no toolbar
-(menu-bar-mode -1)                      ;;no menu bar
-(set-scroll-bar-mode 'left)   
-(scroll-bar-mode -1)                    ;;no scrollbar
-
-(setq inhibit-startup-screen t)
+(tool-bar-mode -1)                              ;; no toolbar
+(menu-bar-mode -1)                              ;; no menu bar
+(set-scroll-bar-mode 'left)                     ;; 
+(scroll-bar-mode -1)                            ;; no scrollbar
+(setq inhibit-startup-screen t)                 ;; no startscreen
 ;; opening new buffers won't split the frame
-(set-frame-parameter nil 'unsplittable t)  
+(set-frame-parameter nil 'unsplittable t)       ;; !!
 
 
-;; ~~~~~~~~~~~~    Always ON   ~~~~~~~~~~~~~~
-
-;;             load paths -----------
+;; ---------------    load paths    ---------------
 
 ;; adds load paths of subdirs in .emacs.d/modes
 (let ((base "~/.emacs.d/modes"))
@@ -56,40 +56,7 @@
         (add-to-list 'load-path name)))))
 
 
-
-;; Fullscreen  Mode 
-
-;; F11 = Full Screen
-(defun toggle-fullscreen (&optional f)
-  (interactive)
-  (let ((current-value (frame-parameter nil 'fullscreen)))
-    (set-frame-parameter nil 'fullscreen
-      (if (equal 'fullboth current-value)
-        (if (boundp 'old-fullscreen) old-fullscreen nil)
-        (progn (setq old-fullscreen current-value)
-          'fullboth)))))3
-(global-set-key [f11] 'toggle-fullscreen)
-
-;; C-x C-f creates directory if needed
-(defadvice find-file (before make-directory-maybe (filename &optional wildcards) activate)
-  "Create parent directory if not exists while visiting file."
-  (unless (file-exists-p filename)
-    (let ((dir (file-name-directory filename)))
-      (unless (file-exists-p dir)
-        (make-directory dir)))))
-
-(add-hook 'before-save-hook
-          (lambda ()
-            (when buffer-file-name
-              (let ((dir (file-name-directory buffer-file-name)))
-                (when (and (not (file-exists-p dir))
-                           (y-or-n-p (format "Directory %s does not exist. Create it?" dir)))
-                  (make-directory dir t))))))
-
-
-
-
-;; ------------------ ido ------------
+;; ---------------       ido        ---------------
 
 (require 'ido)
 (ido-mode 1)
@@ -110,8 +77,39 @@
 ;; (setq ido-use-faces nil)
 
 
+;; ---------------       misc       ---------------
 
-;; -------------- org-mode -------------
+;; F11 = Full Screen
+(defun toggle-fullscreen (&optional f)
+  (interactive)
+  (let ((current-value (frame-parameter nil 'fullscreen)))
+    (set-frame-parameter nil 'fullscreen
+      (if (equal 'fullboth current-value)
+        (if (boundp 'old-fullscreen) old-fullscreen nil)
+        (progn (setq old-fullscreen current-value)
+          'fullboth)))))3
+(global-set-key [f11] 'toggle-fullscreen)
+
+;; C-x C-f creates directory if needed
+(defadvice find-file (before make-directory-maybe 
+			     (filename &optional wildcards) activate)
+  "Create parent directory if not exists while visiting file."
+  (unless (file-exists-p filename)
+    (let ((dir (file-name-directory filename)))
+      (unless (file-exists-p dir)
+        (make-directory dir)))))
+(add-hook 'before-save-hook
+  (lambda ()
+    (when buffer-file-name
+      (let ((dir (file-name-directory buffer-file-name)))
+	(when (and (not (file-exists-p dir))
+		   (y-or-n-p (
+		     format "Directory %s does not exist. Create it?" dir)))
+	  (make-directory dir t))))))
+
+
+
+;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Org-mode ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 ;;UNFINISHED!!!
 
@@ -129,15 +127,11 @@
 (add-hook 'org-mode-hook
           (lambda ()
             (visual-line-mode 1)  ;; word-wrap
-            ;; (local-set-key (kbd "C-c C-2")  (lambda () (interactive) (insert (org-file-complete-link))))
+            ;; (local-set-key (kbd "C-c C-2")  (lambda () ...
            ))
 
-   
-;; (package-initialize) (require 'org) (define-key org-mode-map (kbd "C-c C-k") (lambda () (interactive) (let ((current-prefix-arg '(4))) (call-interactively 'org-insert-link))))
 
-
-
-;; ----------- org-link handling ----------
+;; --------------- org-link handling ---------------
 
 (setq org-return-follows-link t)
 (setq org-open-non-existing-files t)
@@ -163,7 +157,7 @@
 	  (t (concat "file+sys:" file)))))
 
 
-;; ------------- org-projects ---------
+;; ---------------   org-projects   ---------------
 
 (setq org-export-with-section-numbers nil) ;; no headline numbers!
 (setq org-export-preserve-breaks t)
@@ -218,9 +212,9 @@
 (global-set-key (kbd "C-c C-1") (lambda () (interactive) (org-publish "nb")))
 
 
-;; ---------- org other ------------
+;; ---------------      org other      ---------------
 
-;;syntaxhighlighting of code blocks
+;; syntaxhighlighting of code blocks
 (setq org-src-fontify-natively t) 
 
 ;; (setq org-image-actual-width '(400)) 
@@ -230,14 +224,8 @@
   (after my-org-mode-flyspell-verify activate)
   "Don't spell check src blocks."
   (setq ad-return-value
-        (and ad-return-value
-             (not (eq (org-element-type (org-element-at-point)) 'src-block)))))
-
-
-
-
-
-
+    (and ad-return-value
+      (not (eq (org-element-type (org-element-at-point)) 'src-block)))))
 
 
 
@@ -264,27 +252,30 @@
 ;; (setq org-confirm-babel-evaluate 'my-org-confirm-babel-evaluate)
 
 
-;; -------------- magit ----------------
+
+;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Magit ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 ;; enable ido in magit
 ;; (setq magit-completing-read-function 'magit-ido-completing-read)
 
 
+;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ LaTeX ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 
-;; -------------- LaTeX ------------------
+;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Python ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Terminal ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 
 
-;; ------------ modes for syntax highlighting ---------
+;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Modes  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
-;;====== dockerfile mode ======= 
-
+;; ------------------- dockerfile mode -----------------------
 (add-to-list 'load-path "~/.emacs.d/modes/dockerfile-mode/")
 (require 'dockerfile-mode)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
 
-;;====== NEURON hoc & mod mode ======= 
-
+;; ---------------- NEURON hoc & mod mode --------------------
 (load "~/.emacs.d/site-lisp/neuron-hoc-mode.el") ;; includes filename
 (load "~/.emacs.d/site-lisp/neuron-mod-mode.el") ;; includes filename
