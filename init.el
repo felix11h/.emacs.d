@@ -36,6 +36,11 @@
 (set-scroll-bar-mode 'left)   
 (scroll-bar-mode -1)                    ;;no scrollbar
 
+(setq inhibit-startup-screen t)
+;; opening new buffers won't split the frame
+(set-frame-parameter nil 'unsplittable t)  
+
+
 ;; ~~~~~~~~~~~~    Always ON   ~~~~~~~~~~~~~~
 
 ;;             load paths -----------
@@ -52,8 +57,7 @@
 
 
 
-
-;;========Fullscreen Mode========= 
+;; Fullscreen  Mode 
 
 ;; F11 = Full Screen
 (defun toggle-fullscreen (&optional f)
@@ -65,6 +69,23 @@
         (progn (setq old-fullscreen current-value)
           'fullboth)))))3
 (global-set-key [f11] 'toggle-fullscreen)
+
+;; C-x C-f creates directory if needed
+(defadvice find-file (before make-directory-maybe (filename &optional wildcards) activate)
+  "Create parent directory if not exists while visiting file."
+  (unless (file-exists-p filename)
+    (let ((dir (file-name-directory filename)))
+      (unless (file-exists-p dir)
+        (make-directory dir)))))
+
+(add-hook 'before-save-hook
+          (lambda ()
+            (when buffer-file-name
+              (let ((dir (file-name-directory buffer-file-name)))
+                (when (and (not (file-exists-p dir))
+                           (y-or-n-p (format "Directory %s does not exist. Create it?" dir)))
+                  (make-directory dir t))))))
+
 
 
 
@@ -95,6 +116,7 @@
 ;;UNFINISHED!!!
 
 (add-to-list 'load-path "~/.emacs.d/modes/org-mode-8.3.3/lisp")
+;;(add-to-list 'load-path "~/.emacs.d/modes/org-mode-8.3.3/contrib/lisp" t)
 
 ;; enable ido in org-mode
 (setq org-completion-use-ido t)
@@ -109,8 +131,37 @@
           (lambda ()
             (visual-line-mode 1)  ;; word-wrap
             ;;(adaptive-wrap-prefix-mode 1)   ;; makes wrap look nice
+            ;; (local-set-key "\C-k" 'C-u C-c C-l)
+            ;;(local-set-key (kbd "C-c C-2") (lambda () (interactive) (let ((current-prefix-arg '(4))) (call-interactively 'org-insert-link))))
            ))
 
+;;(require 'org-mode-map)
+;;(define-key org-mode-map (kbd "C-c C-k") (lambda () (interactive) (let ((current-prefix-arg '(4))) (call-interactively 'org-insert-link))))
+
+;; ----------- org-link handling ----------
+
+(setq org-return-follows-link t)
+(setq org-open-non-existing-files t)
+
+;; when doing C-c C-l and choosing file+sys: autcompletion is now available
+(defun org-file+sys-complete-link (&optional arg)
+  "Create a file link using completion."
+  (let ((file (org-iread-file-name "File: "))
+	(pwd (file-name-as-directory (expand-file-name ".")))
+	(pwd1 (file-name-as-directory (abbreviate-file-name
+				       (expand-file-name ".")))))
+    (cond ((equal arg '(16))
+	   (concat "file+sys:"
+		   (abbreviate-file-name (expand-file-name file))))
+	  ((string-match
+	    (concat "^" (regexp-quote pwd1) "\\(.+\\)") file)
+	   (concat "file+sys:" (match-string 1 file)))
+	  ((string-match
+	    (concat "^" (regexp-quote pwd) "\\(.+\\)")
+	    (expand-file-name file))
+	   (concat "file+sys:"
+		   (match-string 1 (expand-file-name file))))
+	  (t (concat "file+sys:" file)))))
 
 
 ;; ------------- org-projects ---------
@@ -166,27 +217,31 @@
         ))
 
 (global-set-key (kbd "C-c C-1") (lambda () (interactive) (org-publish "nb")))
+;; (global-set-key (kbd "C-c C-2") (lambda () (interactive) (insert (org-file-complete-link))))
 
+;; ---------- org other ------------
+
+;;syntaxhighlighting of code blocks
+(setq org-src-fontify-natively t) 
+
+;; (setq org-image-actual-width '(400)) 
+
+;; no flyspell for Orgmode source code blocks
+(defadvice org-mode-flyspell-verify
+  (after my-org-mode-flyspell-verify activate)
+  "Don't spell check src blocks."
+  (setq ad-return-value
+        (and ad-return-value
+             (not (eq (org-element-type (org-element-at-point)) 'src-block)))))
 
    
-;; ;;(setq org-log-done 'time)       ;;logging when tasks are done
 
-;; (setq org-src-fontify-natively t) ;;syntaxhighlighting of code blocks
 
-;; (setq org-image-actual-width '(400)) ;; set image width to 300
 
-;; ;; no flyspell for Orgmode source code blocks
-;; (defadvice org-mode-flyspell-verify
-;;   (after my-org-mode-flyspell-verify activate)
-;;   "Don't spell check src blocks."
-;;   (setq ad-return-value
-;;         (and ad-return-value
-;;              (not (eq (org-element-type (org-element-at-point)) 'src-block)))))
 
-;; ;;(add-to-list 'load-path "~/.emacs.d/org-mode-customs")
-;; ;;(require 'org-expiry) 
-;; ;;(org-expiry-insinuate) 
-;; ;;(setq org-expiry-inactive-timestamps t)
+
+
+
 
 ;; ;;enables RefTeX, from http://orgmode.org/worg/org-faq.html
 ;; (defun org-mode-reftex-setup ()
@@ -220,3 +275,13 @@
 
 
 ;; -------------- LaTeX ------------------
+
+
+
+;; ------------ modes for syntax highlighting ---------
+
+;;====== dockerfile mode ======= 
+
+(add-to-list 'load-path "~/.emacs.d/modes/dockerfile-mode/")
+(require 'dockerfile-mode)
+(add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))

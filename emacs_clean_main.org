@@ -13,11 +13,17 @@ to be commited within their repositories first.
 
 * LaTeX mode
 
+* open recent files
+
 * org-mode
 
 ** TODO completion when inserting links
 
 ** TODO fany bullet points?
+
+** TODO 
+
+** DONE open links in new buffers
 
 * DONE Package installers
 
