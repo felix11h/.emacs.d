@@ -255,6 +255,9 @@
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Magit ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
+;;disable the version control
+(setq vc-handled-backends nil) 
+
 ;; enable ido in magit
 ;; (setq magit-completing-read-function 'magit-ido-completing-read)
 
@@ -266,6 +269,9 @@
 
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Terminal ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+(require 'multi-term)
+(setq multi-term-program "/bin/bash")
 
 
 
