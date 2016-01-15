@@ -135,8 +135,12 @@
             ;;(local-set-key (kbd "C-c C-2") (lambda () (interactive) (let ((current-prefix-arg '(4))) (call-interactively 'org-insert-link))))
            ))
 
-;;(require 'org-mode-map)
-;;(define-key org-mode-map (kbd "C-c C-k") (lambda () (interactive) (let ((current-prefix-arg '(4))) (call-interactively 'org-insert-link))))
+   
+
+
+;; (package-initialize) (require 'org) (define-key org-mode-map (kbd "C-c C-k") (lambda () (interactive) (let ((current-prefix-arg '(4))) (call-interactively 'org-insert-link))))
+
+
 
 ;; ----------- org-link handling ----------
 
@@ -217,7 +221,7 @@
         ))
 
 (global-set-key (kbd "C-c C-1") (lambda () (interactive) (org-publish "nb")))
-;; (global-set-key (kbd "C-c C-2") (lambda () (interactive) (insert (org-file-complete-link))))
+
 
 ;; ---------- org other ------------
 
@@ -234,7 +238,6 @@
         (and ad-return-value
              (not (eq (org-element-type (org-element-at-point)) 'src-block)))))
 
-   
 
 
 
@@ -285,3 +288,8 @@
 (add-to-list 'load-path "~/.emacs.d/modes/dockerfile-mode/")
 (require 'dockerfile-mode)
 (add-to-list 'auto-mode-alist '("Dockerfile\\'" . dockerfile-mode))
+
+;;====== NEURON hoc & mod mode ======= 
+
+(load "~/.emacs.d/site-lisp/neuron-hoc-mode.el") ;; includes filename
+(load "~/.emacs.d/site-lisp/neuron-mod-mode.el") ;; includes filename
