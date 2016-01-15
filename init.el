@@ -124,9 +124,12 @@
 ;;(setq org-adapt-indentation t)
 
 ;; org-specific setting
+(require 'visual-fill-column)
 (add-hook 'org-mode-hook
           (lambda ()
             (visual-line-mode 1)  ;; word-wrap
+	    (visual-fill-column-mode 1)
+	    (setq visual-fill-column-width 76)
             ;; (local-set-key (kbd "C-c C-2")  (lambda () ...
            ))
 
