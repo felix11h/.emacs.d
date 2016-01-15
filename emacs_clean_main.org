@@ -19,6 +19,108 @@ to be commited within their repositories first.
 
 ** TODO completion when inserting links
 
+*** two ways:
+C-u C-c C-l or
+C-c C-l type "file:"
+
+*** Chat
+
+(18:41:30) realitygaps [~realityga@2a01:4a0:3::5096:aeb] entered the room.
+(18:41:30) realitygaps left the room (quit: Changing host).
+(18:41:30) realitygaps [~realityga@unaffiliated/realitygaps] entered the room.
+(18:41:36) sachac: truthling: Oh! org-get-outline-path might be handy, too.
+(18:44:46) rpg [~rpg@162-219-230-36.fttp.usinternet.com] entered the room.
+(18:54:30) jhulten [~jhulten@c-174-61-252-243.hsd1.wa.comcast.net] entered the room.
+(18:55:05) thomases left the room (quit: Ping timeout: 276 seconds).
+(19:00:44) coventry left the room (quit: Remote host closed the connection).
+(19:04:50) Kundry_Wag left the room (quit: Ping timeout: 276 seconds).
+(19:10:41) Kundry_Wag [~user@189.62.3.248] entered the room.
+(19:20:17) PetrVod left the room (quit: Ping timeout: 250 seconds).
+(19:21:21) mikarch [~Mikkel@85.218.244.93] entered the room.
+(19:22:09) PetrVod [~vodicka@132.183.13.75] entered the room.
+(19:25:39) truthling left the room (quit: Ping timeout: 252 seconds).
+(19:29:20) Kundry_Wag left the room (quit: Remote host closed the connection).
+(19:30:28) mikarch left the room (quit: Remote host closed the connection).
+(19:52:51) rogorido [~user@2a02:810a:84c0:1f3c:3664:a9ff:fec5:4e21] entered the room.
+(19:59:41) framling [~user@104.200.154.63] entered the room.
+(20:00:35) fvaresi left the room (quit: Ping timeout: 240 seconds).
+(20:00:49) Felix11H: For simplicity, I would still like to use C-u C-c C-l for "file:" links. How can I rebind this to something simpler, say C-c C-k? I wasn't able to find a function name for what C-u C-c C-l does.
+(20:09:46) sachac: Try binding it to (lambda () (interactive) (insert (org-file-complete-link))) or something like that.
+(20:15:24) sachac: or, for setting prefix args programmatically in general, (lambda () (interactive) (let ((current-prefix-arg '(4))) (call-interactively 'org-insert-link)))
+(20:18:55) Felix11H: Thanks, I tried both, and got in both cases: "Wrong type argument: symbolp,". Any ideas?
+(20:19:26) realitygaps left the room (quit: Ping timeout: 240 seconds).
+(20:24:08) sachac: Felix11H: How are you binding it? (define-key org-mode-map (kbd "C-c C-k") (lambda ()
+(20:24:09) sachac:          (interactive) (let ((current-prefix-arg '(4))) (call-interactively
+(20:24:09) sachac:          'org-insert-link))))     <-- note, no ' before (lambda ...)
+(20:26:29) realitygaps [~realityga@unaffiliated/realitygaps] entered the room.
+(20:32:47) xvx left the room (quit: Read error: No route to host).
+(20:33:06) jeapostrophe [~jay@racket/jeapostrophe] entered the room.
+(20:34:44) Felix11H: I tried with  (local-set-key (kbd "C-c C-2") (lambda () (interactive) (let ((current-prefix-arg '(4))) (call-interactively 'org-insert-link)))) added as an org-mode hook. I'm not sure if this was a good idea and could have worked! 
+(20:35:40) Felix11H: With your version I get "Symbol's value as variable is void: org-mode-map". Seems I have to enable org-mode-map somehow? I'm on org-mode 8.3.3!
+(20:41:45) sachac: Felix11H: Oh yeah, org-mode-map needs to happen after org mode has loaded by using eval-after-load or something like the wonderful use-package package.
+(20:42:12) sachac: Felix11H: But yeah, local-set-key in an org-mode-hook should be fine too.
+(20:43:25) p_l left the room (quit: Remote host closed the connection).
+(20:50:25) Demosthenex left the room (quit: Ping timeout: 260 seconds).
+(20:51:38) Felix11H: Argh, can't seem to figure out how. I've looked through your dotfiles as well, but couldn't find the right command. 
+(20:52:13) Felix11H: Does the code you posted work in your configuration?
+(20:52:53) sachac: Felix11H: Hmm. A somewhat overkill option might be to (package-initialize) (require 'org) (define-key ....) in your config. This loads Org from the package you installed, and then requires it.
+(20:53:38) sachac: Felix11H: After org is required, org-mode-map will be available.
+(20:54:52) sachac: Felix11H: Org has been loaded by the time my config runs, so that might be why you can't find an equivalent - I just refer to org-mode-map, since it's already been defined.
+(20:55:44) Felix11H: Ah, yes! That works now, thanks! So I'm back at the old error, I think:
+(20:55:44) felipedvorak left the room (quit: Remote host closed the connection).
+(20:55:44) sachac: (err, by the time my Sacha.org config runs, that is.)
+(20:56:12) Felix11H: "apply: Wrong type argument: symbolp, (lambda nil (interactive) (let ((current-prefix-arg (quote (4)))) (call-interactively (quote org-insert-link))))"
+(20:56:26) felipedvorak [~hur@unaffiliated/felipedvorak] entered the room.
+(20:57:18) rogorido left the room (quit: Remote host closed the connection).
+(20:57:35) thomasfuston left the room (quit: Remote host closed the connection).
+(20:58:54) sachac: Felix11H: Hmm, that's strange, I'm not sure how you get that error. Can you pastebin or lisppaste that part of your config?
+(21:00:04) sachac: Felix11H: Note that if you're adding something to an org-mode-hook, it should be a function - so if you're using local-set-key, you'll need to wrap it in yet another lambda: (add-hook 'org-mode-hook (lambda () (local-set-key ...)))
+(21:00:20) sachac: Felix11H: (At this point, I usually get annoyed and start naming functions with defun, or just use org-mode-map. ;) )
+(21:00:30) xvx [~xvx@83.137.254.128] entered the room.
+(21:00:41) sachac: err, a lambda or a symbol of a function
+(21:01:52) sachac: ... and if you happen to have old org-mode-hook entries around, you may need to remove them or even setq org-mode-hook back to nil or something.
+(21:02:13) wilornel [~ubuntu@ec2-54-68-25-61.us-west-2.compute.amazonaws.com] entered the room.
+(21:02:16) wilornel: How can I make org-mode respect the auto-fill variable?
+(21:03:35) Demosthenex [~Demosthen@5ED25635.cm-7-3b.dynamic.ziggo.nl] entered the room.
+(21:05:37) sachac: wilornel: Do you mean automatically turning on auto-fill-mode? See the first Emacs Lisp line in http://tychoish.com/posts/org-mode-snippets/
+(21:07:12) Felix11H: Sacha, thank you, you were absolutely right. I removed everything from init.el but what was needed to execute your code and it works. Now I'll try to find the culprit!
+(21:07:19) jeapostrophe left the room (quit: Ping timeout: 260 seconds).
+(21:07:59) wilornel: Hmm I just eval'ed the first line you mentioned (`(add-hook 'org-mode-hook 'turn-on-auto-fill)
+(21:08:29) wilornel: ), without any results. What I am looking to do is that whenever I edit my org-mode file, the lines wrap as if I were to M-q
+(21:08:47) wilornel: (it's awesome to speak to you by the way!)
+(21:09:04) sachac: wilornel: Right. That only adds it to org-mode-hook; you'll need to reinitialize org-mode in a file for that hook to be run if you already had a file open.
+(21:10:08) sachac: Felix11H: Yeah, that can be a challenge with hooks and anonymous functions! <laugh> This is where it can be handy to have something like a (defun my/org-mode-setup () ...) that you then (add-hook 'org-mode-hook 'my/org-mode-setup), because then you can change the definition of my/org-mode-setup as often as you'd like.
+(21:10:28) iclon left the room (quit: Quit: Leaving).
+(21:10:45) sachac: wilornel: Probably rerunning M-x org-mode in an org-mode file will run the hooks, and you can check if it will then fill as you like.
+(21:11:29) wilornel: hmmm I tried this earlier. I also just tried adding the hook to the end of my init file, re-launching emacs and editing my org file again and still no luck
+(21:11:49) wilornel: I can see my vertical line and I can change its location using C-x f
+(21:13:05) sachac: wilornel: Oh, maybe I don't quite understand what you're trying to do. First, are you trying to get auto-fill-mode to turn on automatically?
+(21:13:14) wilornel: Also, if I run M-q on any heading, it won't wrap. If I run M-q on the text under a heading, it will wrap but in a weird way (probably because of the indent-mode)
+(21:13:35) wilornel: sachac: I am trying to get the headings to wrap after they reach column 72
+(21:13:37) Felix11H: So, it seems to clash with ido. Specifically, the setting "ido-everywhere t". Sadly, I do need this one :(
+(21:14:01) sachac: wilornel: Oh... That's different. <laugh> Headings don't wrap, because that breaks Org Mode.
+(21:14:22) sachac: Felix11H: Hmm, that's strange. What clashes?
+(21:15:31) sachac: wilornel: I don't know if you can get visual-line-mode working with visual-fill-column (MELPA package), but that might be worth a try instead.
+(21:15:58) sachac: wilornel: That way, the text doesn't actually have extra newlines in the file, but it displays wrapped.
+(21:16:14) Felix11H: Sorry, I can't tell you more than disabling this line makes the keybinding work. Otherwise I get error from above. Is there something more I can do to backtrace the problem?
+(21:17:02) wilornel: Ah! Alright let me read into this for a bit. Yes that was the effect I was looking to do. I know (I think that? I think I saw that minutes ago, my memory is failing me atm) that if I set the emacs window small enough, the lines will wrap
+(21:17:18) sachac: Felix11H: Sorry, I don't use ido-everywhere, so I'm not sure. Is it a matter of picking a different keybinding? What happens when it doesn't work?
+(21:18:07) wilornel: (Yes I can confirm that if the width is small enough the lines will wrap. Looking at how to do this using the auto-fill column)
+(21:21:02) jeapostrophe [~jay@pool-98-110-248-55.bstnma.fios.verizon.net] entered the room.
+(21:21:02) jeapostrophe left the room (quit: Changing host).
+(21:21:02) jeapostrophe [~jay@racket/jeapostrophe] entered the room.
+(21:22:16) Felix11H: With ido-everywhere enabled, I get the error message "apply: Wrong type argument: symbolp, (lambda nil (interactive) (let ((current-prefix-arg (quote (4)))) (call-interactively (quote org-insert-link))))" anytime I press the key combinations. Binding it to different keys doesn't seem to help, I tried for example "C-c C-i" as well.
+(21:23:34) sachac: Felix11H: Hmm, try the org-file-complete-link version instead, maybe?
+(21:24:03) wilornel: Alright, visual-fill-column-mode seems to just be hiding the text that is past the fill-column
+(21:25:03) Felix11H: Same error message :(
+(21:25:42) sachac: wilornel: Hmm, looks like there might be some weirdness with that anyway: https://lists.gnu.org/archive/html/emacs-orgmode/2015-11/msg00232.html
+(21:25:52) sachac: wilornel: I'm not sure if what you want is doable, so it might be good to ask the mailing list.
+(21:25:56) jeapostrophe left the room (quit: Ping timeout: 246 seconds).
+(21:25:59) framling left the room (quit: Remote host closed the connection).
+(21:26:43) sachac: Felix11H: Hmm, likewise, might be time to ask the mailing list in case someone else has a clever idea.
+(21:27:28) Felix11H: Yeah, I guess that's pretty specific to my setup! Thank you for your help!  
+(21:27:47) Felix11H: Is there a general way to map specific keybindings. It would be easy for me, if I could get "C-c C-k" just to invoke "C-u C-c C-l".
+
 ** TODO fany bullet points?
 
 ** TODO 

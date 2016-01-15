@@ -126,18 +126,13 @@
 ;;(setq org-adapt-indentation t)
 
 ;; org-specific setting
-(require 'adaptive-wrap)
 (add-hook 'org-mode-hook
           (lambda ()
             (visual-line-mode 1)  ;; word-wrap
-            ;;(adaptive-wrap-prefix-mode 1)   ;; makes wrap look nice
-            ;; (local-set-key "\C-k" 'C-u C-c C-l)
-            ;;(local-set-key (kbd "C-c C-2") (lambda () (interactive) (let ((current-prefix-arg '(4))) (call-interactively 'org-insert-link))))
+            ;; (local-set-key (kbd "C-c C-2")  (lambda () (interactive) (insert (org-file-complete-link))))
            ))
 
    
-
-
 ;; (package-initialize) (require 'org) (define-key org-mode-map (kbd "C-c C-k") (lambda () (interactive) (let ((current-prefix-arg '(4))) (call-interactively 'org-insert-link))))
 
 
@@ -160,8 +155,8 @@
 	  ((string-match
 	    (concat "^" (regexp-quote pwd1) "\\(.+\\)") file)
 	   (concat "file+sys:" (match-string 1 file)))
-	  ((string-match
-	    (concat "^" (regexp-quote pwd) "\\(.+\\)")
+	  ((string-match	
+    (concat "^" (regexp-quote pwd) "\\(.+\\)")
 	    (expand-file-name file))
 	   (concat "file+sys:"
 		   (match-string 1 (expand-file-name file))))
