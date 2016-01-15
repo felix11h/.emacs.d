@@ -51,6 +51,23 @@
         (add-to-list 'load-path name)))))
 
 
+
+
+;;========Fullscreen Mode========= 
+
+;; F11 = Full Screen
+(defun toggle-fullscreen (&optional f)
+  (interactive)
+  (let ((current-value (frame-parameter nil 'fullscreen)))
+    (set-frame-parameter nil 'fullscreen
+      (if (equal 'fullboth current-value)
+        (if (boundp 'old-fullscreen) old-fullscreen nil)
+        (progn (setq old-fullscreen current-value)
+          'fullboth)))))3
+(global-set-key [f11] 'toggle-fullscreen)
+
+
+
 ;; ------------------ ido ------------
 
 (require 'ido)
@@ -77,31 +94,79 @@
 
 ;;UNFINISHED!!!
 
+(add-to-list 'load-path "~/.emacs.d/modes/org-mode-8.3.3/lisp")
+
 ;; enable ido in org-mode
 (setq org-completion-use-ido t)
 
 ;; can be overwritten by #+STARTUP: noindent 
 (setq org-startup-indented t)
+;;(setq org-adapt-indentation t)
 
 ;; org-specific setting
 (require 'adaptive-wrap)
 (add-hook 'org-mode-hook
           (lambda ()
             (visual-line-mode 1)  ;; word-wrap
-            (adaptive-wrap-prefix-mode 1)   ;; makes wrap look nice
+            ;;(adaptive-wrap-prefix-mode 1)   ;; makes wrap look nice
            ))
 
 
-;; (require 'adaptive-wrap)
-;; ;; http://emacs.stackexchange.com/questions/14589/correct-indentation-for-wrapped-lines
-;; https://github.com/syl20bnr/spacemacs/issues/1418
-;; (with-eval-after-load 'adaptive-wrap
-;;   (setq-default adaptive-wrap-extra-indent 2))
 
-;; (add-hook 'visual-line-mode-hook
-;;   (lambda ()
-;;     (adaptive-wrap-prefix-mode +1)
-;;     (diminish 'visual-line-mode)))
+;; ------------- org-projects ---------
+
+(setq org-export-with-section-numbers nil) ;; no headline numbers!
+(setq org-export-preserve-breaks t)
+
+(require 'org-publish)
+(setq org-publish-project-alist
+      '(
+        ("nb-org"
+         :base-directory "~/sci/nb/"
+         :base-extension "org"
+         :publishing-directory "~/nb/content/"
+         :recursive t
+         :publishing-function org-html-publish-to-html
+         :headline-levels 3
+         :auto-preamble t
+         :makeindex t
+         :auto-sitemap t
+         :sitemap-filename "sitemap.org"  
+         :sitemap-title "Sitemap"
+         )
+        ("nb-static"
+         :base-directory "~/sci/nb/"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|mov"
+         :publishing-directory "~/nb/content/"
+         :recursive t
+         :publishing-function org-publish-attachment
+         )
+        ("nb" :components ("nb-org" "nb-static"))
+
+        ("3dpp-org"
+         ;; Path to your org files.
+         :base-directory "~/dev/projects/3diagramspp/3diagramspp/org/"
+         :base-extension "org"
+
+         ;; Path to your Jekyll project.
+         :publishing-directory "~/dev/projects/3diagramspp/3diagramspp/"
+         :recursive t
+         :publishing-function org-html-publish-to-html
+         :headline-levels 4 
+         :html-extension "html"
+         :body-only t ;; Only export section between <body> </body>
+         )
+        ("3dpp-static"
+         :base-directory "~/dev/projects/3diagramspp/3diagramspp/org/"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|php"
+         :publishing-directory "~/dev/projects/3diagramspp/3diagramspp/"
+         :recursive t
+         :publishing-function org-publish-attachment)
+        ("3dpp" :components ("3dpp-org" "3dpp-static"))
+        ))
+
+(global-set-key (kbd "C-c C-1") (lambda () (interactive) (org-publish "nb")))
+
 
    
 ;; ;;(setq org-log-done 'time)       ;;logging when tasks are done

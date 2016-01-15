@@ -9,9 +9,19 @@ init.el already insures that everything in modes/ is in the load-path.
 If changes are made to the git repositories in modes, those will need
 to be commited within their repositories first.
 
-* Package installers
 
-** MELPA
+
+* LaTeX mode
+
+* org-mode
+
+** TODO completion when inserting links
+
+** TODO fany bullet points?
+
+* DONE Package installers
+
+** DONE MELPA
 
 The reference for getting started with [[http://melpa.org/#/getting-started][MELPA]]. Since I'm on Emacs 24, I
 used
@@ -24,7 +34,7 @@ used
 to add MELPA. (!) But only after running ~M-x package-list-packages~,
 was I able to find and install packages from the MELPA archives.
 
-* Color themes
+* DONE Color themes
 
 ** [NOT IN USE] emacs-solarized by Greg Pfeil
 
@@ -52,16 +62,10 @@ I don't like this one as much as Steve Purcell's.
 
 #+END_SRC
 
-
 ** DONE sanityinc-solarized
 
 
-/* Local Variables: */
-/* mode:org           */
-/* mode:my-no-flyspell */
-/* End:             */
-
-* Searching/Completion with IDO
+* DONE Searching/Completion with IDO
 
 Reference: [[https://www.reddit.com/r/emacs/comments/3o36sc/what_do_you_prefer_ido_or_helm/][Reddit post]]
 
@@ -69,3 +73,10 @@ Reference: [[https://www.reddit.com/r/emacs/comments/3o36sc/what_do_you_prefer_i
 ** DONE ido-ubiqtuoues
 ** DONE flx-ido
 ** DONE ido-vertical-mode
+
+* LV
+
+/* Local Variables: */
+/* mode:org           */
+/* mode:my-no-flyspell */
+/* End:             */
