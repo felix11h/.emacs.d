@@ -8,7 +8,7 @@
 
 
 
-;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Themes  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Themes  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ;; tomorow themes by Chris Kempson, adapted by Steve Purcell
 ;; https://github.com/purcell/color-theme-sanityinc-tomorrow
@@ -41,6 +41,7 @@
 (setq inhibit-startup-screen t)                 ;; no startscreen
 ;; opening new buffers won't split the frame
 (set-frame-parameter nil 'unsplittable t)       ;; !!
+(global-set-key "\C-z" nil)                     ;; disable minimize
 
 
 ;; ---------------    load paths    ---------------
@@ -69,7 +70,7 @@
 (require 'ido-ubiquitous)
 (ido-ubiquitous-mode 1)
 
-fuzzy matching - for now probably better without?
+;; fuzzy matching - for now probably better without?
 (require 'flx-ido)
 (flx-ido-mode 1)
 ;; disable ido faces to see flx highlights.
