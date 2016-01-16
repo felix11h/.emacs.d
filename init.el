@@ -78,6 +78,12 @@
 ;; (setq ido-use-faces nil)
 
 
+;; ---------------   visual regexp  ---------------
+
+(require 'visual-regexp)
+(define-key global-map (kbd "C-c r") 'vr/replace)
+(define-key global-map (kbd "C-c q") 'vr/query-replace)
+
 ;; ---------------       misc       ---------------
 
 ;; F11 = Full Screen
