@@ -296,3 +296,19 @@
 ;; ---------------- NEURON hoc & mod mode --------------------
 (load "~/.emacs.d/site-lisp/neuron-hoc-mode.el") ;; includes filename
 (load "~/.emacs.d/site-lisp/neuron-mod-mode.el") ;; includes filename
+
+
+
+;; ~~~~~~~~~~~~~~~~~~~~~~~~~ Keybindings  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+(global-set-key (kbd "C-c C-m") 'multi-term)
+(global-set-key (kbd "C-e") 'switch-to-buffer)
+(global-set-key (kbd "C-l") 'find-file)
+
+
+
+
+
+
+
+
