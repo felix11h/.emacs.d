@@ -123,6 +123,7 @@
 
 (add-to-list 'load-path "~/.emacs.d/modes/org-mode-8.2.10/lisp")
 ;;(add-to-list 'load-path "~/.emacs.d/modes/org-mode-8.3.3/contrib/lisp" t)
+(require 'org)
 
 ;; enable ido in org-mode
 (setq org-completion-use-ido t)
@@ -173,7 +174,7 @@
 (setq org-export-with-section-numbers nil) ;; no headline numbers!
 (setq org-export-preserve-breaks t)
 
-(require 'org-publish)
+;; (require 'org-publish)
 (setq org-publish-project-alist
       '(
         ("nb-org"
@@ -265,6 +266,14 @@
 ;;disable the version control
 (setq vc-handled-backends nil) 
 
+(add-to-list 'load-path "~/.emacs.d/modes/magit-2.1.0/lisp")
+(require 'magit)
+
+(with-eval-after-load 'info
+  (info-initialize)
+  (add-to-list 'Info-directory-list
+               "~/.emacs.d/modes/magit-2.1.0/Documentation/"))
+
 ;; enable ido in magit
 ;; (setq magit-completing-read-function 'magit-ido-completing-read)
 
@@ -309,7 +318,5 @@
 
 (bind-key* "C-c C-r" 'vr/replace)
 
-
-
-
-
+(bind-key* "C-c C-a" 'beginning-of-buffer)
+(bind-key* "C-c C-e" 'end-of-buffer)

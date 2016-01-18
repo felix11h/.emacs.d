@@ -43,7 +43,7 @@ https://www.youtube.com/watch?v=dgcBKz03lK8
 
 ** difference of decaying exponentials - Ipython notebook, jupyter?
 
-** Emacs top of buffer Keyboard-Shortcut
+** DONE Emacs top of buffer Keyboard-Shortcut
 
 ** Emacs org dictionary
 - Better Writing: [[http://emacs.stackexchange.com/questions/2171/what-options-are-there-for-writing-better-non-programming-text-in-emacs][Emacs SE]]
@@ -53,7 +53,7 @@ https://www.youtube.com/watch?v=dgcBKz03lK8
 ** Emacs Magit
 
 
-* Keybindings
+* DONE Keybindings
 
 [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Key-Bindings.html][emacs manual]]: customizing keybindings
 
