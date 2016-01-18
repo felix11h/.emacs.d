@@ -42,7 +42,7 @@
 ;; opening new buffers won't split the frame
 (set-frame-parameter nil 'unsplittable t)       ;; !!
 (global-set-key "\C-z" nil)                     ;; disable minimize
-
+(global-auto-revert-mode t)                     ;; auto refresh buffers
 
 ;; ---------------    load paths    ---------------
 
@@ -121,7 +121,7 @@
 
 ;;UNFINISHED!!!
 
-(add-to-list 'load-path "~/.emacs.d/modes/org-mode-8.3.3/lisp")
+(add-to-list 'load-path "~/.emacs.d/modes/org-mode-8.2.10/lisp")
 ;;(add-to-list 'load-path "~/.emacs.d/modes/org-mode-8.3.3/contrib/lisp" t)
 
 ;; enable ido in org-mode
