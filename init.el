@@ -311,7 +311,7 @@
 
 (bind-key* "C-c C-m" 'multi-term)
 
-(bind-key* "C-c C-r") 'vr/replace)
+(bind-key* "C-c C-r" 'vr/replace)
 
 
 

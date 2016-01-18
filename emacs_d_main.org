@@ -61,6 +61,12 @@ https://www.youtube.com/watch?v=dgcBKz03lK8
 
 * open recent files
 
+* minibuffer
+
+“Command attempted to use minibuffer while in minibuffer”
+
+[[http://stackoverflow.com/questions/812135/emacs-modes-command-attempted-to-use-minibuffer-while-in-minibuffer][Stackoverflow Question]]
+
 * org-mode
 
 ** TODO After org-publish execute Python script for Proof hiding.
