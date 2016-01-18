@@ -10,6 +10,49 @@ If changes are made to the git repositories in modes, those will need
 to be commited within their repositories first.
 
 
+* sort this
+
+** indent org-mode src blocks?
+
+** Emacs and Jekyll
+
+http://acaird.github.io/computers/2013/05/24/blogging-with-org-and-git/
+
+http://orgmode.org/worg/org-tutorials/org-jekyll.html
+
+https://github.com/eggcaker/jekyll-org
+
+https://github.com/tjaartvdwalt/jekyll-org-mode-converter
+
+** paper links for org-mode: [[file+sys:~/lib/articles/Song2005.pdf][Song2005]]
+Author2005 --> file+sys:~/lib...
+Implement either via:
+  - Keyboard shortcut (like link insert)
+  - (better) automatic conversion (Regexp)
+
+Also see [[http://draketo.de/light/english/free-software/custom-link-completion-org-mode-25-lines-emacs][blog post]] doing something similar
+
+** org export to markdown?
+** Keybindings for Nautilus
+
+** Org mode html export with Jupyter?
+https://github.com/gregsexton/ob-ipython
+
+** Emacs Ipython
+https://www.youtube.com/watch?v=dgcBKz03lK8
+
+** difference of decaying exponentials - Ipython notebook, jupyter?
+
+** Emacs top of buffer Keyboard-Shortcut
+
+** Emacs org dictionary
+- Better Writing: [[http://emacs.stackexchange.com/questions/2171/what-options-are-there-for-writing-better-non-programming-text-in-emacs][Emacs SE]]
+- Spell checking: [[http://emacs.stackexchange.com/questions/2167/what-options-are-there-for-doing-spell-checking-in-emacs][Emacs SE]]
+- Better shell: [[https://snarfed.org/why_i_dont_run_shells_inside_emacs][snarfed.org]]
+
+** Emacs Magit
+
+
 * Keybindings
 
 [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Key-Bindings.html][emacs manual]]: customizing keybindings
@@ -19,6 +62,11 @@ to be commited within their repositories first.
 * open recent files
 
 * org-mode
+
+** TODO After org-publish execute Python script for Proof hiding.
+
+** TODO moving things without arrow keys
+http://emacs.stackexchange.com/questions/5366/org-mode-sans-arrow-keys
 
 ** TODO completion when inserting links
 

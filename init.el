@@ -301,9 +301,11 @@
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~ Keybindings  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
+;; use bind-key (melpa) which offers bind-key* (note the star)
 (global-set-key (kbd "C-c C-m") 'multi-term)
-(global-set-key (kbd "C-e") 'switch-to-buffer)
-(global-set-key (kbd "C-l") 'find-file)
+(global-set-key (kbd "C-;") 'find-file)
+(global-set-key (kbd "C-ö") 'find-file)
+(global-set-key (kbd "C-l") 'switch-to-buffer)
 
 
 
