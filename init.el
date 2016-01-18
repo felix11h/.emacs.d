@@ -82,7 +82,7 @@
 
 (require 'visual-regexp)
 (require 'visual-regexp-steroids)
-(define-key global-map (kbd "C-c r") 'vr/replace)
+
 
 
 ;; ---------------       misc       ---------------
@@ -301,14 +301,17 @@
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~ Keybindings  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
-;; use bind-key (melpa) which offers bind-key* (note the star)
-(global-set-key (kbd "C-c C-m") 'multi-term)
-(global-set-key (kbd "C-;") 'find-file)
-(global-set-key (kbd "C-ö") 'find-file)
-(global-set-key (kbd "C-l") 'switch-to-buffer)
+(require 'bind-key)
+;; bind-key* creates minor modes so that these keybindings are truly 
+;; global, overwriting definitions from all other modes
 
+(bind-key* "C-l" 'switch-to-buffer)
+(bind-key* "C-;" 'find-file)
+(bind-key* "C-ö" 'find-file)
 
+(bind-key* "C-c C-m" 'multi-term)
 
+(bind-key* "C-c C-r") 'vr/replace)
 
 
 
