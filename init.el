@@ -184,10 +184,6 @@
          :publishing-function org-html-publish-to-html
          :headline-levels 3
          :auto-preamble t
-         :makeindex t
-         :auto-sitemap t
-         :sitemap-filename "sitemap.org"  
-         :sitemap-title "Sitemap"
          )
         ("nb-static"
          :base-directory "~/sci/nb/"
