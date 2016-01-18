@@ -40,7 +40,7 @@
 (scroll-bar-mode -1)                            ;; no scrollbar
 (setq inhibit-startup-screen t)                 ;; no startscreen
 ;; opening new buffers won't split the frame
-(set-frame-parameter nil 'unsplittable t)       ;; !!
+;; (set-frame-parameter nil 'unsplittable t)       ;; !!
 (global-set-key "\C-z" nil)                     ;; disable minimize
 (global-auto-revert-mode t)                     ;; auto refresh buffers
 
@@ -283,11 +283,33 @@
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Python ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Web mode ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+;; !! the following line sets all .html in Django(!) mode
+(setq web-mode-engines-alist '(("django" . "\\.html\\'")) )
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode)) 
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode)) 
+(add-to-list 'auto-mode-alist '("\\.[gj]sp\\'" . web-mode)) 
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode)) 
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode)) 
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode)) 
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+
+(defun web-mode-keybindings () 
+  (define-key web-mode-map (kbd "C-c ;") 'web-mode-comment-or-uncomment)
+  ) 
+
+(add-hook 'web-mode-hook 'web-mode-keybindings)
+
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Terminal ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 (require 'multi-term)
 (setq multi-term-program "/bin/bash")
+
+
+
 
 
 
@@ -320,3 +342,5 @@
 
 (bind-key* "C-c C-a" 'beginning-of-buffer)
 (bind-key* "C-c C-e" 'end-of-buffer)
+
+(bind-key* "C-c C-h" 'magit-status)
