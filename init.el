@@ -44,6 +44,10 @@
 (global-set-key "\C-z" nil)                     ;; disable minimize
 (global-auto-revert-mode t)                     ;; auto refresh buffers
 
+(column-number-mode 1)                          ;; Gives column and line
+(line-number-mode 1)                            ;; number in mode line
+
+
 ;; ---------------    load paths    ---------------
 
 ;; adds load paths of subdirs in .emacs.d/modes
@@ -223,7 +227,11 @@
 ;; ---------------      org other      ---------------
 
 ;; syntaxhighlighting of code blocks
-(setq org-src-fontify-natively t) 
+(setq org-src-fontify-natively t)
+
+;; in-line Latex highlighting
+(setq org-highlight-latex-and-related '(latex))
+
 
 ;; (setq org-image-actual-width '(400)) 
 
