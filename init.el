@@ -152,6 +152,18 @@
 (setq org-return-follows-link t)
 (setq org-open-non-existing-files t)
 
+;; don't split the frame when following links,
+;; open in new buffer instead
+(setq org-link-frame-setup
+  (quote (
+    (vm . vm-visit-folder-other-frame)
+    (vm-imap . vm-visit-imap-folder-other-frame)
+    (gnus . org-gnus-no-new-news)
+    (file . find-file)
+    (wl . wl-other-frame)))
+  )
+
+
 ;; when doing C-c C-l and choosing file+sys: autcompletion is now available
 (defun org-file+sys-complete-link (&optional arg)
   "Create a file link using completion."
