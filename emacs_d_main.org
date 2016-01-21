@@ -69,7 +69,13 @@ https://www.youtube.com/watch?v=dgcBKz03lK8
 
 * org-mode
 
+** TODO org-mode comments
+
 ** TODO After org-publish execute Python script for Proof hiding.
+#+BEGIN_SRC elisp
+org-publish-after-export-hook   (when going through org-publish)
+#+END_SRC
+ 
 
 ** TODO moving things without arrow keys
 http://emacs.stackexchange.com/questions/5366/org-mode-sans-arrow-keys

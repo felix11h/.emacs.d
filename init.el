@@ -217,11 +217,12 @@
          :base-extension "org"
 
          ;; Path to your Jekyll project.
-         :publishing-directory "~/dev/projects/3diagramspp/3diagramspp/"
+         :publishing-directory "~/dev/projects/3diagramspp/3diagramspp/_posts/"
          :recursive t
          :publishing-function org-html-publish-to-html
          :headline-levels 4 
          :html-extension "html"
+	 :table-of-contents nil
          :body-only t ;; Only export section between <body> </body>
          )
         ("3dpp-static"
@@ -234,7 +235,7 @@
         ))
 
 (global-set-key (kbd "C-c C-1") (lambda () (interactive) (org-publish "nb")))
-
+(global-set-key (kbd "C-c C-2") (lambda () (interactive) (org-publish "3dpp")))
 
 ;; ---------------      org other      ---------------
 
