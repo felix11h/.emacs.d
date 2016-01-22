@@ -245,6 +245,10 @@
 ;; in-line Latex highlighting
 (setq org-highlight-latex-and-related '(latex))
 
+(require 'htmlize)
+(setq org-export-htmlize-output-type 'css)
+
+
 
 ;; (setq org-image-actual-width '(400)) 
 
@@ -306,9 +310,11 @@
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Web mode ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(require 'web-mode)
+
+(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
 ;; !! the following line sets all .html in Django(!) mode
-(setq web-mode-engines-alist '(("django" . "\\.html\\'")) )
+;;(setq web-mode-engines-alist '(("django" . "\\.html\\'")) )
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode)) 
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode)) 
 (add-to-list 'auto-mode-alist '("\\.[gj]sp\\'" . web-mode)) 
