@@ -147,6 +147,11 @@
            ))
 
 
+;; embbed images - [[file:image.png]] - get displayed with the
+;; correct width specified by #+attr_html: :width 580px
+(setq org-image-actual-width '(400)) 
+
+
 ;; --------------- org-link handling ---------------
 
 (setq org-return-follows-link t)
@@ -250,7 +255,7 @@
 
 
 
-;; (setq org-image-actual-width '(400)) 
+
 
 ;; no flyspell for Orgmode source code blocks
 (defadvice org-mode-flyspell-verify
