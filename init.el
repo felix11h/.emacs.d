@@ -330,6 +330,8 @@
 (add-hook 'web-mode-hook 'web-mode-keybindings)
 
 
+
+
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Terminal ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 (require 'multi-term)
@@ -351,6 +353,8 @@
 (load "~/.emacs.d/site-lisp/neuron-hoc-mode.el") ;; includes filename
 (load "~/.emacs.d/site-lisp/neuron-mod-mode.el") ;; includes filename
 
+;; ----------------------- json mode -------------------------
+(require 'json-mode)
 
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~ Keybindings  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
