@@ -332,6 +332,12 @@
   (define-key web-mode-map (kbd "C-c ;") 'web-mode-comment-or-uncomment)
   ) 
 
+
+(add-hook 'web-mode-hook
+  (lambda () ""
+    (setq web-mode-markup-indent-offset 2)
+    (setq-default indent-tabs-mode nil)))
+
 (add-hook 'web-mode-hook 'web-mode-keybindings)
 
 
