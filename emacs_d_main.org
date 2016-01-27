@@ -10,19 +10,25 @@ If changes are made to the git repositories in modes, those will need
 to be commited within their repositories first.
 
 
-* sort this
+* top
+
+** open recent files + smart file search using recent/frequently used files
+
+** LaTex mode: C-c ; to comment/uncomment
+
+** Python mode: C-c ; to comment/uncomment
+
+** Shortcuts for top, dev_ops & sci_ops?
+
+** org-mode headlines color (white -> blue?)
+
+** Emacs org dictionary
+- Better Writing: [[http://emacs.stackexchange.com/questions/2171/what-options-are-there-for-writing-better-non-programming-text-in-emacs][Emacs SE]]
+- Spell checking: [[http://emacs.stackexchange.com/questions/2167/what-options-are-there-for-doing-spell-checking-in-emacs][Emacs SE]]
+- Better shell: [[https://snarfed.org/why_i_dont_run_shells_inside_emacs][snarfed.org]]
 
 ** indent org-mode src blocks?
-
-** Emacs and Jekyll
-
-http://acaird.github.io/computers/2013/05/24/blogging-with-org-and-git/
-
-http://orgmode.org/worg/org-tutorials/org-jekyll.html
-
-https://github.com/eggcaker/jekyll-org
-
-https://github.com/tjaartvdwalt/jekyll-org-mode-converter
+Probably not, but see [[https://www.reddit.com/r/emacs/comments/415imd/prettier_orgmode_source_code_blocks/][/r/emacs]] post.
 
 ** paper links for org-mode: [[file+sys:~/lib/articles/Song2005.pdf][Song2005]]
 Author2005 --> file+sys:~/lib...
@@ -32,8 +38,7 @@ Implement either via:
 
 Also see [[http://draketo.de/light/english/free-software/custom-link-completion-org-mode-25-lines-emacs][blog post]] doing something similar
 
-** org export to markdown?
-** Keybindings for Nautilus
+** Emacs Magit
 
 ** Org mode html export with Jupyter?
 https://github.com/gregsexton/ob-ipython
@@ -41,46 +46,22 @@ https://github.com/gregsexton/ob-ipython
 ** Emacs Ipython
 https://www.youtube.com/watch?v=dgcBKz03lK8
 
-** difference of decaying exponentials - Ipython notebook, jupyter?
-
-** DONE Emacs top of buffer Keyboard-Shortcut
-
-** Emacs org dictionary
-- Better Writing: [[http://emacs.stackexchange.com/questions/2171/what-options-are-there-for-writing-better-non-programming-text-in-emacs][Emacs SE]]
-- Spell checking: [[http://emacs.stackexchange.com/questions/2167/what-options-are-there-for-doing-spell-checking-in-emacs][Emacs SE]]
-- Better shell: [[https://snarfed.org/why_i_dont_run_shells_inside_emacs][snarfed.org]]
-
-** Emacs Magit
-
-
-* DONE Keybindings
-
-[[http://www.gnu.org/software/emacs/manual/html_node/emacs/Key-Bindings.html][emacs manual]]: customizing keybindings
-
-* LaTeX mode
-
-* open recent files
-
-* minibuffer
-
+** minibuffer
 “Command attempted to use minibuffer while in minibuffer”
-
 [[http://stackoverflow.com/questions/812135/emacs-modes-command-attempted-to-use-minibuffer-while-in-minibuffer][Stackoverflow Question]]
 
-* org-mode
+** Code highlighting in #+BEGIN_HTML ... #+END_HTML
+[[http://emacs.stackexchange.com/questions/18741/how-to-syntax-highlight-begin-html-environment-in-org-mode-buffer][Emacs SE question]]
 
-** TODO org-mode comments
-
-** TODO After org-publish execute Python script for Proof hiding.
+** After org-publish execute Python script for Proof hiding.
 #+BEGIN_SRC elisp
 org-publish-after-export-hook   (when going through org-publish)
-#+END_SRC
- 
+#+END_SRC 
 
-** TODO moving things without arrow keys
+** moving things without arrow keys
 http://emacs.stackexchange.com/questions/5366/org-mode-sans-arrow-keys
 
-** TODO completion when inserting links
+** completion when inserting links
 
 *** two ways:
 C-u C-c C-l or
@@ -184,15 +165,77 @@ C-c C-l type "file:"
 (21:27:28) Felix11H: Yeah, I guess that's pretty specific to my setup! Thank you for your help!  
 (21:27:47) Felix11H: Is there a general way to map specific keybindings. It would be easy for me, if I could get "C-c C-k" just to invoke "C-u C-c C-l".
 
-** TODO fany bullet points?
 
-** TODO 
+** fany bullet points?
 
-** DONE open links in new buffers
 
-* DONE Package installers
 
-** DONE MELPA
+
+* Completed
+
+** org-mode
+
+*** org-mode and Jekyll
+
+I followed the following tutorial: [[http://orgmode.org/worg/org-tutorials/org-jekyll.html][org-jekyll]] on orgmode.org.
+
+Other interesting ideas and resources were:
+ - [[http://acaird.github.io/computers/2013/05/24/blogging-with-org-and-git/][http://acaird.github.io/]]
+ - [[https://github.com/eggcaker/jekyll-org][github.com/eggcaker/jekyll-org]]
+ - [[https://github.com/tjaartvdwalt/jekyll-org-mode-converter][jekyll-org-mode-converter]]
+
+*** org-mode comments
+# achieved with '#'. Also possible to use
+~code~ tags, achieved with '~' for better visual presentation
+
+*** open links in new buffers
+#+BEGIN_SRC elisp
+;; don't split the frame when following links,
+;; open in new buffer instead
+(setq org-link-frame-setup
+  (quote (
+    (vm . vm-visit-folder-other-frame)
+    (vm-imap . vm-visit-imap-folder-other-frame)
+    (gnus . org-gnus-no-new-news)
+    (file . find-file)
+    (wl . wl-other-frame)))
+  )
+#+END_SRC
+
+***  org export to markdown?
+This is not needed and I haven't further looked into this.
+
+
+**  Searching/Completion with IDO
+
+Reference: [[https://www.reddit.com/r/emacs/comments/3o36sc/what_do_you_prefer_ido_or_helm/][Reddit post]]
+
+***  ido
+***  ido-ubiqtuoues
+***  ido-vertical-mode
+***  flx-ido
+I don't know if I want to keep using this...
+
+
+
+**  Keybindings
+
+[[http://www.gnu.org/software/emacs/manual/html_node/emacs/Key-Bindings.html][emacs manual]]: customizing keybindings, but ended up using ~bind-key~ package, so to make
+
+#+BEGIN_SRC elisp
+;; bind-key* creates minor modes so that these keybindings are truly 
+;; global, overwriting definitions from all other modes
+
+(bind-key* "C-l" 'switch-to-buffer)
+#+END_SRC
+
+***  Emacs top of buffer Keyboard-Shortcut
+Bound to C-c C-a and C-c C-e!
+
+
+**  Package installers
+
+***  MELPA
 
 The reference for getting started with [[http://melpa.org/#/getting-started][MELPA]]. Since I'm on Emacs 24, I
 used
@@ -205,9 +248,10 @@ used
 to add MELPA. (!) But only after running ~M-x package-list-packages~,
 was I able to find and install packages from the MELPA archives.
 
-* DONE Color themes
 
-** [NOT IN USE] emacs-solarized by Greg Pfeil
+**  Color themes
+
+*** [NOT IN USE] emacs-solarized by Greg Pfeil
 
 Install solarized color-theme from [[https://github.com/sellout/emacs-color-theme-solarized][GitHub]]
 
@@ -220,34 +264,17 @@ Install solarized color-theme from [[https://github.com/sellout/emacs-color-them
 I like Purcell's a bit better
 
 
-** [NOT IN USE] bbatsov/solarized-emacs
+*** [NOT IN USE] bbatsov/solarized-emacs
 
 from [[https://github.com/bbatsov/solarized-emacs][bbatsov/solarized-emacs]]: ~M-x package-install
 solarized-theme~. Requires MELPA.
 
 I don't like this one as much as Steve Purcell's.
 
-** DONE sanityinc-tomorrow
+***  sanityinc-tomorrow
 
 #+BEGIN_SRC 
 
 #+END_SRC
 
-** DONE sanityinc-solarized
-
-
-* DONE Searching/Completion with IDO
-
-Reference: [[https://www.reddit.com/r/emacs/comments/3o36sc/what_do_you_prefer_ido_or_helm/][Reddit post]]
-
-** DONE ido
-** DONE ido-ubiqtuoues
-** DONE flx-ido
-** DONE ido-vertical-mode
-
-* LV
-
-/* Local Variables: */
-/* mode:org           */
-/* mode:my-no-flyspell */
-/* End:             */
+***  sanityinc-solarized
