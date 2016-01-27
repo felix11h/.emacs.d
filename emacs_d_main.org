@@ -12,6 +12,8 @@ to be commited within their repositories first.
 
 * top
 
+** remap C-j to RET
+
 ** open recent files + smart file search using recent/frequently used files
 
 ** LaTex mode: C-c ; to comment/uncomment
@@ -202,23 +204,23 @@ Other interesting ideas and resources were:
   )
 #+END_SRC
 
-***  org export to markdown?
+*** org export to markdown?
 This is not needed and I haven't further looked into this.
 
 
-**  Searching/Completion with IDO
+** Searching/Completion with IDO
 
 Reference: [[https://www.reddit.com/r/emacs/comments/3o36sc/what_do_you_prefer_ido_or_helm/][Reddit post]]
 
-***  ido
-***  ido-ubiqtuoues
-***  ido-vertical-mode
-***  flx-ido
+*** ido
+*** ido-ubiqtuoues
+*** ido-vertical-mode
+*** flx-ido
 I don't know if I want to keep using this...
 
 
 
-**  Keybindings
+** Keybindings
 
 [[http://www.gnu.org/software/emacs/manual/html_node/emacs/Key-Bindings.html][emacs manual]]: customizing keybindings, but ended up using ~bind-key~ package, so to make
 
@@ -229,13 +231,14 @@ I don't know if I want to keep using this...
 (bind-key* "C-l" 'switch-to-buffer)
 #+END_SRC
 
-***  Emacs top of buffer Keyboard-Shortcut
+*** Emacs top of buffer Keyboard-Shortcut
 Bound to C-c C-a and C-c C-e!
 
+*** enabled C-n C-p for ido-vertical
 
-**  Package installers
+** Package installers
 
-***  MELPA
+*** MELPA
 
 The reference for getting started with [[http://melpa.org/#/getting-started][MELPA]]. Since I'm on Emacs 24, I
 used
@@ -249,7 +252,7 @@ to add MELPA. (!) But only after running ~M-x package-list-packages~,
 was I able to find and install packages from the MELPA archives.
 
 
-**  Color themes
+** Color themes
 
 *** [NOT IN USE] emacs-solarized by Greg Pfeil
 
@@ -271,10 +274,10 @@ solarized-theme~. Requires MELPA.
 
 I don't like this one as much as Steve Purcell's.
 
-***  sanityinc-tomorrow
+*** sanityinc-tomorrow
 
 #+BEGIN_SRC 
 
 #+END_SRC
 
-***  sanityinc-solarized
+*** sanityinc-solarized
