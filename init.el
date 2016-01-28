@@ -123,7 +123,6 @@
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Org-mode ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
-;;UNFINISHED!!!
 
 (add-to-list 'load-path "~/.emacs.d/modes/org-mode-8.2.10/lisp")
 ;;(add-to-list 'load-path "~/.emacs.d/modes/org-mode-8.3.3/contrib/lisp" t)
@@ -131,10 +130,6 @@
 
 ;; enable ido in org-mode
 (setq org-completion-use-ido t)
-
-;; can be overwritten by #+STARTUP: noindent 
-(setq org-startup-indented t)
-;;(setq org-adapt-indentation t)
 
 ;; org-specific setting
 (require 'visual-fill-column)
@@ -151,6 +146,16 @@
 ;; correct width specified by #+attr_html: :width 580px
 (setq org-image-actual-width '(400)) 
 
+
+;; ------------ default buffer settings ------------
+
+;; other options are: nofold, fold, content
+(setq org-startup-folded 'showeverything)
+
+;; can be overwritten by #+STARTUP: noindent 
+(setq org-startup-indented t)
+
+;;(setq org-adapt-indentation t)
 
 ;; --------------- org-link handling ---------------
 
@@ -386,3 +391,4 @@
 (bind-key* "C-c C-e" 'end-of-buffer)
 
 (bind-key* "C-c C-h" 'magit-status)
+

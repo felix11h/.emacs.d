@@ -1,5 +1,5 @@
 
-* IMPORTANT
+* main
 
 ** installing packages workflow
 
@@ -12,6 +12,12 @@ to be commited within their repositories first.
 
 * top
 
+** for emacs: file:projects.org::*task title heading search in Org file
+** for emacs: ido-hacks?
+
+** After C-c C-2 pointer jumps to of buffer
+** disable C-w that deletes whole sections
+** find better alternative to M-w for copy
 ** remap C-j to RET
 
 ** open recent files + smart file search using recent/frequently used files
@@ -167,13 +173,12 @@ C-c C-l type "file:"
 (21:27:28) Felix11H: Yeah, I guess that's pretty specific to my setup! Thank you for your help!  
 (21:27:47) Felix11H: Is there a general way to map specific keybindings. It would be easy for me, if I could get "C-c C-k" just to invoke "C-u C-c C-l".
 
-
-** fany bullet points?
-
+** fancy bullet points?
 
 
 
-* Completed
+
+* completed
 
 ** org-mode
 
@@ -207,6 +212,12 @@ Other interesting ideas and resources were:
 *** org export to markdown?
 This is not needed and I haven't further looked into this.
 
+*** org buffer startup unfolded
+#+BEGIN_SRC elisp
+;; other options are: nofold, fold, content
+(setq org-startup-folded 'showeverything)
+#+END_SRC
+
 
 ** Searching/Completion with IDO
 
@@ -217,8 +228,6 @@ Reference: [[https://www.reddit.com/r/emacs/comments/3o36sc/what_do_you_prefer_i
 *** ido-vertical-mode
 *** flx-ido
 I don't know if I want to keep using this...
-
-
 
 ** Keybindings
 
