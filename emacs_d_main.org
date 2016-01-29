@@ -182,6 +182,14 @@ C-c C-l type "file:"
 
 ** org-mode
 
+*** org-cycle-separators
+controls when empty lines are shown in folded subtrees. 
+#+BEGIN_SRC elisp
+(setq org-cycle-separator-lines 1)
+#+END_SRC
+See [[https://www.gnu.org/software/emacs/manual/html_node/org/Headlines.html][manual]] and [[https://www.reddit.com/r/orgmode/comments/3c4xdk/spacing_between_items_when_trees_are_folded/cssojh4][reddit post]].
+
+
 *** org-mode and Jekyll
 
 I followed the following tutorial: [[http://orgmode.org/worg/org-tutorials/org-jekyll.html][org-jekyll]] on orgmode.org.

@@ -144,18 +144,23 @@
 
 ;; embbed images - [[file:image.png]] - get displayed with the
 ;; correct width specified by #+attr_html: :width 580px
-(setq org-image-actual-width '(400)) 
+(setq org-image-actual-width '(400))
+
+(setq org-cycle-separator-lines 1)
 
 
 ;; ------------ default buffer settings ------------
+;; these setting can be overriden by #+STARTUP
+
+;; override with  #+STARTUP: noindent 
+(setq org-startup-indented t)
+
+;;(setq org-adapt-indentation t)
 
 ;; other options are: nofold, fold, content
 (setq org-startup-folded 'showeverything)
 
-;; can be overwritten by #+STARTUP: noindent 
-(setq org-startup-indented t)
 
-;;(setq org-adapt-indentation t)
 
 ;; --------------- org-link handling ---------------
 
