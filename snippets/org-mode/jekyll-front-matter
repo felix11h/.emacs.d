@@ -1,0 +1,20 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: jekyll-front-matter
+# key: jfm
+# binding: direct-keybinding
+# --
+#+BEGIN_HTML
+---
+layout: post
+title: $1
+permalink: $2
+date: $3
+type: post
+published: true
+status: publish
+categories:
+- $4
+tags:
+- $0
+---
+#+END_HTML
