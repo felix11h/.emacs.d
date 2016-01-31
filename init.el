@@ -378,6 +378,15 @@
 (require 'json-mode)
 
 
+
+;; ~~~~~~~~~~~~~~~~~~~~~~~~~~  Yasnippet  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+
+(require 'yasnippet)
+
+(yas-reload-all)
+(add-hook 'org-mode-hook #'yas-minor-mode)
+
+
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~ Keybindings  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 (require 'bind-key)

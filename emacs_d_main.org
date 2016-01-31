@@ -12,13 +12,29 @@ to be commited within their repositories first.
 
 * top
 
-** for emacs: file:projects.org::*task title heading search in Org file
+** yasnippets
+*** latex beamer complete frame
+*** jekyll pre-amble
+*** sci/nb header
+*** .gitignore latex type
+
+** new movement keybindings
+C-f: forward (default)
+C-k: backward (new)
+C-m: down (new)
+C-o: up (new)
+
+** new buffer selection keys
+(global-set-key (kbd "C-<left>") #'previous-buffer)
+(global-set-key (kbd "C-<right>") #'next-buffer)
+
+** remap C-j to RET
+
 ** for emacs: ido-hacks?
 
 ** After C-c C-2 pointer jumps to of buffer
 ** disable C-w that deletes whole sections
 ** find better alternative to M-w for copy
-** remap C-j to RET
 
 ** open recent files + smart file search using recent/frequently used files
 
@@ -31,8 +47,17 @@ to be commited within their repositories first.
 ** org-mode headlines color (white -> blue?)
 
 ** Emacs org dictionary
-- Better Writing: [[http://emacs.stackexchange.com/questions/2171/what-options-are-there-for-writing-better-non-programming-text-in-emacs][Emacs SE]]
-- Spell checking: [[http://emacs.stackexchange.com/questions/2167/what-options-are-there-for-doing-spell-checking-in-emacs][Emacs SE]]
+references: [[http://emacs.stackexchange.com/questions/2167/what-options-are-there-for-doing-spell-checking-in-emacs][Emacs SE]]
+*** Flyspell
+- how synchornize gnu aspell dictionary?
+- how to use with keybindings only?
+
+** Better text writing
+reference: [[http://emacs.stackexchange.com/questions/2171/what-options-are-there-for-writing-better-non-programming-text-in-emacs][Emacs SE]]
+*** langtool
+doesn't work on the fly. maybe write custom save function for org-mode that first invokes the language check?
+
+** Better shell
 - Better shell: [[https://snarfed.org/why_i_dont_run_shells_inside_emacs][snarfed.org]]
 
 ** indent org-mode src blocks?
@@ -181,6 +206,13 @@ C-c C-l type "file:"
 * completed
 
 ** org-mode
+
+*** for emacs: file:projects.org::*task title heading search in Org file
+Yes, this works! The syntax
+#+BEGIN_SRC 
+file:project.org::*headline title
+#+END_SRC
+is correct, where "headline title" is the title of *any* headline. The number of stars in the link, however, remains the single star.
 
 *** org-cycle-separators
 controls when empty lines are shown in folded subtrees. 
