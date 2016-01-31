@@ -1,0 +1,35 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: gitignore-latex
+# key: latex
+# binding: direct-keybinding
+# --
+*#
+*~
+*.aux
+*.glo
+*.idx
+*.log
+*.toc
+*.ist
+*.acn
+*.acr
+*.alg
+*.bbl
+*.blg
+*.dvi
+*.glg
+*.gls
+*.ilg
+*.ind
+*.lof
+*.lot
+*.maf
+*.mtc
+*.mtc1
+*.out
+*.fls
+*.nav
+*.snm
+*.vrb
+*.fdb_latexmk
+*.synctex.gz

@@ -377,15 +377,22 @@
 ;; ----------------------- json mode -------------------------
 (require 'json-mode)
 
+;; ----------------------- git modes -------------------------
+(require 'gitignore-mode)
+(require 'gitconfig-mode)
+(require 'gitattributes-mode)
+
 
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~  Yasnippet  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 (require 'yasnippet)
 
+;; load yasnippet only for specific modes:
 (yas-reload-all)
 (add-hook 'org-mode-hook #'yas-minor-mode)
-
+(add-hook 'latex-mode-hook #'yas-minor-mode)
+(add-hook 'gitignore-mode-hook #'yas-minor-mode)
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~ Keybindings  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 

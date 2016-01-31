@@ -1,0 +1,27 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: new-frame-two-columns
+# key: nf2
+# binding: direct-keybinding
+# --
+
+\begin{frame}{$1}
+  % 
+  \begin{columns}
+    %
+    \begin{column}{.425\textwidth}
+      \minipage[c][0.65\textheight][s]{\columnwidth}
+      \vspace{0.05\textheight}
+
+      $0
+     
+      \endminipage      
+    \end{column}
+    %
+    \begin{column}{.575\textwidth}
+
+  
+      
+    \end{column}
+  \end{columns}
+
+\end{frame}

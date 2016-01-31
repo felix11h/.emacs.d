@@ -1,0 +1,10 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: html-image
+# key: img
+# binding: direct-keybinding
+# --
+#+BEGIN_HTML
+<img src="{{ site.baseurl }}/assets/$1" width="90%" style="display:block;margin:2em auto 2em;"/>
+#+END_HTML
+
+$0

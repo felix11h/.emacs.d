@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: html-more-tag
+# key: more
+# binding: direct-keybinding
+# --
+#+BEGIN_HTML
+<!-- more -->
+#+END_HTML

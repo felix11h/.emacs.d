@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: sci-nb-header
+# key: nb
+# binding: direct-keybinding
+# --
+#+SETUPFILE: ../templates/main_template.org
+#+TITLE: $1
+
+$0

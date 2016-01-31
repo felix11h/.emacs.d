@@ -12,12 +12,6 @@ to be commited within their repositories first.
 
 * top
 
-** yasnippets
-*** latex beamer complete frame
-*** jekyll pre-amble
-*** sci/nb header
-*** .gitignore latex type
-
 ** new movement keybindings
 C-f: forward (default)
 C-k: backward (new)
@@ -330,3 +324,24 @@ I don't like this one as much as Steve Purcell's.
 #+END_SRC
 
 *** sanityinc-solarized
+
+
+** yasnippets
+
+To create new yasnippet:
+  1. ~M-x yas-new-snippet~
+  2. pick name with the syntax: lowercase-separated-by-dash
+  3. Use $1,$2,.. as tab stops, $0 is the exit point
+  4. Use C-c C-c to create and save the snippet - pick the appropriate mode!
+  5. If the yasnippet hasn't yet been activated in the mode you want it to work, add the hook to the init file:
+     ~(add-hook 'org-mode-hook #'yas-minor-mode)~
+
+Use key-TAB to try out the snippet.
+
+Existing snippets:
+
+*** latex beamer complete frame ~nf2~
+*** sci/nb header ~nb~
+*** .gitignore latex type ~latex~
+*** jekyll-front-matter ~jfm~
+[[file:snippets/org-mode/jekyll-front-matter][yasnippet]]
