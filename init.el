@@ -383,6 +383,13 @@
 (require 'gitattributes-mode)
 
 
+;; ~~~~~~~~~~~~~~~~~~~~~~ Ispell / Flyspell ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+(setq ispell-personal-dictionary "~/.emacs.d/dict/.aspell.en.pws")
+
+(add-hook 'org-mode-hook 'flyspell-mode)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
+
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~  Yasnippet  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
@@ -412,4 +419,3 @@
 (bind-key* "C-c C-e" 'end-of-buffer)
 
 (bind-key* "C-c C-h" 'magit-status)
-
