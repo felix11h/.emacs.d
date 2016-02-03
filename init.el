@@ -390,6 +390,13 @@
 (add-hook 'org-mode-hook 'flyspell-mode)
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
 
+(defun add-to-dict-word-at-point ()
+  (interactive)
+  (let ((current-location (point))
+         (word (flyspell-get-word)))
+    (when (consp word)    
+      (flyspell-do-correct 'save nil (car word) current-location (cadr word) (caddr word) current-location))))
+
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~  Yasnippet  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
@@ -419,3 +426,5 @@
 (bind-key* "C-c C-e" 'end-of-buffer)
 
 (bind-key* "C-c C-h" 'magit-status)
+
+(bind-key* "C-c i" 'add-to-dict-word-at-point)
