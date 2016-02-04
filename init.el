@@ -75,8 +75,8 @@
 (ido-ubiquitous-mode 1)
 
 ;; fuzzy matching - for now probably better without?
-(require 'flx-ido)
-(flx-ido-mode 1)
+;; (require 'flx-ido)
+;; (flx-ido-mode 1)
 ;; disable ido faces to see flx highlights.
 ;; (setq ido-enable-flex-matching t)
 ;; (setq ido-use-faces nil)
@@ -247,10 +247,26 @@
          :recursive t
          :publishing-function org-publish-attachment)
         ("3dpp" :components ("3dpp-org" "3dpp-static"))
+
+        ("mcp_io"
+         ;; Path to your org files.
+         :base-directory "~/dev/projects/mcp_io/mcp_io/org/"
+         :base-extension "org"
+
+         ;; Path to your Jekyll project.
+         :publishing-directory "~/dev/projects/mcp_io/mcp_io/_posts/"
+         :recursive t
+         :publishing-function org-html-publish-to-html
+         :headline-levels 4 
+         :html-extension "html"
+	 :table-of-contents nil
+         :body-only t ;; Only export section between <body> </body>
+         )
         ))
 
 (global-set-key (kbd "C-c C-1") (lambda () (interactive) (org-publish "nb")))
 (global-set-key (kbd "C-c C-2") (lambda () (interactive) (org-publish "3dpp")))
+(global-set-key (kbd "C-c C-3") (lambda () (interactive) (org-publish "mcp_io")))
 
 ;; ---------------      org other      ---------------
 
