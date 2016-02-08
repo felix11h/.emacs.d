@@ -401,7 +401,7 @@
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~ Ispell / Flyspell ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-(setq ispell-personal-dictionary "~/.emacs.d/dict/.aspell.en.pws")
+(setq ispell-personal-dictionary "~/opt/aspell_dict/.aspell.en.pws")
 
 (add-hook 'org-mode-hook 'flyspell-mode)
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
@@ -412,6 +412,14 @@
          (word (flyspell-get-word)))
     (when (consp word)    
       (flyspell-do-correct 'save nil (car word) current-location (cadr word) (caddr word) current-location))))
+
+
+;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~ langtool ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+(require 'langtool)
+(setq langtool-language-tool-jar "~/opt/LanguageTool-3.2/languagetool-commandline.jar")
+(setq langtool-mother-tongue "en")
+langtool-disabled-rules '("WHITESPACE_RULE")
 
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~  Yasnippet  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 

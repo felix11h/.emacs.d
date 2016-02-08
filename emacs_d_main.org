@@ -7,7 +7,7 @@ Don't use MELPA. Clone directly from git into modes. The function in
 init.el already insures that everything in modes/ is in the load-path.
 
 If changes are made to the git repositories in modes, those will need
-to be commited within their repositories first.
+to be committed within their repositories first.
 
 
 * top
@@ -24,6 +24,14 @@ C-o: up (new)
 
 ** Emacs spellchecking with ispell/flyspell and Aspell
 references: [[http://emacs.stackexchange.com/questions/2167/what-options-are-there-for-doing-spell-checking-in-emacs][Emacs SE]], [[https://joelkuiper.eu/spellcheck_emacs][joelkuiper.eu]]
+
+*** multiple dictionaries
+[[http://stackoverflow.com/questions/3910056/aspell-under-emacs-multiple-dictonaries][Stackoverflow question]]
+
+*** set English dictionary to British English.
+
+*** ignore email addresses and URLs 
+
 *** Flyspell/ispell
 - how synchornize gnu aspell dictionary?
 - how to use with keybindings only?
@@ -38,8 +46,6 @@ https://github.com/Malabarba/smart-mode-line/
 
 ** Emacs perspectives
 https://github.com/nex3/perspective-el/tree/master
-
-
 
 ** remap C-j to RET
 
