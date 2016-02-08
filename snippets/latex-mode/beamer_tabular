@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: beamer_tabular
+# key: tab
+# binding: direct-keybinding
+# --
+\begin{tabular}{|p{0.9\textwidth}}
+  $0
+\end{tabular}	     

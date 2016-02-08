@@ -10,7 +10,6 @@
     %
     \begin{column}{.425\textwidth}
       \minipage[c][0.65\textheight][s]{\columnwidth}
-      \vspace{0.05\textheight}
 
       $0
      

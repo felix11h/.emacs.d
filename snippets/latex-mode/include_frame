@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: include_frame
+# key: incf
+# binding: direct-keybinding
+# --
+\include{frames/$1}
+$0

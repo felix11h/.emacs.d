@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: vfill
+# key: v
+# binding: direct-keybinding
+# --
+
+\vfill
+
+$0

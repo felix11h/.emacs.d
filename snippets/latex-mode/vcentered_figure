@@ -1,0 +1,14 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: vcentered_figure
+# key: vcf
+# binding: direct-keybinding
+# --
+\onslide<1->
+\parbox[c][0.9\textheight][c]{\columnwidth}{
+  \begin{figure}
+    \centering
+    \includegraphics[height=0.85\textheight]{%
+      $1} %
+  \end{figure}}
+
+$0
