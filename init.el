@@ -322,13 +322,13 @@
 ;;disable the version control
 (setq vc-handled-backends nil) 
 
-(add-to-list 'load-path "~/.emacs.d/modes/magit-2.1.0/lisp")
-(require 'magit)
+;; (add-to-list 'load-path "~/.emacs.d/modes/magit-2.1.0/lisp")
+;; (require 'magit)
 
-(with-eval-after-load 'info
-  (info-initialize)
-  (add-to-list 'Info-directory-list
-               "~/.emacs.d/modes/magit-2.1.0/Documentation/"))
+;; (with-eval-after-load 'info
+;;   (info-initialize)
+;;   (add-to-list 'Info-directory-list
+;;                "~/.emacs.d/modes/magit-2.1.0/Documentation/"))
 
 ;; enable ido in magit
 ;; (setq magit-completing-read-function 'magit-ido-completing-read)
