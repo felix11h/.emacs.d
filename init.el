@@ -337,6 +337,22 @@
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ LaTeX ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 
+(add-hook 'latex-mode-hook 'turn-on-reftex)
+(setq reftex-default-bibliography '("~/lib/main.bib"))
+
+;; Biblatex citing http://tex.stackexchange.com/questions/31966/
+(eval-after-load 'reftex-vars
+  '(progn
+     ;; (also some other reftex-related customizations)
+     (setq reftex-cite-format
+           '((?\C-m . "\\cite[]{%l}")
+             (?f . "\\footcite[][]{%l}")
+             (?t . "\\textcite[]{%l}")
+             (?p . "\\parencite[]{%l}")
+             (?o . "\\citepr[]{%l}")
+             (?n . "\\nocite{%l}")))))
+
+
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Python ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Web mode ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
