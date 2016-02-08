@@ -3,6 +3,8 @@
 # key: jfm
 # binding: direct-keybinding
 # --
+#+STARTUP: noindent showeverything
+#+OPTIONS: toc:nil; html-postamble:nil
 #+BEGIN_HTML
 ---
 layout: post
