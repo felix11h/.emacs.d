@@ -401,7 +401,7 @@
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~ Ispell / Flyspell ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-(setq ispell-personal-dictionary "~/opt/aspell_dict/.aspell.en.pws")
+(setq ispell-personal-dictionary "~/.opt/aspell_dict/.aspell.en.pws")
 
 (add-hook 'org-mode-hook 'flyspell-mode)
 (add-hook 'LaTeX-mode-hook 'flyspell-mode)
