@@ -468,3 +468,8 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 (bind-key* "C-c C-h" 'magit-status)
 
 (bind-key* "C-c i" 'add-to-dict-word-at-point)
+
+;;(bind-key* "C-m" 'previous-buffer)
+(bind-key* "C-i" 'next-buffer)
+
+

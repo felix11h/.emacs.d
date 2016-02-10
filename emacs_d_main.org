@@ -12,15 +12,13 @@ to be committed within their repositories first.
 
 * top
 
+** syntax highlighting for Markdown .md files
+
 ** new movement keybindings
 C-f: forward (default)
 C-k: backward (new)
 C-m: down (new)
 C-o: up (new)
-
-** new buffer selection keys
-(global-set-key (kbd "C-<left>") #'previous-buffer)
-(global-set-key (kbd "C-<right>") #'next-buffer)
 
 ** Emacs spellchecking with ispell/flyspell and Aspell
 references: [[http://emacs.stackexchange.com/questions/2167/what-options-are-there-for-doing-spell-checking-in-emacs][Emacs SE]], [[https://joelkuiper.eu/spellcheck_emacs][joelkuiper.eu]]
@@ -298,6 +296,12 @@ I don't know if I want to keep using this...
 Bound to C-c C-a and C-c C-e!
 
 *** enabled C-n C-p for ido-vertical
+
+*** new buffer selection keys
+#+BEGIN_SRC 
+(bind-key* "C-n" 'previous-buffer)
+(bind-key* "C-i" 'next-buffer)
+#+END_SRC
 
 ** Package installers
 
