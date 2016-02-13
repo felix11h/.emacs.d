@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: blockquote
+# key: blockq
+# binding: direct-keybinding
+# --
+#+BEGIN_HTML
+<blockquote class="largeQuote">“$1”</blockquote>
+#+END_HTML
+$0
