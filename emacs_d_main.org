@@ -60,8 +60,6 @@ Maybe AucTeX?
 
 ** Python mode: C-c ; to comment/uncomment
 
-** Shortcuts for top, dev_ops & sci_ops?
-
 ** org-mode headlines color (white -> blue?)
 
 ** Better text writing
@@ -301,6 +299,13 @@ Bound to C-c C-a and C-c C-e!
 #+BEGIN_SRC 
 (bind-key* "C-n" 'previous-buffer)
 (bind-key* "C-i" 'next-buffer)
+#+END_SRC
+
+*** shortcuts for top, dev_ops & sci_ops.org
+#+BEGIN_SRC elisp
+(bind-key* "C-c a" (lambda() (interactive)(find-file "~/admin/top.org")))
+(bind-key* "C-c s" (lambda() (interactive)(find-file "~/sci/main/sci_ops.org")))
+(bind-key* "C-c d" (lambda() (interactive)(find-file "~/dev/dev_ops.org")))
 #+END_SRC
 
 ** Package installers
