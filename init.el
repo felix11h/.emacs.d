@@ -470,6 +470,8 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 (bind-key* "C-c i" 'add-to-dict-word-at-point)
 
 ;;(bind-key* "C-m" 'previous-buffer)
-(bind-key* "C-i" 'next-buffer)
+;;(bind-key* "C-i" 'next-buffer)
 
-
+(bind-key* "C-c a" (lambda() (interactive)(find-file "~/admin/top.org")))
+(bind-key* "C-c s" (lambda() (interactive)(find-file "~/sci/main/sci_ops.org")))
+(bind-key* "C-c d" (lambda() (interactive)(find-file "~/dev/dev_ops.org")))
