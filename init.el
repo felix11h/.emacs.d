@@ -448,6 +448,16 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 (add-hook 'latex-mode-hook #'yas-minor-mode)
 (add-hook 'gitignore-mode-hook #'yas-minor-mode)
 
+;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~  Abbrev  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+(setq abbrev-file-name              ;; custom file location
+      "~/.opt/abbrev/abbrev_def")    
+
+(add-hook 'text-mode-hook (lambda () (abbrev-mode 1)))
+
+(if (file-exists-p abbrev-file-name)
+    (quietly-read-abbrev-file))
+
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~ Keybindings  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 (require 'bind-key)
