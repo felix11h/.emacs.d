@@ -1,7 +1,10 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: vfill
-# key: v
+# name: new_frame_single
+# key: nf1
 # binding: direct-keybinding
 # --
-\vfill
-$0
+\begin{frame}{$1}
+  
+  $0	
+
+\end{frame}

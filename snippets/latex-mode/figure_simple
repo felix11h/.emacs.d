@@ -1,0 +1,12 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: figure_simple
+# key: fig
+# binding: direct-keybinding
+# --
+\begin{figure}
+  \centering
+  \includegraphics[height=0.85\textheight]{%
+    $1} %
+\end{figure}
+
+$0
