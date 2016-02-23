@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: begin_proposition
+# key: prop
+# binding: direct-keybinding
+# --
+\begin{proposition}
+$0
+\end{proposition}

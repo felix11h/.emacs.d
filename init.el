@@ -458,6 +458,8 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 (if (file-exists-p abbrev-file-name)
     (quietly-read-abbrev-file))
 
+(abbrev-table-put global-abbrev-table :case-fixed t)
+
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~ Keybindings  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 (require 'bind-key)

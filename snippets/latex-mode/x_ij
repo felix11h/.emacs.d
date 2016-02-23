@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: x_ij
+# key: Xij
+# binding: direct-keybinding
+# --
+X_{ij}
