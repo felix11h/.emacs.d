@@ -355,6 +355,13 @@
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Python ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+(defun python-mode-keys ()
+  "Modify keymaps used by python mode."
+  (local-set-key (kbd "C-c ;") 'comment-dwim)
+  )
+
+(add-hook 'python-mode-hook 'python-mode-keys)
+
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Web mode ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 (require 'web-mode)
