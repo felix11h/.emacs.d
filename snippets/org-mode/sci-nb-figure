@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: sci-nb-figure
+# key: fig
+# binding: direct-keybinding
+# --
+#+attr_html: :width 600px
+#+CAPTION: $1
+$0
