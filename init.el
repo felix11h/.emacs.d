@@ -232,7 +232,7 @@
          :base-extension "org"
 
          ;; Path to your Jekyll project.
-         :publishing-directory "~/dev/projects/3diagramspp/3diagramspp/_posts/"
+         :publishing-directory "~/dev/projects/3diagramspp/3diagramspp/"
          :recursive t
          :publishing-function org-html-publish-to-html
          :headline-levels 4 
