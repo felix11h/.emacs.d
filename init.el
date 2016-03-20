@@ -138,6 +138,7 @@
             (visual-line-mode 1)  ;; word-wrap
 	    (visual-fill-column-mode 1)
 	    (setq visual-fill-column-width 76)
+	    (wc-mode 1) ;; word-count mode
             ;; (local-set-key (kbd "C-c C-2")  (lambda () ...
            ))
 
@@ -467,6 +468,11 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 
 (abbrev-table-put global-abbrev-table :case-fixed t)
 
+;; ~~~~~~~~~~~~~~~~~~~~~~~~~~ Word-count ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+(require 'wc-mode)
+
+
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~ Keybindings  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 (require 'bind-key)
@@ -493,4 +499,6 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 
 (bind-key* "C-c a" (lambda() (interactive)(find-file "~/admin/top.org")))
 (bind-key* "C-c s" (lambda() (interactive)(find-file "~/sci/main/sci_ops.org")))
+(bind-key* "C-c j" (lambda() (interactive)(find-file "~/sci/main/in.org")))
 (bind-key* "C-c d" (lambda() (interactive)(find-file "~/dev/dev_ops.org")))
+
