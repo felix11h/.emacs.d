@@ -1,0 +1,37 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: new-frame-3-column
+# key: nf3
+# binding: direct-keybinding
+# --
+
+\begin{frame}{$1}
+  % 
+  \begin{columns}
+    %
+    \begin{column}{.33\textwidth}
+      \minipage[c][0.65\textheight][s]{\columnwidth}
+      
+      $0
+      
+      \endminipage      
+    \end{column}
+    %
+    \begin{column}{.33\textwidth}
+      \minipage[c][0.65\textheight][s]{\columnwidth}
+      
+      
+      
+      \endminipage      
+    \end{column}
+    %
+    \begin{column}{.33\textwidth}
+      \minipage[c][0.65\textheight][s]{\columnwidth}
+      
+      
+      
+      \endminipage      
+    \end{column}
+
+  \end{columns}
+  
+\end{frame}

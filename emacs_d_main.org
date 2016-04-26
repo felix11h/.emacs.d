@@ -12,6 +12,12 @@ to be committed within their repositories first.
 
 * top
 
+** run commands on "buffer save"
+[[https://github.com/wasamasa/firestarter][firestarter]] (originally tweeted by Stephen Eglen)
+
+** clean up mode line (hide minor modes?)
+[[http://emacs.stackexchange.com/questions/3925/hide-list-of-minor-modes-in-mode-line][SO question]]
+
 ** syntax highlighting for Markdown .md files
 
 ** new movement keybindings

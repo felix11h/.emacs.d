@@ -255,7 +255,7 @@
          :base-extension "org"
 
          ;; Path to your Jekyll project.
-         :publishing-directory "~/dev/projects/mcp_io/mcp_io/_posts/"
+         :publishing-directory "~/dev/projects/mcp_io/mcp_io/"
          :recursive t
          :publishing-function org-html-publish-to-html
          :headline-levels 4 
@@ -501,4 +501,5 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 (bind-key* "C-c s" (lambda() (interactive)(find-file "~/sci/main/sci_ops.org")))
 (bind-key* "C-c j" (lambda() (interactive)(find-file "~/sci/main/in.org")))
 (bind-key* "C-c d" (lambda() (interactive)(find-file "~/dev/dev_ops.org")))
-
+(bind-key* "C-c x" (lambda() (interactive)(find-file "~/admin/id/mcp/mcp_main.org")))
+(bind-key* "C-c ;" 'comment-or-uncomment-region)

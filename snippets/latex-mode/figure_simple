@@ -5,7 +5,7 @@
 # --
 \begin{figure}
   \centering
-  \includegraphics[height=0.85\textheight]{%
+  \includegraphics[width=0.85\textwidth]{%
     $1} %
 \end{figure}
 

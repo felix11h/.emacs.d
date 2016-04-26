@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: comment-cc
+# key: cc
+# binding: direct-keybinding
+# --
+\cc{$1}$0
