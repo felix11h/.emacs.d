@@ -12,13 +12,15 @@
 
 ;; tomorow themes by Chris Kempson, adapted by Steve Purcell
 ;; https://github.com/purcell/color-theme-sanityinc-tomorrow
-(add-to-list 'load-path "~/.emacs.d/themes/color-theme-sanityinc-tomorrow")
-;;(require 'color-theme-sanityinc-tomorrow)
-;;(load-theme 'sanityinc-tomorrow-night t)  ;; -night, -day
+;; -----
+;; (add-to-list 'load-path "~/.emacs.d/themes/color-theme-sanityinc-tomorrow")
+;; (require 'color-theme-sanityinc-tomorrow)
+;; (load-theme 'sanityinc-tomorrow-night t)  ;; -night, -day
 
 ;; solarized themes by Ethan Schoonover, adapted by Steve Purcel,
 ;; slightly modified by me
 ;; https://github.com/purcell/color-theme-sanityinc-solarized
+;; -----
 ;; (add-to-list 'load-path "~/.emacs.d/themes/color-theme-sanityinc-solarized")
 ;; (require 'color-theme-sanityinc-solarized)
 ;; (load-theme 'sanityinc-solarized-dark t)  ;; -light, -dark
@@ -30,10 +32,31 @@
 (require 'color-theme-sanityinc-solarized)
 (load-theme 'sanityinc-solarized-dark t)  ;; -light, -dark
 
+;; Seoul 256 by Chris Davison
+;; https://github.com/ChrisDavison/seoul256.el
+;; ------
+;; (add-to-list 'load-path "~/.emacs.d/themes/seoul256")
+;; (require 'seoul256-theme)
+;; (load-theme 'seoul256 t)
+
+;; desert-theme by Sergei Lebedev
+;; https://github.com/emacs-jp/replace-colorthemes/blob/master/desert-theme.el
+;; -----
+;; (add-to-list 'load-path "~/.emacs.d/themes/desert-theme")
+;; (require 'desert-theme)
+;; (load-theme 'desert t)
+
+;; spacegray-theme by bruch
+;; https://github.com/bruce/emacs-spacegray-theme
+;; -----
+;; (add-to-list 'load-path "~/.emacs.d/themes/emacs-spacegray-theme")
+;; (require 'spacegray-theme)
+;; (load-theme 'spacegray t)
 
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Global ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
 
+(setq ring-bell-function 'ignore)               ;; no alarm when scrolling
 (tool-bar-mode -1)                              ;; no toolbar
 (menu-bar-mode -1)                              ;; no menu bar
 (set-scroll-bar-mode 'left)                     ;; 
