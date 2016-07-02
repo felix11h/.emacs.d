@@ -12,6 +12,12 @@ to be committed within their repositories first.
 
 * top
 
+** hydra - buffers?
+[[https://github.com/seanirby/dotfiles/blob/master/.emacs.d/init.el#L310-L397][github code]]
+
+** smooth scrolling with inline images in org-mode
+[[http://emacs.stackexchange.com/questions/10354][Emacs SE question]]
+
 ** run commands on "buffer save"
 [[https://github.com/wasamasa/firestarter][firestarter]] (originally tweeted by Stephen Eglen)
 
