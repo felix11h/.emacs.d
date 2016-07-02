@@ -383,6 +383,7 @@ names to which it refers are bound."
      (org-agenda-dimmed-todo-face ((,class (:foreground ,faint))))
      (org-block ((,class (:foreground ,orange))))
      (org-code ((,class (:foreground ,yellow))))
+     (org-latex-and-related ((t (:foreground ,blue))))
      (org-column ((,class (:background ,alt-background))))
      (org-column-title ((,class (:inherit org-column :weight bold :underline t))))
      (org-date ((,class (:foreground ,blue :underline t))))
