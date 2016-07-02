@@ -229,6 +229,16 @@ C-c C-l type "file:"
 
 ** org-mode
 
+*** org-mode color for LaTeX fragments
+from yellow to blue. Use
+#+BEGIN_SRC 
+M-x customize-group RET org-faces RET
+#+END_SRC
+to identify the org-face to change, then add in color theme. Here:
+#+BEGIN_SRC 
+(org-latex-and-related ((t (:foreground ,blue))))
+#+END_SRC
+
 *** for emacs: file:projects.org::*task title heading search in Org file
 Yes, this works! The syntax
 #+BEGIN_SRC 
