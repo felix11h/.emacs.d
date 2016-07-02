@@ -53,6 +53,14 @@
 ;; (require 'spacegray-theme)
 ;; (load-theme 'spacegray t)
 
+;; greymatters-theme by mswift42
+;; https://github.com/mswift42/greymatters-theme
+;; -----
+;; (add-to-list 'load-path "~/.emacs.d/themes/greymatters-theme")
+;; (require 'greymatters-theme)
+;; (load-theme 'greymatters t)
+
+
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Global ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
 
@@ -464,7 +472,7 @@
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~ langtool ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 (require 'langtool)
-(setq langtool-language-tool-jar "~/opt/LanguageTool-3.2/languagetool-commandline.jar")
+(setq langtool-language-tool-jar "~/opt/languagetool-3.2/languagetool-commandline.jar")
 (setq langtool-mother-tongue "en")
 langtool-disabled-rules '("WHITESPACE_RULE")
 
@@ -526,3 +534,4 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 (bind-key* "C-c d" (lambda() (interactive)(find-file "~/dev/dev_ops.org")))
 (bind-key* "C-c x" (lambda() (interactive)(find-file "~/admin/id/mcp/mcp_main.org")))
 (bind-key* "C-c ;" 'comment-or-uncomment-region)
+
