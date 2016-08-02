@@ -12,6 +12,18 @@ to be committed within their repositories first.
 
 * top
 
+** Latex highlight in org-mode 
+underscore_problematic
+#+BEGIN_SRC 
+#+OPTIONS: ^:nil
+#+END_SRC
+does work, but
+#+BEGIN_SRC
+;; disable underscore (subscript) and ^ (superscript) highlight and export
+(setq org-export-with-sub-superscripts nil)
+#+END_SRC
+in init.el does not
+
 ** hydra - buffers?
 [[https://github.com/seanirby/dotfiles/blob/master/.emacs.d/init.el#L310-L397][github code]]
 

@@ -535,3 +535,4 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 (bind-key* "C-c x" (lambda() (interactive)(find-file "~/admin/id/mcp/mcp_main.org")))
 (bind-key* "C-c ;" 'comment-or-uncomment-region)
 
+(setq org-highlight-latex-and-related '(latex script entities))
