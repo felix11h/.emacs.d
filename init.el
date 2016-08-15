@@ -294,11 +294,47 @@
 	 :table-of-contents nil
          :body-only t ;; Only export section between <body> </body>
          )
+
+	("aniso_netw"
+         ;; Path to your org files.
+         :base-directory "~/sci/rsc/aniso_netw/pub/project_documentation/org/"
+         :base-extension "org"
+
+         ;; Path to your Jekyll project.
+         :publishing-directory "~/sci/rsc/aniso_netw/pub/project_documentation/"
+         :recursive t
+         :publishing-function org-html-publish-to-html
+         :headline-levels 4 
+         :html-extension "html"
+	 :table-of-contents nil
+         :body-only t ;; Only export section between <body> </body>
+         )
+
+	("jrn-org"
+         :base-directory "~/jrn/source/"
+         :base-extension "org"
+         :publishing-directory "~/jrn/content/"
+         :recursive t
+         :publishing-function org-html-publish-to-html
+         :headline-levels 3
+         :auto-preamble t
+         )
+        ("jrn-static"
+         :base-directory "~/jrn/source/"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|mov"
+         :publishing-directory "~/jrn/content/"
+         :recursive t
+         :publishing-function org-publish-attachment
+         )
+        ("jrn" :components ("jrn-org" "jrn-static"))
         ))
 
 (global-set-key (kbd "C-c C-1") (lambda () (interactive) (org-publish "nb")))
 (global-set-key (kbd "C-c C-2") (lambda () (interactive) (org-publish "3dpp")))
 (global-set-key (kbd "C-c C-3") (lambda () (interactive) (org-publish "mcp_io")))
+(global-set-key (kbd "C-c C-4") (lambda () (interactive) (org-publish "aniso_netw")))
+(global-set-key (kbd "C-c C-5") (lambda () (interactive) (org-publish "jrn")))
+
 
 ;; ---------------      org other      ---------------
 

@@ -12,6 +12,11 @@ to be committed within their repositories first.
 
 * top
 
+** org-mode HTML export images in row
+#+BEGIN_SRC question
+ To have images display in a row after exporting to html, I'm supposed to use the "inline" style attribute (http://orgmode.org/worg/org-tutorials/images-and-xhtml-export.html). Is this tutorial out of date? It doesn't seem to work for me at all. I get separate divs and paragraphs and within them the image tags in the exported html, which doesn't display in a row, of course.
+#+END_SRC
+
 ** Latex highlight in org-mode 
 underscore_problematic
 #+BEGIN_SRC 
