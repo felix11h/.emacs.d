@@ -550,6 +550,8 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 (bind-key* "C-;" 'find-file)
 (bind-key* "C-ö" 'find-file)
 
+(bind-key* "C-o" 'other-window)
+
 (bind-key* "C-c C-m" 'multi-term)
 
 (bind-key* "C-c C-r" 'vr/replace)
