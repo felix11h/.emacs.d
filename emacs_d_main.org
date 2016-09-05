@@ -48,6 +48,11 @@ C-f: forward (default)
 C-k: backward (new)
 C-m: down (new)
 C-o: up (new)
+---------------------
+C-f: forward (default)
+C-k: backward (new)
+C-n: down (default)
+C-i: up (new)
 
 ** Emacs spellchecking with ispell/flyspell and Aspell
 references: [[http://emacs.stackexchange.com/questions/2167/what-options-are-there-for-doing-spell-checking-in-emacs][Emacs SE]], [[https://joelkuiper.eu/spellcheck_emacs][joelkuiper.eu]]
