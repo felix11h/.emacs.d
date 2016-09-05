@@ -310,6 +310,21 @@
          :body-only t ;; Only export section between <body> </body>
          )
 
+	("nrnd_pairs"
+         ;; Path to your org files.
+         :base-directory "~/sci/rsc/nrnd_pairs/pub/project_documentation/org/"
+         :base-extension "org"
+
+         ;; Path to your Jekyll project.
+         :publishing-directory "~/sci/rsc/nrnd_pairs/pub/project_documentation/"
+         :recursive t
+         :publishing-function org-html-publish-to-html
+         :headline-levels 4 
+         :html-extension "html"
+	 :table-of-contents nil
+         :body-only t ;; Only export section between <body> </body>
+         )
+
 	("jrn-org"
          :base-directory "~/jrn/source/"
          :base-extension "org"
@@ -333,7 +348,8 @@
 (global-set-key (kbd "C-c C-2") (lambda () (interactive) (org-publish "3dpp")))
 (global-set-key (kbd "C-c C-3") (lambda () (interactive) (org-publish "mcp_io")))
 (global-set-key (kbd "C-c C-4") (lambda () (interactive) (org-publish "aniso_netw")))
-(global-set-key (kbd "C-c C-5") (lambda () (interactive) (org-publish "jrn")))
+(global-set-key (kbd "C-c C-5") (lambda () (interactive) (org-publish "nrnd_pairs")))
+(global-set-key (kbd "C-c C-9") (lambda () (interactive) (org-publish "jrn")))
 
 
 ;; ---------------      org other      ---------------
