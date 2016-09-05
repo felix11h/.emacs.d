@@ -562,6 +562,10 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 ;; bind-key* creates minor modes so that these keybindings are truly 
 ;; global, overwriting definitions from all other modes
 
+
+(bind-key* "C-i" 'previous-line)
+(bind-key* "C-k" 'backward-char)
+
 (bind-key* "C-l" 'switch-to-buffer)
 (bind-key* "C-;" 'find-file)
 (bind-key* "C-ö" 'find-file)
