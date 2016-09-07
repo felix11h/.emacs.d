@@ -562,8 +562,11 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 ;; bind-key* creates minor modes so that these keybindings are truly 
 ;; global, overwriting definitions from all other modes
 
+;; unbinds C-i from TAB
+;; see also http://emacs.stackexchange.com/a/221/338
+(define-key input-decode-map [?\C-i] [C-i])
+(global-set-key (kbd "<C-i>") #'previous-line)
 
-(bind-key* "C-i" 'previous-line)
 (bind-key* "C-k" 'backward-char)
 
 (bind-key* "C-l" 'switch-to-buffer)
