@@ -33,3 +33,5 @@
 *.vrb
 *.fdb_latexmk
 *.synctex.gz
+*.run.xml
+*-blx.bib

@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: shell-preamble
+# key: sh
+# binding: direct-keybinding
+# --
+hello
