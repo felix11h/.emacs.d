@@ -344,11 +344,18 @@
         ("jrn" :components ("jrn-org" "jrn-static"))
         ))
 
-(global-set-key (kbd "C-c C-1") (lambda () (interactive) (org-publish "nb")))
+(global-set-key (kbd "C-c C-1")
+  (lambda () (interactive)
+    (org-publish "nb")
+    (start-process-shell-command "mass_replace_nb" nil "python"
+                                 "~/nb/opt/tools/mass_replace.py")
+  )
+)
 (global-set-key (kbd "C-c C-2") (lambda () (interactive) (org-publish "3dpp")))
 (global-set-key (kbd "C-c C-3") (lambda () (interactive) (org-publish "mcp_io")))
 (global-set-key (kbd "C-c C-4") (lambda () (interactive) (org-publish "aniso_netw")))
 (global-set-key (kbd "C-c C-5") (lambda () (interactive) (org-publish "nrnd_pairs")))
+
 (global-set-key (kbd "C-c C-9") (lambda () (interactive) (org-publish "jrn")))
 
 

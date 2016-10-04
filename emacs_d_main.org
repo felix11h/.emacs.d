@@ -312,6 +312,18 @@ This is not needed and I haven't further looked into this.
 (setq org-startup-folded 'showeverything)
 #+END_SRC
 
+** org-projects
+
+*** run command (python script) after publishing project
+#+BEGIN_SRC emacs-lisp
+(global-set-key (kbd "C-c C-1")
+  (lambda () (interactive)
+    (org-publish "nb")
+    (start-process-shell-command "mass_replace_nb" nil "python"
+                                 "~/nb/opt/tools/mass_replace.py")
+  )
+)
+#+END_SRC
 
 ** Searching/Completion with IDO
 
