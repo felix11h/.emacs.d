@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: logarithm
+# key: log
+# binding: direct-keybinding
+# --
+\operatorname{log}$0
