@@ -1,8 +1,8 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: begin_proof
-# key: proof
+# name: begin_definition
+# key: def
 # binding: direct-keybinding
 # --
-#+begin_proof
+#+begin_definition
 $0
-#+end_proof
+#+end_definition

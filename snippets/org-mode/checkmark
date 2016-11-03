@@ -1,8 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: begin_proof
-# key: proof
+# name: checkmark
+# key: cc
 # binding: direct-keybinding
 # --
-#+begin_proof
-$0
-#+end_proof
+✔$0

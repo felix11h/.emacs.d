@@ -1,8 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: begin_proof
-# key: proof
+# name: mathbb_N
+# key: nn
 # binding: direct-keybinding
 # --
-#+begin_proof
-$0
-#+end_proof
+\mathbb{N}$0

@@ -1,8 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: begin_proof
-# key: proof
+# name: bin/sh
+# key: bin
 # binding: direct-keybinding
 # --
-#+begin_proof
-$0
-#+end_proof
+#!/bin/bash
