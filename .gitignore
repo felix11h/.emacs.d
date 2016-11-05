@@ -5,3 +5,4 @@ backups
 .csync_
 \#*
 .csync*
+.owncloud*
