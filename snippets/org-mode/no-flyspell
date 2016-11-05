@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: no-flyspell
+# key: nofly
+# binding: direct-keybinding
+# --
+# -*- eval:(flyspell-mode -1) -*-$0
