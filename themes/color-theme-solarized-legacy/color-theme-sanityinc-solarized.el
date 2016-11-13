@@ -491,7 +491,7 @@ names to which it refers are bound."
      (powerline-active2 ((t (:foreground ,normal :background ,alt-background))))
 
      ;; Outline
-     (outline-1 ((,class :inherit nil)))
+     (outline-1 ((,class (:inherit nil :foreground ,blue))))
      (outline-2 ((,class (:inherit nil :foreground ,yellow))))
      (outline-3 ((,class (:inherit nil :foreground ,violet))))
      (outline-4 ((,class (:inherit nil :foreground ,cyan))))

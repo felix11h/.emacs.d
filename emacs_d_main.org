@@ -12,6 +12,26 @@ to be committed within their repositories first.
 
 * top
 
+** color themes
+
+*** concentrating on two themes for now:
+**** sanityinc tomorrow (latest)
+swapped outline order
+**** sanityinc solarized-dark (which)?
+outline1 -> blue
+
+*** how tos
+**** change org-mode headline colors:
+change ~outline~ parameters!
+
+** org-publish in the background
+
+*** IRC question
+I have multiple org-projects set up that I export to HTML using org-publish. Each time I publish, a process takes over which jumps through some buffers and resets the pointer in my current buffer. That's a bit troublesome, since I use org-publish very frequently. Is there any way I can run org-publish completely in the background? 
+
+*** pastebin-out
+http://pastebin.com/4pYqzbZH
+
 ** org-mode HTML export images in row
 #+BEGIN_SRC question
  To have images display in a row after exporting to html, I'm supposed to use the "inline" style attribute (http://orgmode.org/worg/org-tutorials/images-and-xhtml-export.html). Is this tutorial out of date? It doesn't seem to work for me at all. I get separate divs and paragraphs and within them the image tags in the exported html, which doesn't display in a row, of course.
@@ -130,11 +150,6 @@ https://www.youtube.com/watch?v=dgcBKz03lK8
 ** Code highlighting in #+BEGIN_HTML ... #+END_HTML
 [[http://emacs.stackexchange.com/questions/18741/how-to-syntax-highlight-begin-html-environment-in-org-mode-buffer][Emacs SE question]]
 
-** After org-publish execute Python script for Proof hiding.
-#+BEGIN_SRC elisp
-org-publish-after-export-hook   (when going through org-publish)
-#+END_SRC 
-
 ** moving things without arrow keys
 http://emacs.stackexchange.com/questions/5366/org-mode-sans-arrow-keys
 
@@ -246,7 +261,6 @@ C-c C-l type "file:"
 
 
 
-
 * completed
 
 ** org-mode
@@ -324,6 +338,11 @@ This is not needed and I haven't further looked into this.
   )
 )
 #+END_SRC
+
+Alternative?: 
+#+BEGIN_SRC elisp
+org-publish-after-export-hook   (when going through org-publish)
+#+END_SRC 
 
 ** Searching/Completion with IDO
 

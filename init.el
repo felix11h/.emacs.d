@@ -18,7 +18,6 @@
 ;; (load-theme 'sanityinc-tomorrow-night t)  ;; -night, -day
 
 ;; solarized themes by Ethan Schoonover, adapted by Steve Purcel,
-;; slightly modified by me
 ;; https://github.com/purcell/color-theme-sanityinc-solarized
 ;; -----
 ;; (add-to-list 'load-path "~/.emacs.d/themes/color-theme-sanityinc-solarized")
@@ -26,8 +25,17 @@
 ;; (load-theme 'sanityinc-solarized-dark t)  ;; -light, -dark
 
 ;; solarized themes by Ethan Schoonover, adapted by Steve Purcel,
+;; slightly modified by me
+;; https://github.com/purcell/color-theme-sanityinc-solarized
+;; -----
+;; (add-to-list 'load-path "~/.emacs.d/themes/color-theme-sanityinc-solarized-legacy-2015")
+;; (require 'color-theme-sanityinc-solarized)
+;; (load-theme 'sanityinc-solarized-dark t)  ;; -light, -dark
+
+;; solarized themes by Ethan Schoonover, adapted by Steve Purcel,
 ;; legacy version, adapted by me
 ;; https://github.com/purcell/color-theme-sanityinc-solarized
+;; -----
 (add-to-list 'load-path "~/.emacs.d/themes/color-theme-solarized-legacy")
 (require 'color-theme-sanityinc-solarized)
 (load-theme 'sanityinc-solarized-dark t)  ;; -light, -dark
@@ -60,6 +68,19 @@
 ;; (require 'greymatters-theme)
 ;; (load-theme 'greymatters t)
 
+;; zenburn-theme by bbatsov
+;; https://github.com/bbatsov/zenburn-emacs
+;; -----
+;; (add-to-list 'load-path "~/.emacs.d/themes/zenburn-emacs")
+;; (require 'zenburn-theme)
+;; (load-theme 'zenburn t)
+
+;; solarized themes by Ethan Schoonover, implemented by Greg Pfeil
+;; https://github.com/sellout/emacs-color-theme-solarized
+;; -----
+;; (add-to-list 'load-path "~/.emacs.d/themes/emacs-color-theme-solarized")
+;; (require 'solarized-theme)
+;; (load-theme 'solarized t) 
 
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Global ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
@@ -158,6 +179,7 @@
 (add-to-list 'load-path "~/.emacs.d/modes/org-mode-8.2.10/lisp")
 ;;(add-to-list 'load-path "~/.emacs.d/modes/org-mode-8.3.3/contrib/lisp" t)
 (require 'org)
+(require 'ox)
 
 ;; enable ido in org-mode
 (setq org-completion-use-ido t)
@@ -237,7 +259,10 @@
 (setq org-export-with-section-numbers nil) ;; no headline numbers!
 (setq org-export-preserve-breaks t)
 
-;; (require 'org-publish)
+(setq org-export-async-init-file
+           (expand-file-name "export-async-init-file.el" (file-name-directory 
+user-init-file)))
+
 (setq org-publish-project-alist
       '(
         ("nb-org"
@@ -344,11 +369,16 @@
         ("jrn" :components ("jrn-org" "jrn-static"))
         ))
 
+(setq org-export-async-debug t)
 (global-set-key (kbd "C-c C-1")
   (lambda () (interactive)
+    ;(org-publish "nb" :ASYNC t)
     (org-publish "nb")
     (start-process-shell-command "mass_replace_nb" nil "python"
                                  "~/nb/opt/tools/mass_replace.py")
+    (start-process-shell-command "mass_replace_nb" nil "python"
+                                 "~/nb/opt/tools/line_replace.py")
+
   )
 )
 (global-set-key (kbd "C-c C-2") (lambda () (interactive) (org-publish "3dpp")))
@@ -369,9 +399,6 @@
 
 (require 'htmlize)
 (setq org-export-htmlize-output-type 'css)
-
-
-
 
 
 ;; no flyspell for Orgmode source code blocks
@@ -545,6 +572,8 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 (add-hook 'org-mode-hook #'yas-minor-mode)
 (add-hook 'latex-mode-hook #'yas-minor-mode)
 (add-hook 'gitignore-mode-hook #'yas-minor-mode)
+(add-hook 'python-mode-hook #'yas-minor-mode)
+(add-hook 'sh-mode-hook #'yas-minor-mode)
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~  Abbrev  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -602,5 +631,3 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 (bind-key* "C-c d" (lambda() (interactive)(find-file "~/dev/dev_ops.org")))
 (bind-key* "C-c x" (lambda() (interactive)(find-file "~/admin/id/mcp/mcp_main.org")))
 (bind-key* "C-c ;" 'comment-or-uncomment-region)
-
-(setq org-highlight-latex-and-related '(latex script entities))
