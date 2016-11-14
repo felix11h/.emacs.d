@@ -627,6 +627,7 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 
 (bind-key* "C-c a" (lambda() (interactive)(find-file "~/admin/top.org")))
 (bind-key* "C-c s" (lambda() (interactive)(find-file "~/sci/main/sci_ops.org")))
+(bind-key* "C-c t" (lambda() (interactive)(find-file "~/admin/tech/tech_main.org")))
 (bind-key* "C-c j" (lambda() (interactive)(find-file "~/sci/main/in.org")))
 (bind-key* "C-c d" (lambda() (interactive)(find-file "~/dev/dev_ops.org")))
 (bind-key* "C-c x" (lambda() (interactive)(find-file "~/admin/id/mcp/mcp_main.org")))
