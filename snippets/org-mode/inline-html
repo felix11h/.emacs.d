@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: inline-html
+# key: inhtml
+# binding: direct-keybinding
+# --
+@@html:$0@@

@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: python
+# key: python
+# binding: direct-keybinding
+# --
+*~
+__pycache__/
+*.py[cod]
+*$py.class
