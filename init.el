@@ -411,14 +411,14 @@ user-init-file)))
 
 
 
-;; ;;enables RefTeX, from http://orgmode.org/worg/org-faq.html
-;; (defun org-mode-reftex-setup ()
-;;   (load-library "reftex")
-;;   (and (buffer-file-name)
-;;        (file-exists-p (buffer-file-name))
-;;        (reftex-parse-all))
-;;   (define-key org-mode-map (kbd "C-c [") 'reftex-citation))
-;; (add-hook 'org-mode-hook 'org-mode-reftex-setup)
+;;enables RefTeX, from http://orgmode.org/worg/org-faq.html
+(defun org-mode-reftex-setup ()
+  (load-library "reftex")
+  (and (buffer-file-name)
+       (file-exists-p (buffer-file-name))
+       (reftex-parse-all))
+  (define-key org-mode-map (kbd "C-c [") 'reftex-citation))
+(add-hook 'org-mode-hook 'org-mode-reftex-setup)
 
 
 ;; ;; enable languages for buffer eval and more
@@ -464,6 +464,7 @@ user-init-file)))
      ;; (also some other reftex-related customizations)
      (setq reftex-cite-format
            '((?\C-m . "\\cite[]{%l}")
+	     (?o . "[[file:~/lib/notes/%l_notes.org][%l]]")
              (?f . "\\footcite[][]{%l}")
              (?t . "\\textcite[]{%l}")
              (?p . "\\parencite[]{%l}")
@@ -542,6 +543,7 @@ user-init-file)))
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~ Ispell / Flyspell ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+(setq ispell-dictionary "en_GB")
 (setq ispell-personal-dictionary "~/.opt/aspell_dict/.aspell.en.pws")
 
 (add-hook 'org-mode-hook 'flyspell-mode)
@@ -626,8 +628,9 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 ;;(bind-key* "C-i" 'next-buffer)
 
 (bind-key* "C-c a" (lambda() (interactive)(find-file "~/admin/top.org")))
-(bind-key* "C-c s" (lambda() (interactive)(find-file "~/sci/main/sci_ops.org")))
-(bind-key* "C-c j" (lambda() (interactive)(find-file "~/sci/main/in.org")))
+(bind-key* "C-c s" (lambda() (interactive)(find-file "~/sci/main/sci_main.org")))
+(bind-key* "C-c t" (lambda() (interactive)(find-file "~/admin/tech/tech_main.org")))
+(bind-key* "C-c j" (lambda() (interactive)(find-file "~/sci/main/sci_main.org")))
 (bind-key* "C-c d" (lambda() (interactive)(find-file "~/dev/dev_ops.org")))
 (bind-key* "C-c x" (lambda() (interactive)(find-file "~/admin/id/mcp/mcp_main.org")))
 (bind-key* "C-c ;" 'comment-or-uncomment-region)
