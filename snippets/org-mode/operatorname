@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: operatorname 
+# key: op
+# binding: direct-keybinding
+# --
+\operatorname{$1}$0

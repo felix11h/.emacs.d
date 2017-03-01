@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: theorem
+# key: theorem
+# binding: direct-keybinding
+# --
+#+begin_theorem
+$0
+#+end_theorem
