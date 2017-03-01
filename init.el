@@ -595,6 +595,11 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~   GPG  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+(require 'epa-file)
+(epa-file-enable)
+
+(setq epa-file-cache-passphrase-for-symmetric-encryption t)
+
 ;; Do not use gpg agent when runing in terminal
 (defadvice epg--start (around advice-epg-disable-agent activate)
   (let ((agent (getenv "GPG_AGENT_INFO")))
