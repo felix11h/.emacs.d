@@ -12,6 +12,13 @@ to be committed within their repositories first.
 
 * top
 
+** org-mode references - important!
+
+** C-k does not move cursor in terminal - jumps back
+Q: How can I rebind moving the pointer backwards (backward-char) in multi-term? I have found 'term-bind-key-alist', but moving the pointer doesn't seem among the bindings. Remapping backward-char globally does move the pointer, but when new input is given it jumps back to the original position. Basically, I want to remap C-b in multi-term.
+
+This might help: [[https://www.reddit.com/r/emacs/comments/4ccczt/keybindings_in_multiterm/][r/emacs]]
+
 ** color themes
 
 *** concentrating on two themes for now:
@@ -264,6 +271,12 @@ C-c C-l type "file:"
 * completed
 
 ** org-mode
+
+*** local no-flyspell
+#+BEGIN_SRC 
+# -*- eval:(flyspell-mode -1) -*-
+#+END_SRC
+expand via "nofly".
 
 *** org-mode color for LaTeX fragments
 from yellow to blue. Use

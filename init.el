@@ -593,6 +593,16 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 
 (require 'wc-mode)
 
+;; ~~~~~~~~~~~~~~~~~~~~~~~~~   GPG  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+;; Do not use gpg agent when runing in terminal
+(defadvice epg--start (around advice-epg-disable-agent activate)
+  (let ((agent (getenv "GPG_AGENT_INFO")))
+    (setenv "GPG_AGENT_INFO" nil)
+    ad-do-it
+    (when (not (display-graphic-p))
+      (setenv "GPG_AGENT_INFO" agent))))
+
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~ Keybindings  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
@@ -632,5 +642,6 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 (bind-key* "C-c t" (lambda() (interactive)(find-file "~/admin/tech/tech_main.org")))
 (bind-key* "C-c j" (lambda() (interactive)(find-file "~/sci/main/sci_main.org")))
 (bind-key* "C-c d" (lambda() (interactive)(find-file "~/dev/dev_ops.org")))
+(bind-key* "C-c u" (lambda() (interactive)(find-file "~/admin/us/us_main.org")))
 (bind-key* "C-c x" (lambda() (interactive)(find-file "~/admin/id/mcp/mcp_main.org")))
 (bind-key* "C-c ;" 'comment-or-uncomment-region)
