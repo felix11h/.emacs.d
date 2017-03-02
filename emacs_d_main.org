@@ -30,14 +30,6 @@ outline1 -> blue
 **** change org-mode headline colors:
 change ~outline~ parameters!
 
-** org-publish in the background
-
-*** IRC question
-I have multiple org-projects set up that I export to HTML using org-publish. Each time I publish, a process takes over which jumps through some buffers and resets the pointer in my current buffer. That's a bit troublesome, since I use org-publish very frequently. Is there any way I can run org-publish completely in the background? 
-
-*** pastebin-out
-http://pastebin.com/4pYqzbZH
-
 ** org-mode HTML export images in row
 #+BEGIN_SRC question
  To have images display in a row after exporting to html, I'm supposed to use the "inline" style attribute (http://orgmode.org/worg/org-tutorials/images-and-xhtml-export.html). Is this tutorial out of date? It doesn't seem to work for me at all. I get separate divs and paragraphs and within them the image tags in the exported html, which doesn't display in a row, of course.
@@ -68,17 +60,6 @@ in init.el does not
 [[http://emacs.stackexchange.com/questions/3925/hide-list-of-minor-modes-in-mode-line][SO question]]
 
 ** syntax highlighting for Markdown .md files
-
-** new movement keybindings
-C-f: forward (default)
-C-k: backward (new)
-C-m: down (new)
-C-o: up (new)
----------------------
-C-f: forward (default)
-C-k: backward (new)
-C-n: down (default)
-C-i: up (new)
 
 ** Emacs spellchecking with ispell/flyspell and Aspell
 references: [[http://emacs.stackexchange.com/questions/2167/what-options-are-there-for-doing-spell-checking-in-emacs][Emacs SE]], [[https://joelkuiper.eu/spellcheck_emacs][joelkuiper.eu]]
@@ -271,6 +252,22 @@ C-c C-l type "file:"
 
 ** org-mode
 
+*** org-publish in the background
+to publish an org-mode project in the background - that is without locking Emacs - the argument ~:ASYNC~ can be passed
+
+: (org-publish "nb-org" :ASYNC t)
+
+For this ~export-async-init-file.el~ needs to be created and pointed to. It should load org-mode and have all global export related settings.
+
+Also note that publishing a project with _components_ in the asynchronous does *not* seem to work!
+
+**** IRC question
+I have multiple org-projects set up that I export to HTML using org-publish. Each time I publish, a process takes over which jumps through some buffers and resets the pointer in my current buffer. That's a bit troublesome, since I use org-publish very frequently. Is there any way I can run org-publish completely in the background? 
+
+**** pastebin-out
+http://pastebin.com/4pYqzbZH
+
+
 *** encrypt org files
 Using OpenGPG. Save the file as ~protected_file.org.gpg~. 
 To settings are used:
@@ -411,6 +408,12 @@ I don't know if I want to keep using this...
 
 (bind-key* "C-l" 'switch-to-buffer)
 #+END_SRC
+
+*** new movement key bindings
+C-f: forward (default)
+C-k: backward (new)
+C-n: down (default)
+C-i: up (new)
 
 *** Emacs top of buffer Keyboard-Shortcut
 Bound to C-c C-a and C-c C-e!
