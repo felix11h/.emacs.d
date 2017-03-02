@@ -554,7 +554,8 @@ user-init-file)))
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~ Ispell / Flyspell ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-(setq ispell-dictionary "en_GB")
+;;(setq ispell-dictionary "en_GB")
+(setq ispell-dictionary "en_US")
 (setq ispell-personal-dictionary "~/.opt/aspell_dict/.aspell.en.pws")
 
 (add-hook 'org-mode-hook 'flyspell-mode)
