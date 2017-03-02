@@ -4,11 +4,9 @@
 
 ** installing packages workflow
 
-Don't use MELPA. Clone directly from git into modes. The function in
-init.el already insures that everything in modes/ is in the load-path.
+Don't use MELPA. +Clone+ Copy raw directly from git into modes. The function in init.el already insures that everything in modes/ is in the load-path.
 
-If changes are made to the git repositories in modes, those will need
-to be committed within their repositories first.
++If changes are made to the git repositories in modes, those will need to be committed within their repositories first.+ Just add it to the repository and work from there.
 
 
 * top
@@ -112,7 +110,9 @@ https://github.com/nex3/perspective-el/tree/master
 ** for emacs: ido-hacks?
 
 ** After C-c C-2 pointer jumps to of buffer
+
 ** disable C-w that deletes whole sections
+
 ** find better alternative to M-w for copy
 
 ** open recent files + smart file search using recent/frequently used files
@@ -121,8 +121,6 @@ https://github.com/nex3/perspective-el/tree/master
 Maybe AucTeX?
 
 ** Python mode: C-c ; to comment/uncomment
-
-** org-mode headlines color (white -> blue?)
 
 ** Better text writing
 reference: [[http://emacs.stackexchange.com/questions/2171/what-options-are-there-for-writing-better-non-programming-text-in-emacs][Emacs SE]]
@@ -272,6 +270,24 @@ C-c C-l type "file:"
 * completed
 
 ** org-mode
+
+*** encrypt org files
+Using OpenGPG. Save the file as ~protected_file.org.gpg~. 
+To settings are used:
+
+1. Prevent Emacs from a graphical popup window to enter passphrase
+#+BEGIN_SRC 
+(defadvice epg--start (around advice-epg-disable-agent activate)
+  (let ((agent (getenv "GPG_AGENT_INFO")))
+    (setenv "GPG_AGENT_INFO" nil)
+    ad-do-it
+    (when (not (display-graphic-p))
+      (setenv "GPG_AGENT_INFO" agent))))
+#+END_SRC
+
+2. Enable caching so that passphrase doesn't have to be entered for writing to files
+: (setq epa-file-cache-passphrase-for-symmetric-encryption t)
+
 
 *** open file: links with correct apps
 customize ~org-file-apps~. Do
