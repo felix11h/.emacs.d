@@ -1,3 +1,4 @@
+#+STARTUP: overview
 
 * main
 
@@ -271,6 +272,23 @@ C-c C-l type "file:"
 * completed
 
 ** org-mode
+
+*** open file: links with correct apps
+customize ~org-file-apps~. Do
+: M-x customize-variable RET org-file-apps
+to see the current values. Note that this doesn't work for file+sys: links! Here's the current setup:
+#+BEGIN_SRC 
+(add-hook 'org-mode-hook
+      '(lambda ()
+         (setq org-file-apps
+           '((auto-mode . emacs)
+             ("\\.mm\\'" . default)
+             ("\\.x?html?\\'" . default)
+             ("\\.pdf\\'" . "okular %s")
+	     ("\\.png\\'" . "okular %s")
+	     ("\\.jpg\\'" . "okular %s")
+	     ))))
+#+END_SRC
 
 *** local no-flyspell
 #+BEGIN_SRC 
