@@ -271,9 +271,11 @@
 (setq org-export-with-section-numbers nil)
 (setq org-export-preserve-breaks t)
 
+;; async export options
+(setq org-export-async-debug nil)
 (setq org-export-async-init-file
-           (expand-file-name "export-async-init-file.el" (file-name-directory 
-user-init-file)))
+      (expand-file-name "export-async-init-file.el"
+			(file-name-directory user-init-file)))
 
 (setq org-publish-project-alist
       '(
@@ -382,13 +384,12 @@ user-init-file)))
         ("jrn" :components ("jrn-org" "jrn-static"))
         ))
 
-(setq org-export-async-debug t)
+
 
 (global-set-key (kbd "C-c C-1")
   (lambda () (interactive)
     (org-publish "nb-org" :ASYNC t)
     (org-publish "nb-static" :ASYNC t)
-    ;(org-publish "nb")
     
     ;; python scripts below sleep for 15 secs first to let async finish
     (start-process-shell-command "mass_replace_nb" nil "python"
