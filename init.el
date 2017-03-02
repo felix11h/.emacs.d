@@ -267,7 +267,8 @@
 
 ;; ---------------   org-projects   ---------------
 
-(setq org-export-with-section-numbers nil) ;; no headline numbers!
+;; !! IMPORTANT: These options are also used in export-async-init-file.el !!
+(setq org-export-with-section-numbers nil)
 (setq org-export-preserve-breaks t)
 
 (setq org-export-async-init-file
@@ -352,6 +353,7 @@ user-init-file)))
          :base-extension "org"
 
          ;; Path to your Jekyll project.
+
          :publishing-directory "~/sci/rsc/nrnd_pairs/pub/project_documentation/"
          :recursive t
          :publishing-function org-html-publish-to-html
@@ -381,23 +383,29 @@ user-init-file)))
         ))
 
 (setq org-export-async-debug t)
+
 (global-set-key (kbd "C-c C-1")
   (lambda () (interactive)
-    ;(org-publish "nb" :ASYNC t)
-    (org-publish "nb")
+    (org-publish "nb-org" :ASYNC t)
+    (org-publish "nb-static" :ASYNC t)
+    ;(org-publish "nb")
+    
+    ;; python scripts below sleep for 15 secs first to let async finish
     (start-process-shell-command "mass_replace_nb" nil "python"
                                  "~/nb/opt/tools/mass_replace.py")
     (start-process-shell-command "mass_replace_nb" nil "python"
-                                 "~/nb/opt/tools/line_replace.py")
+                                 "~/nb/opt/tools/line_replace.py")))
 
-  )
-)
-(global-set-key (kbd "C-c C-2") (lambda () (interactive) (org-publish "3dpp")))
-(global-set-key (kbd "C-c C-3") (lambda () (interactive) (org-publish "mcp_io")))
-(global-set-key (kbd "C-c C-4") (lambda () (interactive) (org-publish "aniso_netw")))
-(global-set-key (kbd "C-c C-5") (lambda () (interactive) (org-publish "nrnd_pairs")))
-
-(global-set-key (kbd "C-c C-9") (lambda () (interactive) (org-publish "jrn")))
+(global-set-key (kbd "C-c C-2")
+		(lambda () (interactive) (org-publish "3dpp")))
+(global-set-key (kbd "C-c C-3")
+		(lambda () (interactive) (org-publish "mcp_io" :ASYNC t)))
+(global-set-key (kbd "C-c C-4")
+		(lambda () (interactive) (org-publish "aniso_netw")))
+(global-set-key (kbd "C-c C-5")
+		(lambda () (interactive) (org-publish "nrnd_pairs")))
+(global-set-key (kbd "C-c C-9")
+		(lambda () (interactive) (org-publish "jrn")))
 
 
 ;; ---------------      org other      ---------------
