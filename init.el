@@ -253,6 +253,17 @@
 		   (match-string 1 (expand-file-name file))))
 	  (t (concat "file+sys:" file)))))
 
+;; sets the app to use for 'file:' (but not 'file+sys:'!!) links 
+(add-hook 'org-mode-hook
+      '(lambda ()
+         (setq org-file-apps
+           '((auto-mode . emacs)
+             ("\\.mm\\'" . default)
+             ("\\.x?html?\\'" . default)
+             ("\\.pdf\\'" . "okular %s")
+	     ("\\.png\\'" . "okular %s")
+	     ("\\.jpg\\'" . "okular %s")
+	     ))))
 
 ;; ---------------   org-projects   ---------------
 
