@@ -382,7 +382,7 @@ names to which it refers are bound."
      (org-agenda-done ((,class (:foreground ,green))))
      (org-agenda-dimmed-todo-face ((,class (:foreground ,faint))))
      (org-block ((,class (:foreground ,orange))))
-     (org-code ((,class (:foreground ,yellow))))
+     (org-code ((,class (:foreground ,orange))))
      (org-latex-and-related ((t (:foreground ,violet))))
      (org-column ((,class (:background ,alt-background))))
      (org-column-title ((,class (:inherit org-column :weight bold :underline t))))

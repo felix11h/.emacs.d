@@ -252,6 +252,12 @@ C-c C-l type "file:"
 
 ** org-mode
 
+*** inline code ": xxx" should be +red+ orange instead of yellow
+What I
+: this should be red!
+in themes/ set 
+: (org-code ((,class (:foreground ,orange))))
+
 *** org-publish in the background
 to publish an org-mode project in the background - that is without locking Emacs - the argument ~:ASYNC~ can be passed
 
