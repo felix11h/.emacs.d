@@ -560,6 +560,9 @@
 (require 'gitconfig-mode)
 (require 'gitattributes-mode)
 
+;; ----------------------- .log mode -------------------------
+(require 'logview)
+
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~ Ispell / Flyspell ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
