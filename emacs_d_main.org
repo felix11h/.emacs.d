@@ -505,3 +505,9 @@ Existing snippets:
 *** .gitignore latex type ~latex~
 *** jekyll-front-matter ~jfm~
 [[file:snippets/org-mode/jekyll-front-matter][yasnippet]]
+
+** general
+
+*** fixed issue where large files only display ?? line numbers
+Added to init.el
+: (setq line-number-display-limit-width 2000000)

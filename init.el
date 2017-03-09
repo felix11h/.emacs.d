@@ -98,7 +98,8 @@
 
 (column-number-mode 1)                          ;; Gives column and line
 (line-number-mode 1)                            ;; number in mode line
-
+(setq line-number-display-limit-width 2000000)  ;; prevents ?? for line numbers
+                                                ;; in large files
 
 ;; ---------------    load paths    ---------------
 
