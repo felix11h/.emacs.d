@@ -412,14 +412,12 @@
 
 ;; ---------------      org other      ---------------
 
+(require 'htmlize)
 ;; syntaxhighlighting of code blocks
 (setq org-src-fontify-natively t)
 
 ;; in-line Latex highlighting
 (setq org-highlight-latex-and-related '(latex))
-
-(require 'htmlize)
-(setq org-export-htmlize-output-type 'css)
 
 
 ;; no flyspell for Orgmode source code blocks
