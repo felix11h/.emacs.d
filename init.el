@@ -100,6 +100,7 @@
 (line-number-mode 1)                            ;; number in mode line
 (setq line-number-display-limit-width 2000000)  ;; prevents ?? for line numbers
                                                 ;; in large files
+(setq initial-scratch-message nil)              ;; suppress message in *scratch*
 
 ;; ---------------    load paths    ---------------
 
