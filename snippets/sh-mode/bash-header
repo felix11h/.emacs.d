@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: bash-header
+# key: bash			
+# binding: direct-keybinding
+# --
+#!/bin/bash
