@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: natural_number_N
+# key: nn
+# binding: direct-keybinding
+# --
+\mathbb{N}
