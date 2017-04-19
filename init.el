@@ -265,6 +265,7 @@
              ("\\.pdf\\'" . "okular %s")
 	     ("\\.png\\'" . "okular %s")
 	     ("\\.jpg\\'" . "okular %s")
+	     ("\\.gif\\'" . "okular %s")
 	     ))))
 
 ;; ---------------   org-projects   ---------------
