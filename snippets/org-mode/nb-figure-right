@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: nb-figure-right
+# key: nbfgr
+# binding: direct-keybinding
+# --
+#+BEGIN_HTML
+<img src="../img/$1" width="$2px" style="float:right; margin-left:30px; margin-right:10px; margin-bottom:15px" /> 
+#+END_HTML
+$0
