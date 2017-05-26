@@ -7,3 +7,5 @@ backups
 .csync*
 .owncloud*
 session.*
+tramp
+ido.last
