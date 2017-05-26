@@ -568,11 +568,22 @@
 
 (load-library "matlab-load")
 
+;; --------------------- markdown mode -----------------------
+
+(autoload 'markdown-mode "markdown-mode"
+   "Major mode for editing Markdown files" t)
+(add-to-list 'auto-mode-alist '("\\.markdown\\'" . markdown-mode))
+(add-to-list 'auto-mode-alist '("\\.md\\'" . markdown-mode))
+
+(autoload 'gfm-mode "markdown-mode"
+   "Major mode for editing GitHub Flavored Markdown files" t)
+(add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
+
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~ Ispell / Flyspell ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-;;(setq ispell-dictionary "en_GB")
-(setq ispell-dictionary "en_US")
+(setq ispell-dictionary "en_GB")
+;;(setq ispell-dictionary "en_US")
 (setq ispell-personal-dictionary "~/.opt/aspell_dict/.aspell.en.pws")
 
 (add-hook 'org-mode-hook 'flyspell-mode)
@@ -636,6 +647,9 @@ langtool-disabled-rules '("WHITESPACE_RULE")
     ad-do-it
     (when (not (display-graphic-p))
       (setenv "GPG_AGENT_INFO" agent))))
+
+;; ~~~~~~~~~~~~~~~~~~~~~~~~   Tramp  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+(setq tramp-default-method "ssh")
 
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~ Keybindings  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
