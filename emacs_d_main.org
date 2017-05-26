@@ -11,6 +11,9 @@ Don't use MELPA. +Clone+ Copy raw directly from git into modes. The function in 
 
 * top
 
+** use of TRAMP
+: C-x C-f /ssh:xxxx@login.....de:comp/
+
 ** org-mode references - important!
 
 ** C-k does not move cursor in terminal - jumps back
