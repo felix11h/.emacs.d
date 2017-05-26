@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: utf-8_cross
+# key: cross
+# binding: direct-keybinding
+# --
+✘$0
