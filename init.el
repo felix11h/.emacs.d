@@ -652,6 +652,12 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 (setq tramp-default-method "ssh")
 
 
+;; ~~~~~~~~~~~~~~~~~~~~~ local machine config  ~~~~~~~~~~~~~~~~~~~~~~~~
+
+(add-to-list 'load-path "~/.local-emacs.d/")
+(load-library "emacs-local")
+
+
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~ Keybindings  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
 
 (require 'bind-key)
