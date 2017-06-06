@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: shell-preamble
+# name: bin-sh
 # key: sh
 # binding: direct-keybinding
 # --
-hello
+#!/bin/sh
