@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: displayed_equation
+# key: ss
+# binding: direct-keybinding
+# --
+\[
+$0
+\]

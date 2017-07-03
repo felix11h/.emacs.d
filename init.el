@@ -700,3 +700,6 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 (bind-key* "C-c u" (lambda() (interactive)(find-file "~/admin/us/us_main.org")))
 (bind-key* "C-c x" (lambda() (interactive)(find-file "~/admin/id/mcp/mcp_main.org")))
 (bind-key* "C-c ;" 'comment-or-uncomment-region)
+
+(bind-key* "C-c k" (lambda() (interactive)(find-file "~/sci/courses/2017_OCNC/ocnc17_notes.org")))
+(bind-key* "C-c 9" (lambda() (interactive)(find-file "/ssh:hoffmann@pear.fias.uni-frankfurt.de:tramp.org")))
