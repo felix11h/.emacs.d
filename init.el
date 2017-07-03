@@ -290,6 +290,7 @@
          :publishing-function org-html-publish-to-html
          :headline-levels 3
          :auto-preamble t
+         :preserve-breaks nil
          )
         ("nb-static"
          :base-directory "~/sci/nb/"
