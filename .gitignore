@@ -9,3 +9,4 @@ backups
 session.*
 tramp
 ido.last
+.#*
