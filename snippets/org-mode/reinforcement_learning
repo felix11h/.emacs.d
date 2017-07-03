@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: reinforcement_learning
+# key: rl
+# binding: direct-keybinding
+# --
+reinforcement learning

@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: savefig_fname
+# key: savefig
+# binding: direct-keybinding
+# --
+import os
+fname = os.path.splitext(os.path.basename(__file__))[0]
+pl.savefig("{}.png".format(fname), dpi=300, bbox_inches='tight')$0
