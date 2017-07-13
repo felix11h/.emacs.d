@@ -11,6 +11,13 @@ Don't use MELPA. +Clone+ Copy raw directly from git into modes. The function in 
 
 * top
 
+** jump between org-mode views efficiently?
+I'm thinking of a keyboard shortcut such as
+: C-v(iew) c  ---> content
+: C-v(iew) a  ---> unfolded (all)
+: etc.
+How to do?
+
 ** use of TRAMP
 : C-x C-f /ssh:xxxx@login.....de:comp/
 
