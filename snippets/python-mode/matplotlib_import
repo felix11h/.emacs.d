@@ -1,9 +1,9 @@
 # -*- mode: snippet; require-final-newline: nil -*-
 # name: matplotlib_import
-# key: mpl
+# key: import_pl
 # binding: direct-keybinding
 # --
-import matplotlib as mpl
-mpl.use('Agg')
-import pylab as pl
+import matplotlib
+matplotlib.use('Agg')
+import matplotlib.pyplot as pl
 $0

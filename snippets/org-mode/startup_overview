@@ -1,7 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: include_frame
-# key: inc
+# name: startup_overview
+# key: overview	
 # binding: direct-keybinding
 # --
-\include{frames/$1}
-$0
+#+STARTUP: overview$0
