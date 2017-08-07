@@ -179,7 +179,9 @@
 
 
 (add-to-list 'load-path "~/.emacs.d/modes/org-mode-8.2.10/lisp")
+;;(add-to-list 'load-path "~/.emacs.d/modes/org-mode-9.0.9/lisp")
 ;;(add-to-list 'load-path "~/.emacs.d/modes/org-mode-8.3.3/contrib/lisp" t)
+
 (require 'org)
 (require 'ox)
 
@@ -393,13 +395,15 @@
 (global-set-key (kbd "C-c C-1")
   (lambda () (interactive)
     (org-publish "nb-org" :ASYNC t)
-    (org-publish "nb-static" :ASYNC t)
-    
+
     ;; python scripts below sleep for 15 secs first to let async finish
     (start-process-shell-command "mass_replace_nb" nil "python"
                                  "~/nb/opt/tools/mass_replace.py")
     (start-process-shell-command "mass_replace_nb" nil "python"
                                  "~/nb/opt/tools/line_replace.py")))
+
+    (org-publish "nb-static" :ASYNC t)
+    
 
 (global-set-key (kbd "C-c C-2")
 		(lambda () (interactive) (org-publish "3dpp")))
