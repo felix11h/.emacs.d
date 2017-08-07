@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: new_paper
+# key: newpp
+# binding: direct-keybinding
+# --
+** $1
+- ~Category~ :: $2
+- ~Reason~   :: $0

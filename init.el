@@ -697,7 +697,7 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 ;;(bind-key* "C-i" 'next-buffer)
 
 (bind-key* "C-c a" (lambda() (interactive)(find-file "~/admin/top.org")))
-(bind-key* "C-c s" (lambda() (interactive)(find-file "~/sci/main/sci_main.org")))
+(bind-key* "C-c o" (lambda() (interactive)(find-file "~/osc/osc_main.org")))
 (bind-key* "C-c t" (lambda() (interactive)(find-file "~/admin/tech/tech_main.org")))
 (bind-key* "C-c n" (lambda() (interactive)(find-file "~/sci/nb/index.org")))
 (bind-key* "C-c j" (lambda() (interactive)(find-file "~/sci/main/sci_main.org")))
