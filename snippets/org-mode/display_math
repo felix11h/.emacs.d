@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: display_math
+# key: \\
+# binding: direct-keybinding
+# --
+\[$0\]
