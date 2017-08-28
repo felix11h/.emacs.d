@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: exponential_function
+# key: ex
+# binding: direct-keybinding
+# --
+e^{$0}

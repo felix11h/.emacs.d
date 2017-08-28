@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: improper_integral
+# key: iint
+# binding: direct-keybinding
+# --
+\int_{-\infty}^{\infty}
