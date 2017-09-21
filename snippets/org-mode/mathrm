@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: mathrm
+# key: rm
+# binding: direct-keybinding
+# --
+\mathrm{$0}

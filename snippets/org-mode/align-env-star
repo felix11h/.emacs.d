@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: align-env-star
+# key: als
+# binding: direct-keybinding
+# --
+\begin{align*}$0\end{align*}
