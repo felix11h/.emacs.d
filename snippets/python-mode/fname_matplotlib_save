@@ -5,4 +5,4 @@
 # --
 fname = os.path.splitext(os.path.basename(__file__))[0]
 pl.tight_layout()
-pl.savefig("{}.png".format(fname)", dpi=300)$0
+pl.savefig("{}.png".format(fname), dpi=300)$0
