@@ -1,6 +1,6 @@
 # -*- mode: snippet; require-final-newline: nil -*-
-# name: exponential_function
-# key: ee	
+# name: displayed_equation_align
+# key: \\a
 # binding: direct-keybinding
 # --
-e^{$0}
+\[\begin{align*} $0 \end{align*}\]
