@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: fname_matplotlib_save
+# key: fname
+# binding: direct-keybinding
+# --
+fname = os.path.splitext(os.path.basename(__file__))[0]
+pl.tight_layout()
+pl.savefig("{}.png".format(fname), dpi=300)$0
