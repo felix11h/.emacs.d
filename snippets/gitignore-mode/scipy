@@ -1,0 +1,15 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: scipy
+# key: scipy
+# binding: direct-keybinding
+# --
+*~
+__pycache__/
+*.py[cod]
+*$py.class
+*.hdf5
+*.png
+*.jpg
+*.p
+*.pdf
+*#
