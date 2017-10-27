@@ -175,7 +175,11 @@
 
 
 
-;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Org-mode ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+;; ~~~~~~~~~~~~~~~~~~~~~   scale text  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+(require 'default-text-scale)
+
+
+;; ~~~~~~~~~~~~~~~~~~~~~~~~~~ Org-mode ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  
 
 
 (add-to-list 'load-path "~/.emacs.d/modes/org-mode-8.2.10/lisp")
@@ -693,6 +697,9 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 
 (bind-key* "C-c i" 'add-to-dict-word-at-point)
 
+(bind-key* "M-[" 'default-text-scale-decrease)
+(bind-key* "M-]" 'default-text-scale-increase)
+
 ;;(bind-key* "C-m" 'previous-buffer)
 ;;(bind-key* "C-i" 'next-buffer)
 
@@ -707,4 +714,4 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 (bind-key* "C-c ;" 'comment-or-uncomment-region)
 
 (bind-key* "C-c k" (lambda() (interactive)(find-file "~/admin/events/Wikimedia_Open_Science_fellow_2017/wikimedia_fellow_2017_main.org")))
-(bind-key* "C-c 9" (lambda() (interactive)(find-file "/ssh:hoffmann@pear.fias.uni-frankfurt.de:tramp.org")))
+(bind-key* "C-c 9" (lambda() (interactive)(find-file "/ssh:hoffmann@fias.uni-frankfurt.de:tramp.org")))
