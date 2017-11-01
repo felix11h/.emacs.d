@@ -642,6 +642,11 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 
 (require 'wc-mode)
 
+;; ~~~~~~~~~~~~~~~~~~~~ current date yyyy-mm-dd ~~~~~~~~~~~~~~~~~~~~~~~
+
+(defun insert-current-date () (interactive)
+       (insert (shell-command-to-string "echo -n $(date +%Y-%m-%d)")))
+
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~   GPG  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 (require 'epa-file)

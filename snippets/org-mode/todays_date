@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: todays_date
+# key: today
+# binding: direct-keybinding
+# --
+`(insert-current-date)`
