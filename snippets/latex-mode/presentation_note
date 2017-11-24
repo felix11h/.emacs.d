@@ -1,0 +1,10 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: presentation_note
+# key: pn
+# binding: direct-keybinding
+# --
+\pnote{
+
+  $0
+
+}
