@@ -404,9 +404,9 @@
     (start-process-shell-command "mass_replace_nb" nil "python"
                                  "~/nb/opt/tools/mass_replace.py")
     (start-process-shell-command "mass_replace_nb" nil "python"
-                                 "~/nb/opt/tools/line_replace.py")))
+                                 "~/nb/opt/tools/line_replace.py")
 
-    (org-publish "nb-static" :ASYNC t)
+    (org-publish "nb-static" :ASYNC t)))
     
 
 (global-set-key (kbd "C-c C-2")
