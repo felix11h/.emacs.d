@@ -1,0 +1,13 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: tikz-figure-presentation
+# key: tikzfig
+# binding: direct-keybinding
+# --
+\begin{tikzpicture}[remember picture,overlay]
+  \node[anchor= west, inner sep=0.05\paperwidth] at (current page.west) {%
+      \includegraphics[width=0.9\paperwidth]{%
+        img/$0} %
+   };
+\end{tikzpicture}
+ 
+
