@@ -427,6 +427,9 @@
 ;; syntaxhighlighting of code blocks
 (setq org-src-fontify-natively t)
 
+;; add more languages
+(add-to-list 'org-src-lang-modes (cons "Dockerfile" 'dockerfile))
+
 ;; in-line Latex highlighting
 (setq org-highlight-latex-and-related '(latex))
 

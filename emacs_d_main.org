@@ -262,6 +262,10 @@ C-c C-l type "file:"
 
 ** org-mode
 
+*** added additional language for source block syntax highlighting
+: (add-to-list 'org-src-lang-modes (cons "Dockerfile" 'dockerfile))
+uses ~dockerfile-mode~ to fontify "begin_src Dockerfile" blocks
+
 *** color syntax highlighting in asynchronous exports
 When using async export, inline css syntax highlighting did not work. The solution was to switch to css highlighting by setting 
 : (setq org-html-htmlize-output-type 'css)
