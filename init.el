@@ -645,10 +645,6 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 
 (require 'wc-mode)
 
-;; ~~~~~~~~~~~~~~~~~~~~~~~~~~ Word-count ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-(require 'mediawiki)
-
 
 
 ;; ~~~~~~~~~~~~~~~~~~~~ current date yyyy-mm-dd ~~~~~~~~~~~~~~~~~~~~~~~
