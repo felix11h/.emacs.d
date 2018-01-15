@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: mathbf-j
+# key: $bb
+# binding: direct-keybinding
+# --
+$\mathbf{$1}$0
