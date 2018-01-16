@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: begin_grey
+# key: grey
+# binding: direct-keybinding
+# --
+#+begin_proof
+$0
+#+end_proof
