@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: mathcal-j
+# key: $mc
+# binding: direct-keybinding
+# --
+$\mathcal{$1}$0
