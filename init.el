@@ -191,6 +191,8 @@
 
 ;; enable ido in org-mode
 (setq org-completion-use-ido t)
+;; don't make ../artcl expand into ~/fh/artcl
+(setq org-link-file-path-type 'relative)
 
 ;; org-specific setting
 (require 'visual-fill-column)
