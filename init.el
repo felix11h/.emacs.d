@@ -507,9 +507,21 @@
 
 ;; ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Python ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+;; hide-show via custom function
+(add-hook 'python-mode-hook 'hs-minor-mode)
+
+(defun my-hs-toggle-all ()
+  "If anything isn't hidden, run `hs-hide-all', else run `hs-show-all'."
+  (interactive)
+  (let ((starting-ov-count (length (overlays-in (point-min) (point-max)))))
+    (hs-hide-all)
+    (when (equal (length (overlays-in (point-min) (point-max))) starting-ov-count)
+      (hs-show-all))))
+
 (defun python-mode-keys ()
   "Modify keymaps used by python mode."
   (local-set-key (kbd "C-c ;") 'comment-dwim)
+  (local-set-key (kbd "<C-tab>") 'my-hs-toggle-all)
   )
 
 (add-hook 'python-mode-hook 'python-mode-keys)
