@@ -114,6 +114,8 @@
                  (not (equal f ".")))
         (add-to-list 'load-path name)))))
 
+(add-to-list 'load-path "~/.emacs.d/modes/pdf-tools-0.80/lisp")
+
 
 ;; ---------------       ido        ---------------
 
@@ -422,6 +424,9 @@
 (global-set-key (kbd "C-c C-9")
 		(lambda () (interactive) (org-publish "jrn")))
 
+
+;; -----------------     org-ref    ------------------
+(require 'org-ref)
 
 ;; ---------------      org other      ---------------
 
