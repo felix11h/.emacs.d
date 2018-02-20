@@ -611,6 +611,11 @@
 (add-to-list 'auto-mode-alist '("README\\.md\\'" . gfm-mode))
 
 
+;; ----------------------- YAML mode -------------------------
+(require 'yaml-mode)
+(add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+
+
 ;; ~~~~~~~~~~~~~~~~~~~~~~ Ispell / Flyspell ~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 (setq ispell-dictionary "en_GB")
