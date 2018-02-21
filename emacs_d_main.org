@@ -262,6 +262,13 @@ C-c C-l type "file:"
 
 ** org-mode
 
+*** *modified org-mode* such that "Footnotes:" headline in exported html displays without the colon
+: (defcustom org-html-footnotes-section "<div id=\"footnotes\">
+: <h2 class=\"footnotes\">%s: </h2>
+to 
+: (defcustom org-html-footnotes-section "<div id=\"footnotes\">
+: <h2 class=\"footnotes\">%s</h2>
+
 *** added additional language for source block syntax highlighting
 : (add-to-list 'org-src-lang-modes (cons "Dockerfile" 'dockerfile))
 uses ~dockerfile-mode~ to fontify "begin_src Dockerfile" blocks
