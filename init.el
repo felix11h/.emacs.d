@@ -738,6 +738,8 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 (bind-key* "C-c ;" 'comment-or-uncomment-region)
 
 (bind-key* "C-c k" (lambda() (interactive)(find-file "~/admin/events/Wikimedia_Open_Science_fellow_2017/wikimedia_fellow_2017_main.org")))
+(bind-key* "C-c l" (lambda() (interactive)(find-file "~/sci/rsc/syn_lt/syn_lt_main.org")))
+
 (bind-key* "C-c 9" (lambda() (interactive)(find-file "/ssh:hoffmann@fias.uni-frankfurt.de:tramp.org")))
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
