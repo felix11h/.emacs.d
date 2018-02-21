@@ -417,6 +417,19 @@ Alternative?:
 org-publish-after-export-hook   (when going through org-publish)
 #+END_SRC 
 
+** org-ref
+installed a huge(!) number of dependencies for org-ref:
+ - (dash "2.11.0")
+ - (helm "1.5.5") 
+ - (helm-bibtex "2.0.0") 
+ - (ivy "0.8.0") 
+ - (hydra "0.13.2") 
+ - (key-chord "0") 
+ - (s "1.10.0")
+ - (f "0.18.0")
+ - (emacs "24.4")
+ - (pdf-tools "0.7")
+
 ** Searching/Completion with IDO
 
 Reference: [[https://www.reddit.com/r/emacs/comments/3o36sc/what_do_you_prefer_ido_or_helm/][Reddit post]]

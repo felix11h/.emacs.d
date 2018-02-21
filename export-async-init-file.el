@@ -25,6 +25,21 @@
 (require 'org)
 (require 'htmlize)
 
+;; ---------- only needed for org-ref ------------------- 
+;; adds load paths of subdirs in .emacs.d/modes
+(let ((base "~/.emacs.d/modes"))
+  (add-to-list 'load-path base)
+  (dolist (f (directory-files base))
+    (let ((name (concat base "/" f)))
+      (when (and (file-directory-p name) 
+                 (not (equal f ".."))
+                 (not (equal f ".")))
+        (add-to-list 'load-path name)))))
+(add-to-list 'load-path "~/.emacs.d/modes/pdf-tools-0.80/lisp")
+
+(require 'org-ref)
+;; --------------------------------------------------------
+
 (setq org-src-fontify-natively t)
 
 ;;(require 'ox)
