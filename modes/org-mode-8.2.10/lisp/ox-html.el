@@ -592,7 +592,7 @@ The default value simply returns the value of CONTENTS."
 ;;;; Footnotes
 
 (defcustom org-html-footnotes-section "<div id=\"footnotes\">
-<h2 class=\"footnotes\">%s: </h2>
+<h2 class=\"footnotes\">%s</h2>
 <div id=\"text-footnotes\">
 %s
 </div>
