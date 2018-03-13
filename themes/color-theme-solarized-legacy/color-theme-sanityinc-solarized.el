@@ -399,7 +399,7 @@ names to which it refers are bound."
      (org-scheduled ((,class (:foreground ,green))))
      (org-scheduled-previously ((,class (:foreground ,yellow))))
      (org-scheduled-today ((,class (:foreground ,green))))
-     (org-special-keyword ((,class (:foreground ,yellow))))
+     (org-special-keyword ((,class (:foreground ,faint))))
      (org-table ((,class (:foreground ,violet))))
      (org-todo ((,class (:foreground ,red))))
      (org-upcoming-deadline ((,class (:foreground ,yellow))))
