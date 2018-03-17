@@ -42,6 +42,77 @@
 
 (setq org-src-fontify-natively t)
 
+;; set MathJax template
+(setq org-html-mathjax-template
+              "
+<script type=\"text/javascript\" src=\"%PATH\"></script>
+<script type=\"text/javascript\">
+<!--/*--><![CDATA[/*><!--*/
+
+    /* 
+      IMPORTANT: This template is set by 
+
+         export-async-init-file.el
+
+       All changes must be made there!
+    */
+
+    MathJax.Hub.Config({
+        jax: [\"input/TeX\", \"output/HTML-CSS\"],
+        extensions: [\"tex2jax.js\",\"TeX/AMSmath.js\",\"TeX/AMSsymbols.js\",
+                     \"TeX/noUndefined.js\", \"siunitx.js\", \"mhchem.js\"],
+        tex2jax: {
+            inlineMath: [ [\"\\\\(\",\"\\\\)\"] ],
+            displayMath: [ ['$$','$$'], [\"\\\\[\",\"\\\\]\"], [\"\\\\begin{displaymath}\",\"\\\\end{displaymath}\"] ],
+            skipTags: [\"script\",\"noscript\",\"style\",\"textarea\",\"pre\",\"code\"],
+            ignoreClass: \"tex2jax_ignore\",
+            processEscapes: false,
+            processEnvironments: true,
+            preview: \"TeX\"
+        },
+        TeX: {extensions: [\"AMSmath.js\",\"AMSsymbols.js\",  \"siunitx.js\", \"mhchem.js\"]},
+        showProcessingMessages: true,
+        displayAlign: \"%ALIGN\",
+        displayIndent: \"%INDENT\",
+
+        /* Sets the MathJax fonts to Latin-Modern. However, the Firefox 
+           path import problem strikes here again, and MathJax falls 
+           back to imageFont (for which TeX is the only option). 
+           See also: https://github.com/mathjax/MathJax/issues/1949
+
+           For font differences see here: 
+             https://www.checkmyworking.com/misc/MathJax-play-area/
+
+           Changes with MathJax 3.0 on fonts are also expected.
+
+           ADDITIONALLY, MathJax with Latin-Modern will not display 
+           \mathcal{ } correctly, see 
+              https://github.com/mathjax/MathJax/issues/919             
+           The proposed solution is to remap \mathscr{ } to \mathcal{ },
+           which for Latin-Modern displays identically and correctly.
+         */
+
+        \"HTML-CSS\": {
+             scale: %SCALE,
+             availableFonts: [],
+             preferredFont: \"null\",
+             webFont: \"Latin-Modern\",
+             imageFont: \"TeX\",
+             showMathMenu: true,
+        },
+        MMLorHTML: {
+             prefer: {
+                 MSIE:    \"MML\",
+                 Firefox: \"MML\",
+                 Opera:   \"HTML\",
+                 other:   \"HTML\"
+             }
+        }
+    });
+/*]]>*///-->
+</script>")
+
+
 ;;(require 'ox)
 ;;(require 'cl)  
 
