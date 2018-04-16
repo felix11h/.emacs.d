@@ -1,0 +1,10 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: itemize
+# key: itemize
+# binding: direct-keybinding
+# --
+\begin{itemize}[leftmargin=*]
+
+$0
+
+\end{itemize}
