@@ -101,6 +101,7 @@
 (setq line-number-display-limit-width 2000000)  ;; prevents ?? for line numbers
                                                 ;; in large files
 (setq initial-scratch-message nil)              ;; suppress message in *scratch*
+(setq same-window-regexps '("."))               ;; never split windows
 
 ;; ---------------    load paths    ---------------
 
@@ -195,6 +196,9 @@
 (setq org-completion-use-ido t)
 ;; don't make ../artcl expand into ~/fh/artcl
 (setq org-link-file-path-type 'relative)
+;; don't ask for confirmation to execute shell links
+(setq org-confirm-shell-link-function nil)
+
 
 ;; org-specific setting
 (require 'visual-fill-column)
