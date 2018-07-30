@@ -520,6 +520,10 @@
 (add-hook 'latex-mode-hook 'turn-on-reftex)
 (setq reftex-default-bibliography '("~/lib/main.bib"))
 
+;; disable AUCTeX fontification (bold fonts for sections, etc.)
+(setq font-latex-fontify-script nil)
+(setq font-latex-fontify-sectioning 'color)
+
 ;; Biblatex citing http://tex.stackexchange.com/questions/31966/
 (eval-after-load 'reftex-vars
   '(progn
@@ -670,7 +674,12 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 ;; load yasnippet only for specific modes:
 (yas-reload-all)
 (add-hook 'org-mode-hook #'yas-minor-mode)
+
+;; default latex
 (add-hook 'latex-mode-hook #'yas-minor-mode)
+;; AUCTeX == 'LaTeX-mode'
+(add-hook 'LaTeX-mode-hook #'yas-minor-mode)
+
 (add-hook 'gitignore-mode-hook #'yas-minor-mode)
 (add-hook 'python-mode-hook #'yas-minor-mode)
 (add-hook 'sh-mode-hook #'yas-minor-mode)
