@@ -7,7 +7,7 @@ matplotlib.rc('text', usetex=True)
 pl.rcParams['text.latex.preamble'] = [
     r'\usepackage{tgheros}',    
     r'\usepackage[eulergreek]{sansmath}',   
-    r'\sansmath'                
+    r'\sansmath',
     r'\usepackage{siunitx}',    
-    r'\sisetup{detect-all}',    
+    r'\sisetup{detect-all}'
 ]$0  
