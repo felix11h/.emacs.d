@@ -650,6 +650,7 @@
 
 (add-hook 'org-mode-hook 'flyspell-mode)
 (add-hook 'latex-mode-hook 'flyspell-mode)
+(add-hook 'LaTeX-mode-hook 'flyspell-mode)
 
 (defun add-to-dict-word-at-point ()
   (interactive)
