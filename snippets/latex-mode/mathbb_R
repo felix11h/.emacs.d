@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: mathbb_R
+# key: rr
+# binding: direct-keybinding
+# --
+\mathbb{R}$0
