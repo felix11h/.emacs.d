@@ -779,6 +779,8 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 (bind-key* "C-c d" (lambda() (interactive)(find-file "~/dev/dev_ops.org")))
 (bind-key* "C-c u" (lambda() (interactive)(find-file "~/admin/us/us_main.org")))
 (bind-key* "C-c x" (lambda() (interactive)(find-file "~/admin/id/mcp/mcp_main.org")))
+
+(bind-key* "C-c i" 'org-time-stamp)
 (bind-key* "C-c ;" 'comment-or-uncomment-region)
 
 (bind-key* "C-c k" (lambda() (interactive)(find-file "~/admin/events/Wikimedia_Open_Science_fellow_2017/wikimedia_fellow_2017_main.org")))

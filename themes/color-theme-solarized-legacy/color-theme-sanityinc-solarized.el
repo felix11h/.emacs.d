@@ -386,7 +386,7 @@ names to which it refers are bound."
      (org-latex-and-related ((t (:foreground ,violet))))
      (org-column ((,class (:background ,alt-background))))
      (org-column-title ((,class (:inherit org-column :weight bold :underline t))))
-     (org-date ((,class (:foreground ,blue :underline t))))
+     (org-date ((,class (:foreground ,faint :underline t))))
      (org-document-info ((,class (:foreground ,cyan))))
      (org-document-info-keyword ((,class (:slant italic))))
      (org-document-title ((,class (:foreground ,faint :weight normal :slant italic))))
