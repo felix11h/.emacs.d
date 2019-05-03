@@ -770,6 +770,7 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 ;;(bind-key* "C-i" 'next-buffer)
 
 (bind-key* "C-c a" (lambda() (interactive)(find-file "~/admin/top.org")))
+(bind-key* "C-c s" (lambda() (interactive)(find-file "~/admin/tasks.org")))
 (bind-key* "C-c o" (lambda() (interactive)(find-file "~/osc/osc_main.org")))
 (bind-key* "C-c t" (lambda() (interactive)(find-file "~/admin/tech/tech_main.org")))
 (bind-key* "C-c n" (lambda() (interactive)(find-file "~/sci/nb/index.org")))
@@ -807,7 +808,8 @@ langtool-disabled-rules '("WHITESPACE_RULE")
      ("" "amssymb" t)
      ("colorlinks=true, linkcolor=blue, urlcolor=blue, citecolor=blue" "hyperref" t)
      "\\tolerance=1000"
-     ("left=1.65in, right=1.65in, top=1.25in, bottom=1.5in" "geometry" t)))))
+     ("left=1.65in, right=1.65in, top=1.25in, bottom=1.5in" "geometry" t))))
+ '(safe-local-variable-values (quote ((eval org-content 2)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
