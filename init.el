@@ -222,6 +222,10 @@
 
 (setq org-cycle-separator-lines 1)
 
+;; https://emacs.stackexchange.com/questions/10981
+;; https://endlessparentheses.com/changing-the-org-mode-ellipsis.html
+(setq org-ellipsis " ⮷")
+
 
 ;; ------------ default buffer settings ------------
 ;; these setting can be overriden by #+STARTUP
@@ -232,7 +236,7 @@
 ;;(setq org-adapt-indentation t)
 
 ;; other options are: nofold, fold, content
-(setq org-startup-folded 'showeverything)
+(setq org-startup-folded 'showall)
 
 
 
