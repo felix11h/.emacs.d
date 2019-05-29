@@ -1,0 +1,7 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: suptitle
+# key: suptitle
+# binding: direct-keybinding
+# --
+fig.suptitle($0) 
+fig.tight_layout(rect=[0, 0.03, 1, 0.95])
