@@ -218,7 +218,7 @@
 
 ;; embbed images - [[file:image.png]] - get displayed with the
 ;; correct width specified by #+attr_html: :width 580px
-(setq org-image-actual-width '(400))
+(setq org-image-actual-width '(300))
 
 (setq org-cycle-separator-lines 1)
 
