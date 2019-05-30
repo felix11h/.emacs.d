@@ -1,0 +1,10 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: histogram
+# key: histogram
+# binding: direct-keybinding
+# --
+counts, edges = np.histogram($1,bins=bins,density=False)
+centers = (edges[:-1] + edges[1:])/2.
+
+ax.plot(centers, counts)
+

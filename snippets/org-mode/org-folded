@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: org-folded
+# key: folded
+# binding: direct-keybinding
+# --
+:PROPERTIES:
+:Visibility: folded
+:END:
