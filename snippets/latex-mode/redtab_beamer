@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: redtab_beamer
+# key: redtab
+# binding: direct-keybinding
+# --
+\begin{tabular}{!{\color{red}\VRule[2pt]}p{0.9\textwidth}}
+  $0
+\end{tabular}

@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: figsize
+# key: figsize
+# binding: direct-keybinding
+# --
+fig.set_size_inches(x,y)

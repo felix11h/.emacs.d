@@ -1,0 +1,10 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: wideframe
+# key: wf
+# binding: direct-keybinding
+# --
+\begin{frame}{}
+\Wider[4em]{
+$0
+}  
+\end{frame}

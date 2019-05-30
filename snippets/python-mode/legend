@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: legend
+# key: legend
+# binding: direct-keybinding
+# --
+ax.legend(frameon=False, prop={'size': 10})

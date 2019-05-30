@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: axtext
+# key: axtext
+# binding: direct-keybinding
+# --
+ax.text(x,y,'text', transform=ax.transAxes)
