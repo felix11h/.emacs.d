@@ -393,7 +393,7 @@ names to which it refers are bound."
      (org-done ((,class (:foreground ,green))))
      (org-ellipsis ((,class (:foreground ,faint))))
      (org-footnote ((,class (:foreground ,cyan))))
-     (org-formula ((,class (:foreground ,orange))))
+     (org-formula ((,class (:foreground ,faint))))
      (org-hide ((,class (:foreground ,background :background ,background))))
      (org-link ((,class (:foreground ,blue :underline t))))
      (org-scheduled ((,class (:foreground ,green))))
