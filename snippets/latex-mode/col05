@@ -1,0 +1,15 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: col05
+# key: col05
+# binding: direct-keybinding
+# --
+\begin{columns}
+  % 
+  \begin{column}{.5\textwidth}
+  $0
+  \end{column}
+  % 
+  \begin{column}{.5\textwidth}
+    
+  \end{column}
+\end{columns}
