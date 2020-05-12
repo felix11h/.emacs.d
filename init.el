@@ -181,6 +181,9 @@
 ;; ~~~~~~~~~~~~~~~~~~~~~   scale text  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (require 'default-text-scale)
 
+;; ~~~~~~~~~~~~~~~~~~~~-~   writeroom  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+(require 'writeroom-mode)
+
 
 ;; ~~~~~~~~~~~~~~~~~~~~~   sudo-edit  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (require 'sudo-edit)
@@ -323,6 +326,17 @@
          )
         ("nb" :components ("nb-org" "nb-static"))
 
+	("dev-notes"
+	 :base-directory "~/dev/note/org/"
+	 :base-extension "org"
+	 :publishing-directory "~/dev/note/docs/"
+	 :recursive t
+	 :publishing-function org-twbs-publish-to-html
+	 :with-sub-superscript nil
+	 :html-postamble nil
+         :section-numbers nil
+	 )
+
         ("3dpp-org"
          ;; Path to your org files.
          :base-directory "~/dev/projects/3diagramspp/3diagramspp/org/"
@@ -454,6 +468,9 @@
 (global-set-key (kbd "C-c C-9")
 		(lambda () (interactive) (org-publish "jrn")))
 
+
+;; -----------------     ox-twbs    ------------------
+(require 'ox-twbs)
 
 ;; -----------------     org-ref    ------------------
 (require 'org-ref)
