@@ -823,6 +823,7 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 (bind-key* "C-c b" (lambda() (interactive)(find-file "~/sci/nb/osc/index.org")))
 (bind-key* "C-c j" (lambda() (interactive)(find-file "~/sci/main/sci_main.org")))
 (bind-key* "C-c d" (lambda() (interactive)(find-file "~/dev/dev_ops.org")))
+(bind-key* "C-c f" (lambda() (interactive)(find-file "~/dev/note/org/index.org")))
 (bind-key* "C-c u" (lambda() (interactive)(find-file "~/admin/us/us_main.org")))
 (bind-key* "C-c x" (lambda() (interactive)(find-file "~/admin/id/mcp/mcp_main.org")))
 
