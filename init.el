@@ -326,6 +326,8 @@
       (expand-file-name "export-async-init-file.el"
 			(file-name-directory user-init-file)))
 
+
+;; options overview https://orgmode.org/manual/Publishing-options.html
 (setq org-publish-project-alist
       '(
         ("nb-org"
@@ -347,7 +349,7 @@
          )
         ("nb" :components ("nb-org" "nb-static"))
 
-	("dev-notes"
+	("dev-notes-org"
 	 :base-directory "~/dev/note/org/"
 	 :base-extension "org"
 	 :publishing-directory "~/dev/note/docs/"
@@ -356,7 +358,16 @@
 	 :with-sub-superscript nil
 	 :html-postamble nil
          :section-numbers nil
+         :time-stamp-file nil
 	 )
+        ("dev-notes-static"
+         :base-directory "~/dev/note/org/"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|mov"
+         :publishing-directory "~/dev/note/docs/"
+         :recursive t
+         :publishing-function org-publish-attachment
+         )
+        ("dev-notes" :components ("dev-notes-org" "dev-notes-static"))
 
         ("3dpp-org"
          ;; Path to your org files.
