@@ -1021,10 +1021,26 @@ style information."
 (put 'org-twbs-head-include-default-style 'safe-local-variable 'booleanp)
 
 (define-obsolete-variable-alias 'org-twbs-style 'org-twbs-head "24.4")
+;; (defcustom org-twbs-head "
+;; <link  href=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css\" rel=\"stylesheet\">
+;; <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js\"></script>
+;; <script src=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js\"></script>"
+;;   "Org-wide head definitions for exported HTML files.
+
+;; As the value of this option simply gets inserted into the HTML
+;; <head> header, you can use it to add any arbitrary text to the
+;; header.
+
+;; You can set this on a per-file basis using #+HTML_HEAD:,
+;; or for publication projects using the :html-head property."
+;;   :group 'org-export-twbs
+;;   :version "24.4"
+;;   :package-version '(Org . "8.0")
+;;   :type 'string)
 (defcustom org-twbs-head "
-<link  href=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css\" rel=\"stylesheet\">
-<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js\"></script>
-<script src=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js\"></script>"
+<link  href=\"../assets/bootstrap.min.css\" rel=\"stylesheet\">
+<script src=\"../assets/jquery.min.js\"></script>
+<script src=\"../assets/bootstrap.min.js\"></script>"
   "Org-wide head definitions for exported HTML files.
 
 As the value of this option simply gets inserted into the HTML
