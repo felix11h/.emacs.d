@@ -369,6 +369,27 @@
          )
         ("dev-notes" :components ("dev-notes-org" "dev-notes-static"))
 
+	("wrld-org"
+	 :base-directory "~/jrn/wrld/org/"
+	 :base-extension "org"
+	 :publishing-directory "~/jrn/wrld/docs/"
+	 :recursive t
+	 :publishing-function org-twbs-publish-to-html
+	 :with-sub-superscript nil
+	 :html-postamble nil
+         :section-numbers nil
+         :time-stamp-file nil
+	 )
+        ("wrld-static"
+         :base-directory "~/jrn/wrld/org/"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|mov"
+         :publishing-directory "~/jrn/wrld/docs/"
+         :recursive t
+         :publishing-function org-publish-attachment
+         )
+        ("wrld" :components ("wrld-org" "wrld-static"))
+
+
         ("3dpp-org"
          ;; Path to your org files.
          :base-directory "~/dev/projects/3diagramspp/3diagramspp/org/"
