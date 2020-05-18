@@ -521,6 +521,10 @@
 (global-set-key (kbd "C-c C-9")
 		(lambda () (interactive) (org-publish "jrn")))
 
+(global-set-key (kbd "C-c c")
+ 		(lambda () (interactive) (org-publish-current-project :ASYNC t)))
+
+
 
 ;; -----------------     ox-twbs    ------------------
 (require 'ox-twbs)

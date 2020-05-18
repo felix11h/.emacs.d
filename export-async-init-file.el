@@ -21,7 +21,9 @@
 (add-to-list 'load-path "~/.emacs.d/modes/org-mode-8.2.10/lisp")
 ;; (add-to-list 'load-path "~/.emacs.d/modes/htmlize-1.39/")
 (add-to-list 'load-path "~/.emacs.d/modes/htmlize-1.6.1/")
+(add-to-list 'load-path "~/.emacs.d/modes/ox-twbs/")
 
+(require 'ox-twbs)
 (require 'org)
 (require 'htmlize)
 
