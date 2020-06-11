@@ -320,6 +320,11 @@
 (setq org-export-with-section-numbers nil)
 (setq org-export-preserve-breaks t)
 
+;; numbered lists are only parsed if written as "1."
+;; lists in the form "1)" are treated as text
+;; see https://stackoverflow.com/questions/14472282
+(setq org-plain-list-ordered-item-terminator 46)
+
 ;; async export options
 (setq org-export-async-debug nil)
 (setq org-export-async-init-file
