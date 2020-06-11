@@ -124,6 +124,8 @@
 ;; See more: http://emacs.stackexchange.com/questions/31439
 (setq org-html-htmlize-output-type 'css)
 
+(setq org-twbs-htmlize-output-type 'css)
+
 
 (setq org-export-with-section-numbers nil)
 (setq org-export-preserve-breaks t)

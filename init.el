@@ -567,7 +567,8 @@
 		(lambda () (interactive) (org-publish "jrn")))
 
 (global-set-key (kbd "C-c c")
- 		(lambda () (interactive) (org-publish-current-project :ASYNC t)))
+ 		;; (lambda () (interactive) (org-publish-current-project :ASYNC t)))
+ 		(lambda () (interactive) (org-publish-current-project)))
 
 
 
