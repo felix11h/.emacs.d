@@ -389,6 +389,46 @@
          )
         ("wrld" :components ("wrld-org" "wrld-static"))
 
+	("mcp-org"
+	 :base-directory "~/jrn/mcp/org/"
+	 :base-extension "org"
+	 :publishing-directory "~/jrn/mcp/docs/"
+	 :recursive t
+	 :publishing-function org-twbs-publish-to-html
+	 :with-sub-superscript nil
+	 :html-postamble nil
+         :section-numbers nil
+         :time-stamp-file nil
+	 )
+        ("mcp-static"
+         :base-directory "~/jrn/mcp/org/"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|mov"
+         :publishing-directory "~/jrn/mcp/docs/"
+         :recursive t
+         :publishing-function org-publish-attachment
+         )
+        ("mcp" :components ("mcp-org" "mcp-static"))
+
+	("tahr-org"
+	 :base-directory "~/jrn/tahr/org/"
+	 :base-extension "org"
+	 :publishing-directory "~/jrn/tahr/docs/"
+	 :recursive t
+	 :publishing-function org-twbs-publish-to-html
+	 :with-sub-superscript nil
+	 :html-postamble nil
+         :section-numbers nil
+         :time-stamp-file nil
+	 )
+        ("tahr-static"
+         :base-directory "~/jrn/tahr/org/"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|mov"
+         :publishing-directory "~/jrn/tahr/docs/"
+         :recursive t
+         :publishing-function org-publish-attachment
+         )
+        ("tahr" :components ("tahr-org" "tahr-static"))
+
 
         ("3dpp-org"
          ;; Path to your org files.
