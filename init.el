@@ -906,8 +906,16 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 (bind-key* "C-c j" (lambda() (interactive)(find-file "~/sci/main/sci_main.org")))
 (bind-key* "C-c d" (lambda() (interactive)(find-file "~/dev/dev_ops.org")))
 (bind-key* "C-c f" (lambda() (interactive)(find-file "~/dev/note/org/index.org")))
+
+
 (bind-key* "C-c u" (lambda() (interactive)(find-file "~/admin/us/us_main.org")))
 (bind-key* "C-c x" (lambda() (interactive)(find-file "~/admin/id/mcp/mcp_main.org")))
+
+
+(bind-key* "C-c w" (lambda() (interactive)(find-file "~/jrn/wrld/org/index.org")))
+(bind-key* "C-c e" (lambda() (interactive)(find-file "~/jrn/mcp/org/index.org")))
+(bind-key* "C-c r" (lambda() (interactive)(find-file "~/jrn/tahr/org/index.org")))
+
 
 (bind-key* "C-c p" 'org-time-stamp)
 (bind-key* "C-c ;" 'comment-or-uncomment-region)
