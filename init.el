@@ -335,24 +335,24 @@
 ;; options overview https://orgmode.org/manual/Publishing-options.html
 (setq org-publish-project-alist
       '(
-        ("nb-org"
-         :base-directory "~/sci/nb/"
+        ("jrn-nb-org"
+         :base-directory "~/is/nb/org/"
          :base-extension "org"
-         :publishing-directory "~/nb/content/"
+         :publishing-directory "~/is/nb/docs/"
          :recursive t
          :publishing-function org-html-publish-to-html
          :headline-levels 3
          :auto-preamble t
          :preserve-breaks nil
+         :time-stamp-file nil
          )
-        ("nb-static"
-         :base-directory "~/sci/nb/"
+        ("jrn-nb-static"
+         :base-directory "~/is/nb/org/"
          :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|mov"
-         :publishing-directory "~/nb/content/"
+         :publishing-directory "~/is/nb/docs/"
          :recursive t
          :publishing-function org-publish-attachment
          )
-        ("nb" :components ("nb-org" "nb-static"))
 
 	("dev-notes-org"
 	 :base-directory "~/dev/note/org/"
@@ -542,15 +542,15 @@
 
 (global-set-key (kbd "C-c C-1")
   (lambda () (interactive)
-    (org-publish "nb-org" :ASYNC t)
+    (org-publish "jrn-nb-org" :ASYNC t)
 
     ;; python scripts below sleep for 15 secs first to let async finish
     (start-process-shell-command "mass_replace_nb" nil "python"
-                                 "~/nb/opt/tools/mass_replace.py")
+                                 "~/is/nb/opt/tools/mass_replace.py")
     (start-process-shell-command "mass_replace_nb" nil "python"
-                                 "~/nb/opt/tools/line_replace.py")
+                                 "~/is/nb/opt/tools/line_replace.py")
 
-    (org-publish "nb-static" :ASYNC t)))
+    (org-publish "jrn-nb-static" :ASYNC t)))
     
 
 (global-set-key (kbd "C-c C-2")
@@ -901,15 +901,18 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 (bind-key* "C-c s" (lambda() (interactive)(find-file "~/admin/tasks.org")))
 (bind-key* "C-c o" (lambda() (interactive)(find-file "~/osc/osc_main.org")))
 (bind-key* "C-c t" (lambda() (interactive)(find-file "~/admin/tech/tech_main.org")))
-(bind-key* "C-c n" (lambda() (interactive)(find-file "~/sci/nb/index.org")))
-(bind-key* "C-c b" (lambda() (interactive)(find-file "~/sci/nb/osc/index.org")))
-(bind-key* "C-c j" (lambda() (interactive)(find-file "~/sci/main/sci_main.org")))
+
+(bind-key* "C-c n" (lambda() (interactive)(find-file "~/is/nb/org/index.org")))
+(bind-key* "C-c l" (lambda() (interactive)(find-file "~/is/sci/main/sci_main.org")))
+
+
 (bind-key* "C-c d" (lambda() (interactive)(find-file "~/dev/dev_ops.org")))
 (bind-key* "C-c f" (lambda() (interactive)(find-file "~/dev/note/org/index.org")))
 
 
 (bind-key* "C-c u" (lambda() (interactive)(find-file "~/admin/us/us_main.org")))
 (bind-key* "C-c x" (lambda() (interactive)(find-file "~/admin/id/mcp/mcp_main.org")))
+
 
 
 (bind-key* "C-c w" (lambda() (interactive)(find-file "~/jrn/wrld/org/index.org")))
@@ -922,7 +925,6 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 
 
 (bind-key* "C-c k" (lambda() (interactive)(find-file "~/jrn/mcp/org/index.org")))
-(bind-key* "C-c l" (lambda() (interactive)(find-file "~/sci/rsc/syn_lt/syn_lt_main.org")))
 
 (bind-key* "C-c 9" (lambda() (interactive)(find-file "/ssh:hoffmann@fias.uni-frankfurt.de:tramp.org")))
 (custom-set-variables
