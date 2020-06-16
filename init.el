@@ -472,21 +472,6 @@
          :body-only t ;; Only export section between <body> </body>
          )
 
-	("self_journal"
-         ;; Path to your org files.
-         :base-directory "~/dev/projects/self_journal/self_journal/org/"
-         :base-extension "org"
-
-         ;; Path to your Jekyll project.
-         :publishing-directory "~/dev/projects/self_journal/self_journal/"
-         :recursive t
-         :publishing-function org-html-publish-to-html
-         :headline-levels 4 
-         :html-extension "html"
-	 :table-of-contents nil
-         :body-only t ;; Only export section between <body> </body>
-         )
-
 	
 	("aniso_netw"
          ;; Path to your org files.
@@ -557,8 +542,7 @@
 		(lambda () (interactive) (org-publish "3dpp")))
 (global-set-key (kbd "C-c C-3")
 		(lambda () (interactive) (org-publish "mcp_io" :ASYNC t)))
-(global-set-key (kbd "C-c C-4")
-		(lambda () (interactive) (org-publish "self_journal" :ASYNC t)))
+
 (global-set-key (kbd "C-c C-5")
 		(lambda () (interactive) (org-publish "aniso_netw")))
 (global-set-key (kbd "C-c C-6")
