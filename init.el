@@ -199,6 +199,24 @@
       (delete-file old-location))))
 
 
+
+;; source: http://steve.yegge.googlepages.com/my-dot-emacs-file
+(defun rename-file-and-buffer (new-name)
+  "Renames both current buffer and file it's visiting to NEW-NAME."
+  (interactive "sNew name: ")
+  (let ((name (buffer-name))
+        (filename (buffer-file-name)))
+    (if (not filename)
+        (message "Buffer '%s' is not visiting a file!" name)
+      (if (get-buffer new-name)
+          (message "A buffer named '%s' already exists!" new-name)
+        (progn
+          (rename-file filename new-name 1)
+          (rename-buffer new-name)
+          (set-visited-file-name new-name)
+          (set-buffer-modified-p nil))))))
+
+
 ;; ~~~~~~~~~~~~~~~~~~~~~   scale text  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (require 'default-text-scale)
 
@@ -437,11 +455,11 @@
 
         ("3dpp-org"
          ;; Path to your org files.
-         :base-directory "~/dev/projects/3diagramspp/3diagramspp/org/"
+         :base-directory "~/dev/src/fx.blog/fx.blog/org/"
          :base-extension "org"
 
          ;; Path to your Jekyll project.
-         :publishing-directory "~/dev/projects/3diagramspp/3diagramspp/"
+         :publishing-directory "~/dev/src/fx.blog/fx.blog/"
          :recursive t
          :publishing-function org-html-publish-to-html
          :headline-levels 4 
@@ -450,20 +468,20 @@
          :body-only t ;; Only export section between <body> </body>
          )
         ("3dpp-static"
-         :base-directory "~/dev/projects/3diagramspp/3diagramspp/org/"
+         :base-directory "~/dev/src/fx.blog/fx.blog/org/"
          :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|php"
-         :publishing-directory "~/dev/projects/3diagramspp/3diagramspp/"
+         :publishing-directory "~/dev/src/fx.blog/fx.blog/"
          :recursive t
          :publishing-function org-publish-attachment)
         ("3dpp" :components ("3dpp-org" "3dpp-static"))
 
         ("mcp_io"
          ;; Path to your org files.
-         :base-directory "~/dev/projects/mcp_io/mcp_io/org/"
+         :base-directory "~/dev/src/mcp.blog/mcp.blog/org/"
          :base-extension "org"
 
          ;; Path to your Jekyll project.
-         :publishing-directory "~/dev/projects/mcp_io/mcp_io/"
+         :publishing-directory "~/dev/src/mcp.blog/mcp.blog/"
          :recursive t
          :publishing-function org-html-publish-to-html
          :headline-levels 4 
@@ -475,11 +493,11 @@
 	
 	("aniso_netw"
          ;; Path to your org files.
-         :base-directory "~/sci/rsc/aniso_netw/pub/project_documentation/org/"
+         :base-directory "~/is/sci/rsc/aniso_netw/pub/project_documentation/org/"
          :base-extension "org"
 
          ;; Path to your Jekyll project.
-         :publishing-directory "~/sci/rsc/aniso_netw/pub/project_documentation/"
+         :publishing-directory "~/is/sci/rsc/aniso_netw/pub/project_documentation/"
          :recursive t
          :publishing-function org-html-publish-to-html
          :headline-levels 4 
@@ -490,12 +508,12 @@
 
 	("nrnd_pairs"
          ;; Path to your org files.
-         :base-directory "~/sci/rsc/nrnd_pairs/pub/project_documentation/org/"
+         :base-directory "~/is/sci/rsc/nrnd_pairs/pub/project_documentation/org/"
          :base-extension "org"
 
          ;; Path to your Jekyll project.
 
-         :publishing-directory "~/sci/rsc/nrnd_pairs/pub/project_documentation/"
+         :publishing-directory "~/is/sci/rsc/nrnd_pairs/pub/project_documentation/"
          :recursive t
          :publishing-function org-html-publish-to-html
          :headline-levels 4 
@@ -504,23 +522,6 @@
          :body-only t ;; Only export section between <body> </body>
          )
 
-	("jrn-org"
-         :base-directory "~/jrn/source/"
-         :base-extension "org"
-         :publishing-directory "~/jrn/content/"
-         :recursive t
-         :publishing-function org-html-publish-to-html
-         :headline-levels 3
-         :auto-preamble t
-         )
-        ("jrn-static"
-         :base-directory "~/jrn/source/"
-         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|mov"
-         :publishing-directory "~/jrn/content/"
-         :recursive t
-         :publishing-function org-publish-attachment
-         )
-        ("jrn" :components ("jrn-org" "jrn-static"))
         ))
 
 
@@ -547,8 +548,7 @@
 		(lambda () (interactive) (org-publish "aniso_netw")))
 (global-set-key (kbd "C-c C-6")
 		(lambda () (interactive) (org-publish "nrnd_pairs")))
-(global-set-key (kbd "C-c C-9")
-		(lambda () (interactive) (org-publish "jrn")))
+
 
 (global-set-key (kbd "C-c c")
  		;; (lambda () (interactive) (org-publish-current-project :ASYNC t)))
