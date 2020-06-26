@@ -217,6 +217,16 @@
           (set-buffer-modified-p nil))))))
 
 
+;; get the full path of currently open buffer and
+;; add to clipboard.
+;; from https://stackoverflow.com/a/3669629/692634
+(defun copy-full-path-to-kill-ring ()
+  "copy buffer's full path to kill ring"
+  (interactive)
+  (when buffer-file-name
+    (kill-new (file-truename buffer-file-name))))
+
+
 ;; ~~~~~~~~~~~~~~~~~~~~~   scale text  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 (require 'default-text-scale)
 
