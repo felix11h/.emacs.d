@@ -569,9 +569,6 @@
 ;; -----------------     ox-twbs    ------------------
 (require 'ox-twbs)
 
-;; -----------------     org-ref    ------------------
-(require 'org-ref)
-
 ;; ---------------      org other      ---------------
 
 (require 'htmlize)
