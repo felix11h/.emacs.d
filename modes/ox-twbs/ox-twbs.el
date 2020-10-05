@@ -8,7 +8,7 @@
 ;;         Brandon van Beekum <marsmining at gmail dot com>
 ;; URL: https://github.com/marsmining/ox-twbs
 ;; Keywords: org, html, publish, twitter, bootstrap
-;; Version: 1.1.2
+;; Version: 1.1.4
 
 ;; This file is not part of GNU Emacs.
 
@@ -165,7 +165,7 @@
   "Regular expressions for special string conversion.")
 
 (defconst org-twbs-scripts
-  "<script type=\"text/javascript\">
+  "<script>
 $(function() {
     'use strict';
 
@@ -179,7 +179,7 @@ $(function() {
   "Basic JavaScript that is needed by HTML files produced by Org mode.")
 
 (defconst org-twbs-style-default
-  "<style type=\"text/css\">
+  "<style>
 /* org mode styles on top of twbs */
 
 html {
@@ -355,8 +355,8 @@ customize `org-twbs-head-include-default-style'.")
 ;;; User Configuration Variables
 
 (defgroup org-export-twbs nil
-  "Options for exporting Org mode files to HTML."
-  :tag "Org Export HTML"
+  "Options for exporting Org mode files to HTML compatible with Twitter's Bootstrap."
+  :tag "Org Export TWBS"
   :group 'org-export)
 
 ;;;; Bold, etc.
@@ -836,7 +836,7 @@ MathJax.Hub.Config({
   }
 });
 </script>
-<script type=\"text/javascript\" src=\"%PATH\"></script>"
+<script src=\"%PATH\"></script>"
   "The MathJax setup for HTML files."
   :group 'org-export-twbs
   :type 'string)
@@ -1021,26 +1021,10 @@ style information."
 (put 'org-twbs-head-include-default-style 'safe-local-variable 'booleanp)
 
 (define-obsolete-variable-alias 'org-twbs-style 'org-twbs-head "24.4")
-;; (defcustom org-twbs-head "
-;; <link  href=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css\" rel=\"stylesheet\">
-;; <script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js\"></script>
-;; <script src=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js\"></script>"
-;;   "Org-wide head definitions for exported HTML files.
-
-;; As the value of this option simply gets inserted into the HTML
-;; <head> header, you can use it to add any arbitrary text to the
-;; header.
-
-;; You can set this on a per-file basis using #+HTML_HEAD:,
-;; or for publication projects using the :html-head property."
-;;   :group 'org-export-twbs
-;;   :version "24.4"
-;;   :package-version '(Org . "8.0")
-;;   :type 'string)
 (defcustom org-twbs-head "
-<link  href=\"../assets/bootstrap.min.css\" rel=\"stylesheet\">
-<script src=\"../assets/jquery.min.js\"></script>
-<script src=\"../assets/bootstrap.min.js\"></script>"
+<link  href=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css\" rel=\"stylesheet\">
+<script src=\"https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js\"></script>
+<script src=\"https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js\"></script>"
   "Org-wide head definitions for exported HTML files.
 
 As the value of this option simply gets inserted into the HTML
@@ -1329,31 +1313,31 @@ INFO is a plist used as a communication channel."
      (format
       (org-twbs-close-tag "meta" "charset=\"%s\"" info)
       charset) "\n"
-      "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
-      "\n"
-      (org-twbs-close-tag "meta" "name=\"generator\" content=\"Org-mode\"" info)
-      "\n"
-      (and (org-string-nw-p author)
-           (concat
-            (org-twbs-close-tag "meta"
-                                (format "name=\"author\" content=\"%s\""
-                                        (funcall protect-string author))
-                                info)
-            "\n"))
-      (and (org-string-nw-p description)
-           (concat
-            (org-twbs-close-tag "meta"
-                                (format "name=\"description\" content=\"%s\"\n"
-                                        (funcall protect-string description))
-                                info)
-            "\n"))
-      (and (org-string-nw-p keywords)
-           (concat
-            (org-twbs-close-tag "meta"
-                                (format "name=\"keywords\" content=\"%s\""
-                                        (funcall protect-string keywords))
-                                info)
-            "\n")))))
+     "<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">"
+     "\n"
+     (org-twbs-close-tag "meta" "name=\"generator\" content=\"Org-mode\"" info)
+     "\n"
+     (and (org-string-nw-p author)
+          (concat
+           (org-twbs-close-tag "meta"
+                               (format "name=\"author\" content=\"%s\""
+                                       (funcall protect-string author))
+                               info)
+           "\n"))
+     (and (org-string-nw-p description)
+          (concat
+           (org-twbs-close-tag "meta"
+                               (format "name=\"description\" content=\"%s\"\n"
+                                       (funcall protect-string description))
+                               info)
+           "\n"))
+     (and (org-string-nw-p keywords)
+          (concat
+           (org-twbs-close-tag "meta"
+                               (format "name=\"keywords\" content=\"%s\""
+                                       (funcall protect-string keywords))
+                               info)
+           "\n")))))
 
 (defun org-twbs--build-head (info)
   "Return information for the <head>..</head> of the HTML output.
@@ -1514,20 +1498,20 @@ holding export options."
            (nth 3 (assq 'content org-twbs-divs)))
    ;; Main doc body twbs row
    "<div class=\"row\">"
-   (if (plist-get info :with-toc) "<div class=\"col-md-9\">"
+   ;; Table of contents.
+   (let ((depth (plist-get info :with-toc)))
+     (when depth
+       (concat
+        "<div class=\"col-md-3 col-md-push-9\">"
+        (org-twbs-toc depth info)
+        "</div>")))
+   (if (plist-get info :with-toc) "<div class=\"col-md-9 col-md-pull-3\">"
      "<div class=\"col-md-12\">")
    ;; Document title.
    (let ((title (plist-get info :title)))
      (format "<h1 class=\"title\">%s</h1>\n" (org-export-data (or title "") info)))
    contents
    "</div>"
-   ;; Table of contents.
-   (let ((depth (plist-get info :with-toc)))
-     (when depth
-       (concat
-        "<div class=\"col-md-3\">"
-        (org-twbs-toc depth info)
-        "</div>")))
    "</div>"
    (format "</%s>\n"
            (nth 1 (assq 'content org-twbs-divs)))
@@ -1992,7 +1976,8 @@ CONTENTS is nil.  INFO is a plist holding contextual information."
   (format "<pre class=\"example\">\n%s</pre>"
           (org-twbs-do-format-code
            (org-remove-indentation
-            (org-element-property :value fixed-width)))))
+            (org-trim
+             (org-element-property :value fixed-width))))))
 
 ;;;; Footnote Reference
 
