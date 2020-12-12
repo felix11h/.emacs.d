@@ -409,6 +409,27 @@
          )
         ("dev-notes" :components ("dev-notes-org" "dev-notes-static"))
 
+        ("dev-private-org"
+	 :base-directory "~/dev/private/org/"
+	 :base-extension "org"
+	 :publishing-directory "~/dev/private/docs/"
+	 :recursive t
+	 :publishing-function org-twbs-publish-to-html
+	 :with-sub-superscript nil
+	 :html-postamble nil
+         :section-numbers nil
+         :time-stamp-file nil
+	 )
+        ("dev-private-static"
+         :base-directory "~/dev/private/org/"
+         :base-extension "css\\|js\\|png\\|jpg\\|gif\\|pdf\\|mp3\\|ogg\\|swf\\|mov"
+         :publishing-directory "~/dev/private/docs/"
+         :recursive t
+         :publishing-function org-publish-attachment
+         )
+        ("dev-private" :components ("dev-private-org" "dev-private-static"))
+
+
 	("wrld-org"
 	 :base-directory "~/jrn/wrld/org/"
 	 :base-extension "org"
@@ -904,8 +925,9 @@ langtool-disabled-rules '("WHITESPACE_RULE")
 (bind-key* "C-c l" (lambda() (interactive)(find-file "~/is/sci/main/sci_main.org")))
 
 
-(bind-key* "C-c d" (lambda() (interactive)(find-file "~/dev/dev_ops.org")))
+;; (bind-key* "C-c d" (lambda() (interactive)(find-file "~/dev/dev_ops.org")))
 (bind-key* "C-c f" (lambda() (interactive)(find-file "~/dev/note/org/index.org")))
+(bind-key* "C-c d" (lambda() (interactive)(find-file "~/dev/private/org/index.org")))
 
 
 (bind-key* "C-c u" (lambda() (interactive)(find-file "~/admin/us/us_main.org")))
