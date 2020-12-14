@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: em-dash
+# key: emm
+# binding: direct-keybinding
+# --
+–$0
