@@ -380,6 +380,7 @@
          :auto-preamble t
          :preserve-breaks nil
          :time-stamp-file nil
+	 :with-author nil
          )
         ("jrn-nb-static"
          :base-directory "~/is/nb/org/"
@@ -399,6 +400,7 @@
 	 :html-postamble nil
          :section-numbers nil
          :time-stamp-file nil
+	 :with-author nil
 	 )
         ("dev-notes-static"
          :base-directory "~/dev/note/org/"
@@ -419,6 +421,7 @@
 	 :html-postamble nil
          :section-numbers nil
          :time-stamp-file nil
+	 :with-author nil
 	 )
         ("dev-private-static"
          :base-directory "~/dev/private/org/"
@@ -440,6 +443,7 @@
 	 :html-postamble nil
          :section-numbers nil
          :time-stamp-file nil
+	 :with-author nil
 	 )
         ("wrld-static"
          :base-directory "~/jrn/wrld/org/"
@@ -460,6 +464,7 @@
 	 :html-postamble nil
          :section-numbers nil
          :time-stamp-file nil
+	 :with-author nil
 	 )
         ("mcp-static"
          :base-directory "~/jrn/mcp/org/"
@@ -480,6 +485,7 @@
 	 :html-postamble nil
          :section-numbers nil
          :time-stamp-file nil
+	 :with-author nil
 	 )
         ("tahr-static"
          :base-directory "~/jrn/tahr/org/"
@@ -526,6 +532,7 @@
          :html-extension "html"
 	 :table-of-contents nil
          :body-only t ;; Only export section between <body> </body>
+	 :with-author nil
          )
 
 	
