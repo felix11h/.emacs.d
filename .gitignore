@@ -1,5 +1,6 @@
 auto-save-list
 backups
+backup/*
 .cache
 *~
 .csync_
